@@ -1,0 +1,8 @@
+.bundle
+db/*.sqlite3
+config/environments/development.rb
+log/*.log
+tmp/
+.sass-cache/
+c
+s

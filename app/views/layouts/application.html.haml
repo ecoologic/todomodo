@@ -1,0 +1,15 @@
+!!!
+%html{:lang => I18n.locale}
+  %head
+    %title ToDoModo
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags 
+  %body
+    #header
+      #flashes= show_flash_messages
+    -# content ================================================================
+    #content= yield
+    -# /content ===============================================================
+    #footer
+
