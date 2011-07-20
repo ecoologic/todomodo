@@ -3,3 +3,11 @@
 - basic devise
 - haml
 
+14/7/11 ecoologic
+- flash messages (static)
+- autofocus on devise
+- scss
+
+20/7/11 ecoologic
+- settingslogic (for Setting in config/settings.yml)
+

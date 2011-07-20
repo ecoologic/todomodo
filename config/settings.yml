@@ -1,0 +1,18 @@
+defaults: &defaults
+  app_title: ToDoModo
+  secret:
+  # EXAMPLES:
+  # cool:
+  #   saweet: nested settings
+  # neat_setting: 24
+  # awesome_setting: <%= "Did you know 5 + 5 = #{5 + 5}?" %>
+  # neat_setting: 800
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

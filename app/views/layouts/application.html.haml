@@ -1,15 +1,17 @@
 !!!
 %html{:lang => I18n.locale}
   %head
-    %title ToDoModo
+    %title= Setting.app_title
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags 
-  %body
+  %body{:id => controller_name}
     #header
-      #flashes= show_flash_messages
+      #flash-messages= flash_messages
+
     -# content ================================================================
     #content= yield
     -# /content ===============================================================
+
     #footer
 
