@@ -123,8 +123,7 @@ end
 
 # use User.new.method(:active?).source_location
 
-# log with info like: [INFO: 23/06/11 - 11:19:33]
-#----------------------------------------------------------------------------
+# log with info like: [INF 110721-111933]
 class ActiveSupport::BufferedLogger
   def add(severity, message = nil, progname = nil, &block)
     return if @level > severity
@@ -138,9 +137,9 @@ class ActiveSupport::BufferedLogger
       4 => "FTL"
     }[severity] || "U"
 
-    message = "[%s:%s] %s" %
+    message = "[%s %s] %s" %
                 [level,
-                 Time.now.strftime("%d%m%y-%H%M%S"),
+                 Time.now.strftime("%y%m%d-%H%M%S"),
                  message]
 
     # go new line if not there already
@@ -157,7 +156,6 @@ end
 # Useful in debugger to a meaningful list of methods
 # this could go in ~/.irbrc but I like to have it in the prj source
 # e.g.: y method_list Hash
-#----------------------------------------------------------------------------
 def ml(klass)
   (klass.public_methods - Object.new.methods).sort
 end

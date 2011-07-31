@@ -1,0 +1,10 @@
+# Commands
+
+rails g integration_test name
+
+# Railscasts order
+187: testing exeptions - (integration) any exception should lead to the development of a new integration test and a unit test
+158: factories
+257: Request Specs and Capybara - (integration)
+guard
+275: How I Test (integration)

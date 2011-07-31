@@ -6,6 +6,7 @@
     = javascript_include_tag "application"
     = csrf_meta_tags 
   %body{:id => controller_name}
+    #absolute= render '/layouts/absolute'
     #header
       #flash-messages= flash_messages
 

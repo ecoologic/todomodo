@@ -4,7 +4,7 @@ module ApplicationHelper
   def flash_messages
     result = raw '' # TODO: sure there is a better way
     flash.collect do |level, message|
-      result << content_tag(:div, message, :id => "flash-#(level)")
+      result << content_tag(:div, message, :id => "flash-#{level}")
     end
     result
   end

@@ -1,22 +1,17 @@
 Todomodo::Application.routes.draw do
 
-  devise_for :users # TODO: remove the following if you don't know what this is , :to => 'profiles#show', :as => :user_root
+  devise_for :user
 
-  # easier paths for devise authentification
   devise_scope :user do
     get 'login', :to =>  'devise/sessions#new'
     get 'logout', :to => 'devise/sessions#destroy'
     get 'signup', :to => 'devise/registrations#new'
   end
 
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
   root :to => 'application#show'
 
-  # for development test purpose only
-  match '/test', :to => 'application#test', :as => :test, :if => Rails.env.development?
-
   # original ==================================================================
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

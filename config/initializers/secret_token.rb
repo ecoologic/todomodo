@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Todomodo::Application.config.secret_token = '51896e955a41d942d1f2d2995bad827c3ea758a6ee1e0509efc57a477ea203d633c7783677632c9b70a8fdcf2de0cc91149e8db2ebe5ba5ff5f4acca139c9669'
+Todomodo::Application.config.secret_token = 'd873f041a70855106f371e2d83590724a44d60028883537e2affff4d3129b3f2f0230bb1807653dcbfe4a0ff5c3d7a605f4e4d6d0d6a3757e54bfaa70ed6b2ee'
