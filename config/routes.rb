@@ -1,5 +1,7 @@
 Todomodo::Application.routes.draw do
 
+  resources :announcements
+
   devise_for :user
 
   devise_scope :user do
@@ -7,6 +9,8 @@ Todomodo::Application.routes.draw do
     get 'logout', :to => 'devise/sessions#destroy'
     get 'signup', :to => 'devise/registrations#new'
   end
+
+  get '/javascripts/hide_announcement', :as => 'js_hide_announcement'
 
   root :to => 'application#show'
 

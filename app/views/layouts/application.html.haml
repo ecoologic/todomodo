@@ -7,12 +7,14 @@
     = csrf_meta_tags 
   %body{:id => controller_name}
     #absolute= render '/layouts/absolute'
+    #announcements= render announcements
+    #flash-messages= flash_messages
     #header
-      #flash-messages= flash_messages
 
     -# content ================================================================
     #content= yield
     -# /content ===============================================================
 
     #footer
+
 

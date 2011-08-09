@@ -1,0 +1,2 @@
+$('#announcements').hide();
+
