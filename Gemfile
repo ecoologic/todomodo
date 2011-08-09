@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'devise'
 
-gem 'rails', '3.1.0.rc4'
+gem 'rails', '~> 3.1.0.rc5'
 gem 'settingslogic'
 
 # Bundle edge Rails instead:
