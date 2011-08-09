@@ -8,12 +8,30 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module Todomodo
   class Application < Rails::Application
+    # Custom directories with classes and modules you want to be autoloadable.
+    # EXAMPLE: config.autoload_paths += %W(#{config.root}/extras)
+    config.autoload_paths += %W(#{config.root}/app/helpers/partials) +
+               %W(#{config.root}/lib/ecoologic/ #{config.root}/app/classes) +
+               %W(#{config.root}/app/modules)
+
+
+    # migration with numbers (001, 002, ...) in stead of timestamp
+    config.active_record.timestamped_migrations = false
+
+    # Configure sensitive parameters which will be filtered from the log file.
+    config.filter_parameters += [:password, :password_confirmation]
+
+    # wrap field with errors in a span tag instead of a div
+    # railscasts#39
+    ActionView::Base.field_error_proc = Proc.new do |html_tag, instance_tag|
+      "<span class='field_error'>#{html_tag}</span>"
+    end
+
+    # original ================================================================
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-
-    # Custom directories with classes and modules you want to be autoloadable.
-    # config.autoload_paths += %W(#{config.root}/extras)
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -33,10 +51,8 @@ module Todomodo
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
-    # Configure sensitive parameters which will be filtered from the log file.
-    config.filter_parameters += [:password]
-
     # Enable the asset pipeline
     config.assets.enabled = true
+
   end
 end
