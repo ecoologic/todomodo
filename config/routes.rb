@@ -10,7 +10,7 @@ Todomodo::Application.routes.draw do
     get 'signup', :to => 'devise/registrations#new'
   end
 
-  get '/javascripts/hide_announcement', :as => 'js_hide_announcement'
+  get '/javascripts/hide_announcements', :as => 'js_hide_announcements'
 
   root :to => 'application#show'
 

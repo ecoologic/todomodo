@@ -7,7 +7,10 @@
     = csrf_meta_tags 
   %body{:id => controller_name}
     #absolute= render '/layouts/absolute'
-    #announcements= render announcements
+    #announcements
+      = render current_announcements
+      = link_to 'Hide', js_hide_announcements_path
+
     #flash-messages= flash_messages
     #header
 
