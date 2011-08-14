@@ -11,7 +11,15 @@ describe "CRUD Announcements" do
 end
 
 
-describe "announcements in layout" do
+# without loading factory
+describe "Without announcements in layout" do
+  it "should work when there are no current announcements" do
+    page.should have_content 'Welcome'
+  end
+end
+
+
+describe "Announcements in layout" do
   before(:each) do
     @pasts    = []
     @currents = []
@@ -46,6 +54,7 @@ describe "announcements in layout" do
     page.should have_content 'Welcome'
     @all.each {|a| page.should_not have_content a.message}
   end
-  
+
 end
+
 
