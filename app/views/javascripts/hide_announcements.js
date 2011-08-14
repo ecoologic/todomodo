@@ -1,2 +1,2 @@
-$('#announcements').hide();
+$('#announcements').slideUp();
 
