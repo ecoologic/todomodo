@@ -4,22 +4,22 @@ Factory.define :user do |f|
   f.password_confirmation {|u| u.password}
 end
 
-Factory.define :current_announcement do |f|
+Factory.define :current_announcement, :class => Announcement do |f|
   f.starts_at Date.yesterday
   f.ends_at Date.tomorrow
-  f.message 'current announcement'
+  f.sequence(:message) {|n| "current announcement number #{n}"}
 end
 
-Factory.define :past_announcement do |f|
+Factory.define :past_announcement, :class => Announcement do |f|
   f.starts_at Time.now - 2.days
   f.ends_at Time.now - 1.day
-  f.message 'past announcement'
+  f.sequence(:message) {|n| "past announcement number #{n}"}
 end
 
-Factory.define :future_announcement do |f|
+Factory.define :future_announcement, :class => Announcement do |f|
   f.starts_at Time.now + 1.days
   f.ends_at Time.now + 2.day
-  f.message 'future announcement'
+  f.sequence(:message) {|n| "past announcement number #{n}"}
 end
 
 
