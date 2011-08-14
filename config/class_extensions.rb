@@ -32,7 +32,6 @@ class Array
   
   # use to sort two items depending on the list order (of symbols)
   # see sort_with
-  # TODO: could this cause troubles for arrays with same values in it?
   def compare_a_b(a, b, list)
     list.index(a.to_sym) > list.index(b.to_sym) ? 1 : -1
   rescue
@@ -43,7 +42,7 @@ class Array
   # sort the elements according to the given list
   # e.g.: [:c, :b, :a].sort_with [:a, :b, :c] => [:a, :b, :c] 
   def sort_with(list)
-    self.sort{|a,b| self.compare_a_b a, b, list}
+    self.sort{|a,b| self.compare_a_b a, b, list} rescue self
   end
 
 end
@@ -100,6 +99,19 @@ class Hash
     end
     # js hash container
     "{ #{params.join(', ')} }"
+  end
+  
+  # returned an hash with stringified keys and string numbers converted
+  # e.g.: {'a' => {'b' => '1'}} -> {:a => {:b => 1}}
+  def normalized
+    result = {}
+    self.each do |k, v|
+      k = k.to_sym if k.is_a? String
+      v = v.normalized if v.is_a? Hash
+      v = v.to_i if v == '0' || (v.is_a?(String) && v.to_i > 1)
+      result[k] = v
+    end
+    result
   end
   
 end
