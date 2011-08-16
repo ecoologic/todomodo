@@ -1,4 +1,4 @@
-# any class customization here will be available in all the app
+# any class customisation here will be available in all the app
 
 # Date ------------------------------------------------------------------------
 class Date

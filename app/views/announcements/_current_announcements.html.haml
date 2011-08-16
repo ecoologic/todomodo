@@ -1,2 +1,3 @@
-= render current_announcements
-= link_to 'Hide', js_hide_announcements_path, :remote => true
+- if @current_announcements
+  = render @current_announcements
+  = link_to 'Hide', js_hide_announcements_path, :remote => true
