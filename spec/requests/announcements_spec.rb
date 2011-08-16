@@ -26,9 +26,9 @@ describe "Announcements in layout" do
     @futures  = []
     
     4.times do
-      @pasts    << Factory(:past_announcement)
-      @currents << Factory(:current_announcement)
-      @futures  << Factory(:future_announcement)
+      @pasts    << Factory.create(:past_announcement)
+      @currents << Factory.create(:current_announcement)
+      @futures  << Factory.create(:future_announcement)
     end
 
     @all = @pasts + @currents + @futures
