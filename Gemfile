@@ -2,10 +2,10 @@ source 'http://rubygems.org'
 
 gem 'devise'
 
-gem 'rails', '~> 3.1.0.rc5'
+gem 'rails', '~> 3.1.0.rc'
 gem 'settingslogic'
 
-gem 'arel', '~> 2.1.4' # TODO: remove the line with 2.1.6 as 2.1.5 is buggy
+gem 'arel'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -42,6 +42,8 @@ group :test do
   gem 'capybara'
   gem 'launchy' # save_and_open_page # will open a browser in the middle of the test
   gem 'guard-rspec' # $ guard
+  gem 'libnotify'
+  gem 'rb-inotify'
   gem 'timecop'
   # Pretty printed test output
   gem 'turn', :require => false

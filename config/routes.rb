@@ -1,6 +1,10 @@
 Todomodo::Application.routes.draw do
 
-  resources :announcements
+  resources :announcements do
+    collection do
+      get 'hide_current'
+    end
+  end
 
   devise_for :user
 
@@ -10,7 +14,8 @@ Todomodo::Application.routes.draw do
     get 'signup', :to => 'devise/registrations#new'
   end
 
-  get '/javascripts/hide_announcements', :as => 'js_hide_announcements'
+  get '/test', :to => 'tests#test'
+  get '/debug', :to => 'tests#debug'
 
   root :to => 'application#show'
 

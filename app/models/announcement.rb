@@ -9,7 +9,7 @@ class Announcement < ActiveRecord::Base
   # all valid now, unless already seen (at hide_time)
   def self.currents(hide_time = nil)
     announcements = self.where ['now() BETWEEN starts_at AND ends_at']
-    announcements.where ['updated_at > ?', hide_time] if hide_time
+    announcements = announcements.where ['updated_at > ?', hide_time] if hide_time
 
     announcements
   end

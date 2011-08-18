@@ -9,11 +9,6 @@ module ApplicationHelper
     result
   end
 
-  # the list of announcements to show
-  def current_announcements
-    @current_announcements ||= Announcement.current_announcements(session[:announcement_hide_time])
-  end
-
   # self explaining
   def clear_tag
     content_tag(:span, nil, :class => :clear)

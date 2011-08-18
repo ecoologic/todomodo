@@ -13,6 +13,6 @@ class ApplicationController < ActionController::Base
 private #======================================================================
 
   def get_current_announcements
-    @current_announcements ||= Announcement.currents(session[:announcement_hide_time])
+    @current_announcements = Announcement.currents(session[:announcements_hide_time])
   end
 end
