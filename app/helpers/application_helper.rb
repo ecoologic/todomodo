@@ -11,7 +11,7 @@ module ApplicationHelper
 
   # self explaining
   def clear_tag
-    content_tag(:span, nil, :class => :clear)
+    content_tag :span, nil, :class => :clear
   end
 
   # a simple <br/>
@@ -19,6 +19,10 @@ module ApplicationHelper
     content_tag :br
   end
 
+  # shown in title header and page content
+  def title_content(title = Setting.app_title)
+    content_for(:title_content) {title}
+  end
 
   # include js in the header from a template or partial by calling
   # js_content 'file_name', 'other_file_name'
@@ -48,7 +52,7 @@ module ApplicationHelper
 
     # exchange the two following instruction to have all or just main params
     # content_tag(:div, (session.to_s + "\n" + params.to_s), :class => 'test') if Rails.env.development?
-    clear_tag << raw(ses + br_tag + par)
+    clear_tag + raw(ses + br_tag + par)
   end
 
   # use this partial for development purpose

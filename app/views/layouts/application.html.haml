@@ -1,16 +1,19 @@
 !!!
 %html{:lang => I18n.locale}
   %head
-    %title= Setting.app_title
+    %title= yield :title_content
     = stylesheet_link_tag    "application"
+    = yield :css_content
     = javascript_include_tag "application"
-    = csrf_meta_tags 
+    = yield :js_content
+    = csrf_meta_tags
   %body{:id => controller_name}
     .test= test_show_partial
     #fixed= render '/layouts/fixed'
     #announcements= render '/announcements/current_announcements'
     #flash-messages= flash_messages
     #header
+      %h2= yield :title_content
 
     -# content ================================================================
     #content= yield
