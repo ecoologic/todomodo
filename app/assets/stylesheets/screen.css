@@ -1,0 +1,46 @@
+
+body {color: white; background: black;}
+
+.todo { border: red 1px dashed; }
+
+.test{ border: 1px solid red; }
+
+.clear { clear: both; }
+
+.hidden { display: none; }
+
+textarea { height: 5em; }
+
+input, textarea  {
+  width: 15em;
+  font-style: oblique;
+}
+
+label { font-weight: bold; }
+
+strong{ font-weight: bolder; }
+
+a { outline: none; text-decoration: none; }
+
+
+/* hn n odd -> center aligned */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+h1, h2 { font-size: 3em; }
+
+h3, h4 { font-size: 2em; }
+
+h5, h6 { font-size: 1.5em; }
+
+h1, h3, h5 {
+  text-align: center;
+  margin: 0.5em 0;
+}
+
+h4, h6 { margin: 0.5em 0 0 0; }
+
+li { display: inline; }
+

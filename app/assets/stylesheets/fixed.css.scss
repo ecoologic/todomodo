@@ -1,0 +1,13 @@
+$body-margin: 5px;
+
+#announcements {
+  text-align: center;
+  font-weight: bold;
+  color: red;
+}
+
+#log-links {
+  position: fixed;
+  right: $body-margin;
+  top: $body-margin;
+}

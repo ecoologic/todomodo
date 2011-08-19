@@ -7,4 +7,6 @@
 */
 
 @import 'reset.css';
+@import 'screen.css';
 @import 'application_layout.css.scss';
+@import 'fixed.css';
