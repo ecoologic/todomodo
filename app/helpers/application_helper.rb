@@ -12,7 +12,7 @@ module ApplicationHelper
   # wrap something to render for development purpose
   # for development purpose, not shown in production
   def test_tag
-    return unless Rails.env.development?
+    return if Rails.env.production?
     content_tag(:div, :class => :test) {yield}
   end
 
@@ -57,13 +57,13 @@ module ApplicationHelper
     par = ' Params ' + params.to_s
 
     # exchange the two following instruction to have all or just main params
-    # content_tag(:div, (session.to_s + "\n" + params.to_s), :class => 'test') if Rails.env.development?
+    # content_tag(:div, (session.to_s + "\n" + params.to_s), :class => 'test') unless Rails.env.production?
     test_tag {clear_tag + raw(ses + br_tag + par)}
   end
 
   # use this partial for development purpose
   def test_show_partial
-    return unless Rails.env.development?
+    return if Rails.env.production?
     test_tag {render '/test/test'}
   end
 
