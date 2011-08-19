@@ -1,0 +1,9 @@
+-# tags in this partial are all ment to be fix-positioned in the page
+
+#log-links
+  - if current_user
+    #{current_user.email},
+    = link_to 'logout', logout_path
+  - else
+    = link_to 'login', login_path
+    = link_to 'signup', signup_path
