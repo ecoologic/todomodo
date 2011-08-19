@@ -20,6 +20,17 @@ require 'spec_helper'
 
 describe AnnouncementsController do
 
+  describe 'GET hide_current' do 
+
+    it 'should update announcement_hide_time in session' do
+      session[:announcements_hide_time] = nil
+      get 'hide_current', :format => :js
+      session[:announcements_hide_time].class.should be Time # TODO: implement timecop gem
+    end
+    
+  end
+
+
   # This should return the minimal set of attributes required to create a valid
   # Announcement. As you add validations to Announcement, be sure to
   # update the return value of this method accordingly.

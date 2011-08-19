@@ -40,6 +40,8 @@ group :test do
   gem 'capybara'
   gem 'launchy' # save_and_open_page # will open a browser in the middle of the test
   gem 'guard-rspec' # $ guard
+  gem 'libnotify'
+  gem 'rb-inotify'
   gem 'timecop'
   # Pretty printed test output
   gem 'turn', :require => false

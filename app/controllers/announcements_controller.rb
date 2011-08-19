@@ -1,4 +1,15 @@
 class AnnouncementsController < ApplicationController
+
+  respond_to :html, :js, :json
+
+  # in layouts/application
+  # will then show only announcements updated after action
+  # GET /announcements/hide_current (hide_current_announcements_path)
+  def hide_current
+    session[:announcements_hide_time] = Time.now
+    respond_with :js
+  end
+
   # GET /announcements
   # GET /announcements.json
   def index
@@ -80,4 +91,5 @@ class AnnouncementsController < ApplicationController
       format.json { head :ok }
     end
   end
+  
 end

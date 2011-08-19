@@ -18,7 +18,7 @@ describe Announcement do
 
   describe 'current_announcements' do
 
-    describe 'never being hidden' do
+    describe 'never been hidden' do
 
       it "should return all valid announcements" do
         @currents.map(&:id).should =~ Announcement.currents.map(&:id)
@@ -36,8 +36,8 @@ describe Announcement do
 
     describe 'hidden yesterday' do
 
-      it "should return all valid announcements" do
-        @currents.map(&:id).should =~ Announcement.currents.map(&:id)
+      it "should return all current announcements" do
+        @currents.map(&:id).should =~ Announcement.currents(Date.yesterday).map(&:id)
       end
 
       it "should not return any past announcements" do
@@ -45,9 +45,18 @@ describe Announcement do
       end
 
       it "should not return any future announcements" do
-        @futures.map(&:id).should_not =~ Announcement.currents.map(&:id)
+        @futures.map(&:id).should_not =~ Announcement.currents(Date.yesterday).map(&:id)
+      end
+      
+    end
+    
+    describe 'just hidden' do
+
+      it "should not return already hidden announcements" do
+        @currents.map(&:id).should_not =~ Announcement.currents(Time.now).map(&:id)
       end
   
+      
     end
 
   end
