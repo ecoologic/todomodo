@@ -2,8 +2,16 @@ $body-margin: 5px;
 
 body { margin: $body-margin; }
 
-#flash-messages {
 
+#announcements {
+  text-align: center;
+  font-style: oblique;
+  color: green;
+}
+
+#header h2 { text-align: center; }
+
+#flash-messages {
   text-align: center;
   height: 1em;
   margin-bottom: 1em;

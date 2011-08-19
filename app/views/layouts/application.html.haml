@@ -8,7 +8,7 @@
     = yield :js_content
     = csrf_meta_tags
   %body{:id => controller_name}
-    .test= test_show_partial
+    = test_show_partial
     #fixed= render '/layouts/fixed'
     #announcements= render '/announcements/current_announcements'
     #flash-messages= flash_messages
@@ -21,6 +21,6 @@
 
     #footer
     
-    .test= test_show_params
+    = test_show_params
 
 

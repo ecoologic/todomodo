@@ -9,6 +9,13 @@ module ApplicationHelper
     result
   end
 
+  # wrap something to render for development purpose
+  # for development purpose, not shown in production
+  def test_tag
+    return unless Rails.env.development?
+    content_tag(:div, :class => :test) {yield}
+  end
+
   # self explaining
   def clear_tag
     content_tag :span, nil, :class => :clear
@@ -36,10 +43,9 @@ module ApplicationHelper
     content_for(:css_content) {stylesheet_link_tag args}
   end
 
-  # shows the params and the session hash in development environment
+  # shows the params and the session hash
   # for development purpose
   def test_show_params
-    return unless Rails.env.development?
 
     ses = session.clone
     ses.delete(:session_id)
@@ -52,13 +58,13 @@ module ApplicationHelper
 
     # exchange the two following instruction to have all or just main params
     # content_tag(:div, (session.to_s + "\n" + params.to_s), :class => 'test') if Rails.env.development?
-    clear_tag + raw(ses + br_tag + par)
+    test_tag {clear_tag + raw(ses + br_tag + par)}
   end
 
   # use this partial for development purpose
   def test_show_partial
     return unless Rails.env.development?
-    render '/test/test'
+    test_tag {render '/test/test'}
   end
 
 end
