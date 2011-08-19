@@ -2,10 +2,8 @@ source 'http://rubygems.org'
 
 gem 'devise'
 
-gem 'rails', '~> 3.1.0.rc5'
+gem 'rails', '~> 3.1.0.rc'
 gem 'settingslogic'
-
-gem 'arel', '~> 2.1.4' # TODO: remove the line with 2.1.6 as 2.1.5 is buggy
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
