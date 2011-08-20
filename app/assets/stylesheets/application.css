@@ -4,9 +4,13 @@
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
  * DEFAULT WAS= require_tree .
+ * 
+ * see http://stackoverflow.com/questions/6133818/rails-3-1-and-jquery-ui-assets
+ *= require vendor
+ * 
+ *= require reset
+ *= require screen
+ *= require application_layout
+ *= require fixed
 */
 
-@import 'reset.css';
-@import 'screen.css';
-@import 'application_layout.css.scss';
-@import 'fixed.css';
