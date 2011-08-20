@@ -13,8 +13,8 @@ Todomodo::Application.routes.draw do
     get 'logout', :to => 'devise/sessions#destroy'
     get 'signup', :to => 'devise/registrations#new'
   end
-
-  get '/test', :to => 'tests#test'
+  
+  get '/test', :to => 'tests#test' # TODO: use before_filter :require_development_environment or something
   get '/debug', :to => 'tests#debug'
 
   root :to => 'application#show'

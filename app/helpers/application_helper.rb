@@ -64,7 +64,7 @@ module ApplicationHelper
   # use this partial for development purpose
   def test_show_partial
     return if Rails.env.production?
-    test_tag {render '/test/test'}
+    test_tag {render '/tests/test'}
   end
 
 end
