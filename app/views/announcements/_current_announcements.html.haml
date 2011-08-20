@@ -1,3 +1,4 @@
 - if @current_announcements.any?
-  = render @current_announcements
+  -# the following redundancy depends on devise that prepends the path and the convention doesn't work anymore
+  = render :partial => '/announcements/announcement', :collection => @current_announcements
   = link_to 'Hide', hide_current_announcements_path, :remote => true

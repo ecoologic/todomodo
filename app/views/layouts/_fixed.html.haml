@@ -2,7 +2,8 @@
 
 #log-links
   - if current_user
-    #{current_user.email},
+    %div{:class => session[:has_just_auth] ? 'blink-once' : nil}
+      = current_user.email
     = link_to 'logout', logout_path
   - else
     = link_to 'login', login_path

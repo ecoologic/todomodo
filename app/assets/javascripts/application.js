@@ -7,3 +7,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+HIDE_INFO_DELAY = 5000//ms
+SHORT_DELAY     = 1000//ms

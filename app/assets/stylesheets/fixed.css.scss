@@ -4,4 +4,7 @@ $body-margin: 5px;
   position: fixed;
   right: $body-margin;
   top: $body-margin;
+
+  a { float: right; margin-left: 1em; }
 }
+
