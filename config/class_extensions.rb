@@ -4,6 +4,7 @@
 class Date
   # Date.today.to_s :short
   DATE_FORMATS[:default] = '%a %d/%m/%Y'
+  DATE_FORMATS[:datepicker] = '%d/%m/%Y'
   DATE_FORMATS[:dmY] = '%d/%m/%Y'
   ABBR_DAYNAMES_TO_SYM = [:sun, :mon, :tue, :wed, :thu, :fri, :sat]
   DAYNAMES_TO_SYM = [:sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday]

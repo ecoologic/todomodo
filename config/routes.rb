@@ -16,6 +16,7 @@ Todomodo::Application.routes.draw do
   
   get '/test', :to => 'tests#test' # TODO: use before_filter :require_development_environment or something
   get '/debug', :to => 'tests#debug'
+  get '/destroy_session', :to => 'tests#destroy_session'
 
   root :to => 'application#show'
 

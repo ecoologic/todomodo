@@ -1,15 +1,5 @@
 
 
-
-
-
-
-
-
-
-
-
-
 body {color: white; background: black;}
 
 .todo { border: red 1px dashed; }
@@ -31,7 +21,11 @@ label { font-weight: bold; }
 
 strong{ font-weight: bolder; }
 
-a { outline: none; text-decoration: none; }
+em {
+  font-weight: bolder;
+  color: $em-text-color;
+  @include text-shadow($em-shadow-color);
+}
 
 
 /* hn n odd -> center aligned */
@@ -52,6 +46,4 @@ h1, h3, h5 {
 }
 
 h4, h6 { margin: 0.5em 0 0 0; }
-
-li { display: inline; }
 

@@ -1,2 +1,17 @@
 test
-= y Rails.application.config.assets.paths
+
+= text_field_tag :date, Date.today.to_s(:datepicker), :class => 'datepicker'
+
+- image = image_tag 'rails.png', :alt => 'title'
+- path = '/assets/ja.jpg'
+= link_to image, path, :rel => 'prettyPhoto', :title => 'description', :id => 'pretty'
+
+-# <a href="images/fullscreen/2.jpg" rel="prettyPhoto" title="This is the description">
+-# <img src="images/thumbnails/t_2.jpg" width="60" height="60" alt="This is the title" />
+-# </a>
+
+
+
+
+
+

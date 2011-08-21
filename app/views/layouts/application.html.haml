@@ -4,31 +4,33 @@
 
     %title= yield :title_content
 
-    = stylesheet_link_tag    "application"
+    = stylesheet_link_tag    'application'
     = yield :css_content
 
-    = javascript_include_tag "application"
+    = javascript_include_tag 'application'
     = yield :js_content
 
     = csrf_meta_tags
 
-  %body{:id => controller_name}
+  %body{:id => "#{controller_name.parameterize}_controller"}
 
-    = test_show_partial
     #fixed= render '/layouts/fixed'
     #announcements= render '/announcements/current_announcements'
     #flash-messages= flash_messages
 
-    #header
-      %h2= yield :title_content
-
-
-    // content ================================================================
-    #content= yield
-    // /content ===============================================================
-
-
-    #footer
+    #container
+      #header
+        %h3= yield :title_content
+  
+  
+      // content ================================================================
+      #content
+        = test_show_partial
+        = yield
+      // /content ===============================================================
+  
+  
+      #footer
     
     = test_show_params
 

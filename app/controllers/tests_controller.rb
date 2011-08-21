@@ -1,11 +1,15 @@
 class TestsController < ApplicationController
 
   def test
-    session["announcements_hide_time"] = nil
   end
 
   def debug
     debugger
+    render :nothing => true
+  end
+
+  def destroy_session
+    session = {}
     render :nothing => true
   end
 

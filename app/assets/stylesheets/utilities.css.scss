@@ -1,0 +1,33 @@
+
+$small-space: 5px;
+
+$shadow-color: #acf;
+
+//$important-shadow-color: #aeb;
+//$important-text-color: #9fa;
+//#f52;
+
+$em-shadow-color: #ee5;
+$em-text-color: white;
+
+$container-bg-color: #006;
+
+@mixin rounded-corners($even: 5px, $odd: 5px) {
+  -moz-border-radius-topleft: $even;
+  -moz-border-radius-topright: $odd;
+  -moz-border-radius-bottomright: $even;
+  -moz-border-radius-bottomleft: $odd;
+  -webkit-border-radius: $even $odd $even $odd;
+  border-radius: $even $odd $even $odd;
+}
+
+@mixin shadow($first: 0px, $second: 2px, $color: $shadow-color) {
+  -webkit-box-shadow: $first $first $second $second $color;
+  -moz-box-shadow: $first $first $second $second $color;
+  box-shadow: $first $first $second $second $color;
+}
+
+@mixin text-shadow($color: $shadow-color) {
+  text-shadow: 1px 1px 2px $color;
+  filter: dropshadow(color=$shadow-color, offx=1, offy=1); 
+}

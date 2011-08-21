@@ -1,16 +1,11 @@
-$body-margin: 5px;
 
-body { margin: $body-margin; }
-
-.blink-once { display: none; }
+body { margin: $small-space; }
 
 #announcements {
   text-align: center;
   font-style: oblique;
   color: green;
 }
-
-#header h2 { text-align: center; }
 
 #flash-messages {
   text-align: center;
@@ -20,3 +15,13 @@ body { margin: $body-margin; }
   #flash-notice { color: green; }
   #flash-alert  { color: orange; }
 }
+
+#container {
+  width: 98%;
+  margin: 1em auto;
+  background-color: $container-bg-color;
+  padding: 0.5em;
+  @include rounded-corners(10px, 0);
+  @include shadow;
+}
+

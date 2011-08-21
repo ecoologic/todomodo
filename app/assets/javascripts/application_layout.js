@@ -1,13 +1,19 @@
-HIDE_INFO_DELAY = 5000//ms
-SHORT_DELAY     = 1000//ms
+HIDE_INFO_DELAY = 5000;//ms
+SHORT_DELAY     = 2000;//ms
 
+DATE_FORMAT     = 'dd/mm/yy';
 
-$(function(){
+$(function initApp(){
 
-  $('#flash-messages').delay(HIDE_INFO_DELAY).slideUp();
+  $('#flash-messages div').delay(HIDE_INFO_DELAY).slideUp();
 
-  $('.blink-once').delay(SHORT_DELAY).fadeIn();
+  $('.blink-once').hide().delay(SHORT_DELAY).slideDown().effect('bounce', {}, 500);
   
   $('.datepicker').datepicker();
+  
+  $('[rel^="prettyPhoto"]').prettyPhoto();
+  
+  $('input:first').focus();
 
 });
+

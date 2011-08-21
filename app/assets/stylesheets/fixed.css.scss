@@ -1,10 +1,13 @@
-$body-margin: 5px;
+#fixed {
 
-#log-links {
-  position: fixed;
-  right: $body-margin;
-  top: $body-margin;
 
-  a { float: right; margin-left: 1em; }
+  #log-links {
+    position: fixed;
+    right: $small-space;
+    top: $small-space;
+  
+    a { float: right; margin-left: 1em; }
+  }
+  
+  
 }
-

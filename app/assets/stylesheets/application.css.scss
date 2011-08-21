@@ -5,12 +5,15 @@
  *= require_self
  * DEFAULT WAS= require_tree .
  * 
- * see http://stackoverflow.com/questions/6133818/rails-3-1-and-jquery-ui-assets
- *= require vendor
- * 
- *= require reset
- *= require screen
- *= require application_layout
- *= require fixed
 */
 
+@import 'utilities.css.scss';
+
+/* see http://stackoverflow.com/questions/6048490/rails-3-1-and-jquery-ui-images */
+@import 'vendor.css';
+
+@import 'reset.css';
+@import 'screen.css.scss';
+@import 'application_layout.css.scss';
+
+@import 'fixed.css.scss';
