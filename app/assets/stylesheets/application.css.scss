@@ -10,9 +10,9 @@
 @import 'utilities.css.scss';
 
 /* see http://stackoverflow.com/questions/6048490/rails-3-1-and-jquery-ui-images */
-@import 'vendor.css';
+@import 'vendor.css.scss';
 
-@import 'reset.css';
+@import 'reset.css.scss';
 @import 'screen.css.scss';
 @import 'application_layout.css.scss';
 
