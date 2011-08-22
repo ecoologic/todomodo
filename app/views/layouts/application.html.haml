@@ -1,16 +1,7 @@
 !!!
 %html{:lang => I18n.locale}
-  %head
 
-    %title= yield :title_content
-
-    = stylesheet_link_tag    'application'
-    = yield :css_content
-
-    = javascript_include_tag 'application'
-    = yield :js_content
-
-    = csrf_meta_tags
+  %head= render '/layouts/head'
 
   %body{:id => "#{controller_name.parameterize}_controller"}
 
@@ -21,17 +12,24 @@
     #container
       #header
         %h3= yield :title_content
-  
-  
-      // content ================================================================
+
+      // content ==============================================================
       #content
         = test_show_partial
         = yield
-      // /content ===============================================================
+      // /content =============================================================
   
   
       #footer
-    
+        %nav
+          = link_to_back
+          = yield :footer_nav_content
+
+    #credits
+      %nav
+        = link_to_ecoologic_stack_exchange_profile
+        = link_to image_tag('rails.png'), 'http://rubyonrails.org/'
+        
     = test_show_params
 
 

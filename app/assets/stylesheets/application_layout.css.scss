@@ -25,3 +25,11 @@ body { margin: $small-space; }
   @include shadow;
 }
 
+#footer nav {
+  text-align: center;
+}
+
+#credits nav a {
+  float: right;
+  margin-left: 1em;
+}

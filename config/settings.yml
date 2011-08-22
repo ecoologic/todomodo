@@ -8,6 +8,21 @@ defaults: &defaults
   # awesome_setting: <%= "Did you know 5 + 5 = #{5 + 5}?" %>
   # neat_setting: 800
 
+
+  meta_name: ToDoModo
+  meta_keywords: 'users, ruby on rails, ruby on rails 3, ror, ror3, rails, rails3, ruby, ruby 1.9.2'
+
+  #################### external urls
+
+  firefox_link_url: 'http://www.mozilla.com/?from=sfx&amp;uid=323559&amp;t=576'
+  firefox_link_image_url: 'http://www.mozilla.org/contribute/buttons/110x32bubble_g.png'
+
+  rails_link_url: 'http://rubyonrails.org/'
+
+  ecoologic_link_image_url: 'http://stackexchange.com/users/flair/c7a561b301ec447a8ed106865f7c705f.png?theme=dark'
+  ecoologic_link_url: 'http://stackexchange.com/users/c7a561b301ec447a8ed106865f7c705f'
+
+
 development:
   <<: *defaults
 

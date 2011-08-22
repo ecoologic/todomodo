@@ -1,5 +1,22 @@
 module ApplicationHelper
 
+  # link to ecoologic in stack exchange
+  def link_to_ecoologic_stack_exchange_profile
+    image = image_tag(Setting.ecoologic_link_image_url,
+                      {:alt => :ecoologic, :height => '64px'})
+    url = Setting.ecoologic_link_url
+    link_opts = {:title => :ecoologic_link_title, :target => '_blank'}
+                 # :id => :ecoologic_link
+    
+    link_to image, url, link_opts
+  end
+
+
+  # link to back page (it's a js core function) if possible
+  def link_to_back
+    link_to 'back', :back if request.env['HTTP_REFERER'].present?
+  end
+
   # show all the flash messages
   def flash_messages
     result = raw '' # TODO: sure there is a better way
@@ -41,6 +58,11 @@ module ApplicationHelper
   # css_content 'file_name', 'other_file_name'
   def css_content(*args)
     content_for(:css_content) {stylesheet_link_tag args}
+  end
+
+  # actions views can determinate how to populate the footer
+  def footer_nav_content(*args)
+    content_for(:footer_nav_content) {yield}
   end
 
   # shows the params and the session hash

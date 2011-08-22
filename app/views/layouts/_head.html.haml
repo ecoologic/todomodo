@@ -1,0 +1,11 @@
+%title= yield :title_content
+%meta{:name => Setting.meta_name}
+%meta{:name => 'keywords', :content => Setting.meta_keywords}
+
+= stylesheet_link_tag    'application'
+= yield :css_content
+
+= javascript_include_tag 'application'
+= yield :js_content
+
+= csrf_meta_tags
