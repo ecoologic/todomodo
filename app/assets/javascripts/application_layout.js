@@ -11,9 +11,6 @@ $(function initPage(){
   
   $("[rel^='prettyPhoto']").prettyPhoto();
 
-  $('a').button();
-
-
   initDatepickers('.datepicker');
 
   $('.blink-once').hide().delay(SHORT_DELAY).slideDown().effect('bounce', {}, 500);

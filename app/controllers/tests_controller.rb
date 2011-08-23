@@ -5,12 +5,13 @@ class TestsController < ApplicationController
 
   def debug
     debugger
-    render :nothing => true
+    redirect_to :back
   end
 
   def destroy_session
-    session = {}
-    render :nothing => true
+    debugger
+    session.each {|k,v| session.delete k}
+    redirect_to root_path
   end
 
 end

@@ -23,7 +23,9 @@
 - jquery-ui integrated (dot-luv theme)
 
 21/8/11 ecoologic
-- prettyphoto
+- prettyphoto (not perfect yet)
 - utilities.css.scss
 
-
+23/8/11 ecoologic
+- user scaffold (partial)
+- user note in layout
