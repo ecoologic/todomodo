@@ -13,7 +13,11 @@ Todomodo::Application.routes.draw do
     get 'logout', :to => 'devise/sessions#destroy'
     get 'signup', :to => 'devise/registrations#new'
   end
-  
+
+  resources :users
+  put '/update_current_user_note', :to => 'users#update_current_user_note'
+
+
   get '/test', :to => 'tests#test' # TODO: use before_filter :require_development_environment or something
   get '/debug', :to => 'tests#debug'
   get '/destroy_session', :to => 'tests#destroy_session'

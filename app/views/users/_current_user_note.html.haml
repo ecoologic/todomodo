@@ -1,0 +1,5 @@
+- if user_signed_in?
+  #current_user_note
+    = form_tag update_current_user_note_path, :method => :put, :remote => true do
+      = text_field_tag :current_user_note, current_user.note
+      = submit_tag 'ok'
