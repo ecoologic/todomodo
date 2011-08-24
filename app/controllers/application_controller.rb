@@ -1,14 +1,24 @@
 class ApplicationController < ActionController::Base
 
+  respond_to :html, :js, :json, :xml, :csv
+
   protect_from_forgery
 
-  before_filter :get_current_announcements, :set_has_just_auth, :except => [:create, :update, :destroy]
+  before_filter :set_has_just_auth, :get_current_announcements, :except => [:create, :update, :destroy]
 
-  # TODO: rescue_from Exception, :with => :render_error
+#   rescue_from Exception, :with => :handle_error #, :if => Rails.env.production?
 
   # welcome page
   def show
   end
+
+  # show a general, user friendly error page
+#   def error
+#     debugger
+#     @current_announcements = []
+#     logger.debug '>>>>>>>>>>>> error action called'
+#     respond_with :html, :layout => 'error'
+#   end
 
   # override default devise landing page after login
   # http://rubydoc.info/gems/devise/1.1.2/Devise/Controllers/Helpers
@@ -16,13 +26,20 @@ class ApplicationController < ActionController::Base
     root_path # redundant if you want to go to root_path
   end
 
-
-private #======================================================================
+protected # ===================================================================
 
   # load announcements to be shown
   def get_current_announcements
     @current_announcements = Announcement.currents session[:announcements_hide_time]
   end
+
+#   def handle_error(exception)
+#     logger.fatal "#{exception}"
+#     logger.debug '>>>>>>> handle_error'
+#     redirect_to error_path
+#   end
+
+private # =====================================================================
 
   # store in session if login has just happen
   def set_has_just_auth
