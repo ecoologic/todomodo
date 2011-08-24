@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'devise'
 
 gem 'rails', '~> 3.1.0.rc'
+
 gem 'settingslogic'
 
 # Bundle edge Rails instead:
@@ -32,6 +33,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'mongrel', '~> 1.2.0.pre2'
   gem 'rspec-rails'      
   gem 'factory_girl_rails' # ok, but please don't create those obj in the db
 end
