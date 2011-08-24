@@ -1,4 +1,5 @@
-- if @current_announcements.any?
+-# .any? would raise an error for those actions for which I don't reload current_announcements
+- unless @current_announcements.blank?
   -# the following redundancy depends on devise that prepends the path and the convention doesn't work anymore
   = render :partial => '/announcements/announcement', :collection => @current_announcements
   = link_to 'Hide', hide_current_announcements_path, :remote => true

@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
-  before_filter :set_has_just_auth, :get_current_announcements, :except => [:create, :update, :destroy]
+  before_filter :set_has_just_auth, :get_current_announcements,
+                :except => [:create, :update, :destroy]
 
 #   rescue_from Exception, :with => :handle_error #, :if => Rails.env.production?
 
