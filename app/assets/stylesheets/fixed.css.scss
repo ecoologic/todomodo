@@ -1,5 +1,8 @@
-#fixed {
+// this file is for _fixed partial only,
+// which means only for elements which are fixed positioned on the page
+// and inside #fixed
 
+#fixed {
 
   #log-links {
     position: fixed;
@@ -11,6 +14,5 @@
       margin-left: 1em;
     }
   }
-  
   
 }
