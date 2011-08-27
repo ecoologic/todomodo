@@ -2,11 +2,11 @@
 module ApplicationLayoutHelper
 
   # link to ecoologic in stack exchange
-  def link_to_ecoologic_stack_exchange_profile
+  def link_to_ecoologic
     image = image_tag(Setting.ecoologic_link_image_url,
-                      {:alt => :ecoologic, :height => '64px'})
+                      {:alt => Setting.ecoologic_alt, :height => '64px'})
     url = Setting.ecoologic_link_url
-    link_opts = {:title => :ecoologic_link_title, :target => '_blank'}
+    link_opts = {:title => Setting.ecoologic_link_title, :target => '_blank'}
                  # :id => :ecoologic_link
     
     link_to image, url, link_opts

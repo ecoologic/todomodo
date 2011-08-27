@@ -59,6 +59,7 @@ class AnnouncementsController < ApplicationController
         format.html { redirect_to @announcement, notice: 'Announcement was successfully created.' }
         format.json { render json: @announcement, status: :created, location: @announcement }
       else
+        flash[:error] = 'error!'
         format.html { render action: "new" }
         format.json { render json: @announcement.errors, status: :unprocessable_entity }
       end

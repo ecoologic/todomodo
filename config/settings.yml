@@ -23,7 +23,8 @@ defaults: &defaults
 
   ecoologic_link_image_url: 'http://stackexchange.com/users/flair/c7a561b301ec447a8ed106865f7c705f.png?theme=dark'
   ecoologic_link_url: 'http://stackexchange.com/users/c7a561b301ec447a8ed106865f7c705f'
-
+  ecoologic_alt: 'ecoologic'
+  ecoologic_link_title: 'View ecoologic on stack exchange!'
 
 development:
   <<: *defaults
