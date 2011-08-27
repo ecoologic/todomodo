@@ -20,7 +20,8 @@ TestsController has been made as a sandbox, never leave important things over th
 On top of each file there is the file documentation, valid for extensions:
 rb, yml, js, css, (html)
 
-Use gtg to commit your job, use significant comments and group them by task
+Use gtg to commit your job, use significant comments and group them by task.
+Use different a different branch for each functionality. 
 
 == Comments
 Gemfile: put useful comments inline, like commands to run
