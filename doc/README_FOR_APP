@@ -41,7 +41,8 @@ Use html5 tags where applicable, avoid tables
 Links to external sites must open in a different tab.
 
 == Javascript
-Favour jquery plugins for your development, run your js in application_layout, NEVER in templates
+Favour jquery plugins for your development, run your js in application_layout, NEVER in templates.
+Implement global functions in utilities.js in app global variable
 
 
 == Doc
