@@ -25,7 +25,6 @@ gem 'nokogiri'
 
 group :development do
   gem 'heroku' # http://todomodo.heroku.com/
-  gem 'mysql'
   # To use debugger
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'rails_best_practices' # $ rails_best_practices
@@ -34,6 +33,8 @@ end
 
 group :development, :test do
   gem 'mongrel', '~> 1.2.0.pre2'
+  gem 'mysql'
+  gem 'pry'
   gem 'rspec-rails'      
   gem 'factory_girl_rails' # ok, but please don't create those obj in the db
 end
