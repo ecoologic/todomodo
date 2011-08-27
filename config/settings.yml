@@ -1,3 +1,5 @@
+# Settingslogic, see Setting model, this is where all the settings come from
+
 defaults: &defaults
   app_title: ToDoModo
   secret:

@@ -1,3 +1,4 @@
+# controller for user management
 class UsersController < ApplicationController
 
   respond_to :html, :js, :json

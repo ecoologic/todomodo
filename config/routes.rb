@@ -18,10 +18,10 @@ Todomodo::Application.routes.draw do
   put '/update_current_user_note', :to => 'users#update_current_user_note'
 
 
-  get '/test_error', :to => 'tests#test_error'
-  get '/test', :to => 'tests#test' # TODO: use before_filter :require_development_environment or something
-  get '/debug', :to => 'tests#debug'
-  get '/destroy_session', :to => 'tests#destroy_session'
+  get '/test_error', :to => 'sandboxes#test_error'
+  get '/test', :to => 'sandboxes#test' # TODO: use before_filter :require_development_environment or something
+  get '/debug', :to => 'sandboxes#debug'
+  get '/clear_session', :to => 'sandboxes#clear_session'
 
   get '/error', :to => 'application#error', :as => 'error'
   root :to => 'application#show'

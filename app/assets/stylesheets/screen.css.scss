@@ -1,6 +1,5 @@
-
-
-body {color: white; background: black;}
+// the layer above reset, to store element customizations,
+// not for classes or ids, except these four very general on top
 
 .todo { border: red 1px dashed; }
 
@@ -9,6 +8,8 @@ body {color: white; background: black;}
 .clear { clear: both; }
 
 .hidden { display: none; }
+
+body {color: white; background: black;}
 
 textarea { height: 5em; }
 

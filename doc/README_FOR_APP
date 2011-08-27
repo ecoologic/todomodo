@@ -1,2 +1,66 @@
 Use this README file to introduce your application and point to useful places in the API for learning more.
 Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+
+== Architecture
+This file is for development doc, /README is for users documentation.
+please update CHANGELOG to state any new functionality or amend on existing functionality.
+
+All files named application are meant for things that applies and make sense application wide.
+Use then application_layout to refer to anything that should apply only to the layout and not to the templete, despite things written in there may apply to templates as well.
+E.g.: br_tag is defined in application_helper.rb because it is meant to be used all along the app, au contraire flash_messages belongs to application_layout because despite the method is available in templates as well, it makes sense only in the layout.
+
+Evaluate RESTFUL architecture, use HTTP verbs correctly.
+
+Use css_content, Use js_content, title_content to customize the outside of the template
+
+Class_extension contains all ruby/rails class/module extensions, read it!
+
+TestsController has been made as a sandbox, never leave important things over there.
+
+On top of each file there is the file documentation, valid for extensions:
+rb, yml, js, css, (html)
+
+Use gtg to commit your job, use significant comments and group them by task
+
+== Comments
+Gemfile: put useful comments inline, like commands to run
+Comment every new methos or function, no particular formatting
+Don't forget to state a meaningful example with e.g.:
+
+== Code conventions
+Composed words can be considered one, e.g.: datepicker and not date_picker
+Use correct conventions for each languate, e.g.: #log-links for css, but the ruby fucntion has to be log_links
+
+Don't use parentesis for methods, but only in simple statements, use parentesis in doubt.
+
+
+== Css and html
+Name all the stylesheets in css.scss and include them in application.css.scss
+Use html5 tags where applicable, avoid tables
+Links to external sites must open in a different tab.
+
+== Javascript
+Favour jquery plugins for your development, run your js in application_layout, NEVER in templates
+
+
+== Doc
+- rails_best_practices
+- rake app:doc
+
+== Development tools
+
+- pry: debug the app with pry.debug, cosole with pry -r ./config/environment
+- TODO: followed by a quick description
+- logger.warn 'TODO: this (fucntion description) has been MOCKED UP'
+
+= Cloud TODO
+- git for the repo
+- git issues for functionality proposals
+- lighthouse for small bugs
+- heroku for live
+
+== Test tools
+guard
+
+
+ 

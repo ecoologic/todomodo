@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+  <title>Module: ApplicationLayoutHelper</title>
+
+  <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+  <script src="./js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="module">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="./app/helpers/application_layout_helper_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="app/helpers/application_layout_helper.rb">app/helpers/application_layout_helper.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-i-flash_messages">#flash_messages</a></li>
+          
+          <li><a href="#method-i-link_to_ecoologic_stack_exchange_profile">#link_to_ecoologic_stack_exchange_profile</a></li>
+          
+          <li><a href="#method-i-test_show_params">#test_show_params</a></li>
+          
+          <li><a href="#method-i-test_show_partial">#test_show_partial</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Files</h3>
+        <ul>
+        
+          <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="./Announcement.html">Announcement</a></li>
+        
+          <li><a href="./AnnouncementsController.html">AnnouncementsController</a></li>
+        
+          <li><a href="./AnnouncementsHelper.html">AnnouncementsHelper</a></li>
+        
+          <li><a href="./ApplicationController.html">ApplicationController</a></li>
+        
+          <li><a href="./ApplicationHelper.html">ApplicationHelper</a></li>
+        
+          <li><a href="./ApplicationLayoutHelper.html">ApplicationLayoutHelper</a></li>
+        
+          <li><a href="./Setting.html">Setting</a></li>
+        
+          <li><a href="./TestsController.html">TestsController</a></li>
+        
+          <li><a href="./User.html">User</a></li>
+        
+          <li><a href="./UsersController.html">UsersController</a></li>
+        
+          <li><a href="./UsersHelper.html">UsersHelper</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="module">ApplicationLayoutHelper</h1>
+
+    <div id="description" class="description">
+      
+<p>only for helpers that logically belongs to the layout and not to templates</p>
+
+    </div><!-- description -->
+
+    
+    
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="flash_messages-method" class="method-detail ">
+          <a name="method-i-flash_messages"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">flash_messages</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>show all the flash messages and flush the flash (to be called from js
+templates as well)</p>
+            
+
+            
+            <div class="method-source-code" id="flash_messages-source">
+<pre>
+<span class="ruby-comment"># File app/helpers/application_layout_helper.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">flash_messages</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">raw</span> <span class="ruby-string">''</span> <span class="ruby-comment"># TODO: sure there is a better way</span>
+  <span class="ruby-identifier">flash</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">level</span>, <span class="ruby-identifier">message</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:div</span>, <span class="ruby-identifier">message</span>, <span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;flash-#{level}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">flash</span>.<span class="ruby-identifier">discard</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- flash_messages-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- flash_messages-method -->
+
+      
+        <div id="link_to_ecoologic_stack_exchange_profile-method" class="method-detail ">
+          <a name="method-i-link_to_ecoologic_stack_exchange_profile"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">link_to_ecoologic_stack_exchange_profile</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>link to ecoologic in stack exchange</p>
+            
+
+            
+            <div class="method-source-code" id="link_to_ecoologic_stack_exchange_profile-source">
+<pre>
+<span class="ruby-comment"># File app/helpers/application_layout_helper.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">link_to_ecoologic_stack_exchange_profile</span>
+  <span class="ruby-identifier">image</span> = <span class="ruby-identifier">image_tag</span>(<span class="ruby-constant">Setting</span>.<span class="ruby-identifier">ecoologic_link_image_url</span>,
+                    {<span class="ruby-value">:alt</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:ecoologic</span>, <span class="ruby-value">:height</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'64px'</span>})
+  <span class="ruby-identifier">url</span> = <span class="ruby-constant">Setting</span>.<span class="ruby-identifier">ecoologic_link_url</span>
+  <span class="ruby-identifier">link_opts</span> = {<span class="ruby-value">:title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:ecoologic_link_title</span>, <span class="ruby-value">:target</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'_blank'</span>}
+               <span class="ruby-comment"># :id =&gt; :ecoologic_link</span>
+  
+  <span class="ruby-identifier">link_to</span> <span class="ruby-identifier">image</span>, <span class="ruby-identifier">url</span>, <span class="ruby-identifier">link_opts</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- link_to_ecoologic_stack_exchange_profile-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- link_to_ecoologic_stack_exchange_profile-method -->
+
+      
+        <div id="test_show_params-method" class="method-detail ">
+          <a name="method-i-test_show_params"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">test_show_params</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>shows the params and the session hash for development purpose</p>
+            
+
+            
+            <div class="method-source-code" id="test_show_params-source">
+<pre>
+<span class="ruby-comment"># File app/helpers/application_layout_helper.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_show_params</span>
+
+  <span class="ruby-identifier">ses</span> = <span class="ruby-identifier">session</span>.<span class="ruby-identifier">clone</span>
+  <span class="ruby-identifier">ses</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:session_id</span>)
+  <span class="ruby-identifier">ses</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:_csrf_token</span>)
+  <span class="ruby-identifier">ses</span> = <span class="ruby-string">'Session '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">ses</span>.<span class="ruby-identifier">to_s</span>
+
+  <span class="ruby-identifier">par</span> = <span class="ruby-identifier">params</span>.<span class="ruby-identifier">clone</span>
+  <span class="ruby-identifier">par</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:_csrf_token</span>)
+  <span class="ruby-identifier">par</span> = <span class="ruby-string">' Params '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">to_s</span>
+
+  <span class="ruby-comment"># exchange the two following instruction to have all or just main params</span>
+  <span class="ruby-comment"># content_tag(:div, (session.to_s + &quot;\n&quot; + params.to_s), :class =&gt; 'test') unless Rails.env.production?</span>
+  <span class="ruby-identifier">test_tag</span> {<span class="ruby-identifier">clear_tag</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">raw</span>(<span class="ruby-identifier">ses</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">br_tag</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">par</span>)}
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- test_show_params-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- test_show_params-method -->
+
+      
+        <div id="test_show_partial-method" class="method-detail ">
+          <a name="method-i-test_show_partial"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">test_show_partial</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>use this partial for development purpose</p>
+            
+
+            
+            <div class="method-source-code" id="test_show_partial-source">
+<pre>
+<span class="ruby-comment"># File app/helpers/application_layout_helper.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_show_partial</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">env</span>.<span class="ruby-identifier">production?</span>
+  <span class="ruby-identifier">test_tag</span> {<span class="ruby-identifier">render</span> <span class="ruby-string">'/tests/test'</span>}
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- test_show_partial-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- test_show_partial-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

@@ -1,3 +1,4 @@
+# only for helpers that logically belongs to the layout and not to templates
 module ApplicationLayoutHelper
 
   # link to ecoologic in stack exchange
@@ -27,12 +28,12 @@ module ApplicationLayoutHelper
   def test_show_params
 
     ses = session.clone
-    ses.delete(:session_id)
-    ses.delete(:_csrf_token)
+    ses.delete :session_id
+    ses.delete :_csrf_token
     ses = 'Session ' + ses.to_s
 
     par = params.clone
-    par.delete(:_csrf_token)
+    par.delete :_csrf_token
     par = ' Params ' + params.to_s
 
     # exchange the two following instruction to have all or just main params
@@ -43,7 +44,7 @@ module ApplicationLayoutHelper
   # use this partial for development purpose
   def test_show_partial
     return if Rails.env.production?
-    test_tag {render '/tests/test'}
+    test_tag {render '/sandboxes/test'}
   end
 
 

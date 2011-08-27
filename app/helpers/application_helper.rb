@@ -1,3 +1,6 @@
+# helpers logically related to the whole application
+# see application_layout_helper for functions that
+# make sense only in the layout (e.g.: flash_messages)
 module ApplicationHelper
 
   include ApplicationLayoutHelper

@@ -1,3 +1,5 @@
+# application controller
+# consider applicationLayoutController does not exists.
 class ApplicationController < ActionController::Base
 
   respond_to :html, :js, :json, :xml, :csv

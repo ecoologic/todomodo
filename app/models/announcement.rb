@@ -1,4 +1,4 @@
-# Site announcements from administration to all users
+# Site wide announcements from administration to all users
 class Announcement < ActiveRecord::Base
 
   # e.g.: Announcement(1069 13 Aug 23:00-15 Aug 23:00): current announcement number 1

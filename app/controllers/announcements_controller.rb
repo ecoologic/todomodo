@@ -1,3 +1,4 @@
+# controller for announcements
 class AnnouncementsController < ApplicationController
 
   respond_to :html, :js, :json

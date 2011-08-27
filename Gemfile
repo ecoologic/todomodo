@@ -25,18 +25,17 @@ gem 'nokogiri'
 
 group :development do
   gem 'heroku' # http://todomodo.heroku.com/
-  # To use debugger
-  gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'ruby-debug19', :require => 'ruby-debug' # To use debugger
   gem 'rails_best_practices' # $ rails_best_practices
   # gem 'what_methods' # http://drnicwilliams.com/2006/10/12/my-irbrc-for-consoleirb/
 end
 
 group :development, :test do
-  gem 'mongrel', '~> 1.2.0.pre2'
+  gem 'mongrel', '~> 1.2.0.pre2' # rails s mongrel
   gem 'mysql'
-  gem 'pry'
+  gem 'pry' # pry -r ./config/environment / binding.pry
   gem 'rspec-rails'      
-  gem 'factory_girl_rails' # ok, but please don't create those obj in the db
+  gem 'factory_girl_rails'
 end
 
 group :test do
@@ -46,7 +45,6 @@ group :test do
   gem 'libnotify'
   gem 'rb-inotify'
   gem 'timecop'
-  # Pretty printed test output
-  gem 'turn', :require => false
+  gem 'turn', :require => false # Pretty printed test output
 end
 
