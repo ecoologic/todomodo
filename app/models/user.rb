@@ -1,5 +1,6 @@
 # To manage authentification along the site
 class User < ActiveRecord::Base
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -13,7 +14,7 @@ class User < ActiveRecord::Base
 
   # defaults to user.name
   def to_s
-    self.name
+    self.name.presence || self.default_name
   end
 
   # the part before the at
@@ -21,14 +22,19 @@ class User < ActiveRecord::Base
     self.email.split('@').first
   end
 
+  # email prefix and id, makes a unique name
+  def default_name
+    "#{self.email_prefix}#{self.id}"
+  end
+
 private # =====================================================================
 
-  # makes sure name is valued and unique
-  # with email prefix and id
+  # if name is not unique it is replaced with email_prefix and id
   def uniquify_name!
-    if self.name.blank? || User.find_by_name(self.name)
-      self.name = "#{self.email_prefix}#{self.id}"
-    end
+    others_same_name = User.where(:name => self.name).select(:id)
+    others_same_name.delete self
+    name_is_uniq = self.name.blank? || others_same_name.any?
+    self.name = nil unless name_is_uniq
   end
 
 end
