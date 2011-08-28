@@ -1,3 +1,4 @@
+# TODO: is this file useful? (clone of applications_spec)
 require 'spec_helper'
 
 describe "Exceptions" do

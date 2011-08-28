@@ -1,5 +1,4 @@
 require 'spec_helper'
-include Devise::TestHelpers
 
 describe "CRUD Announcements" do
   describe "GET /announcements" do
@@ -76,11 +75,10 @@ describe "Announcements in layout" do
       visit root_path
     end
 
-    it "should not show any previously hidden announcement"
-    #TODO: hide_current_announcements_path is not triggered, or session is not stored
-    #  do
-    #   @currents.each {|a| page.body.should_not have_content a.message}
-    # end
+    #TODO: session is not stored
+    it "should not show any previously hidden announcement" do
+      @currents.each {|a| page.body.should_not have_content a.message}
+    end
 
     it "should show an announcement updated after hide time" do
       page.body.should have_content @just_updated.message

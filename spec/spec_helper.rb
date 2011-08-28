@@ -3,6 +3,7 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'capybara/rspec'
+require File.dirname(__FILE__) + "/devise_helper" # TODO: any better way? - not sure
 
 include Devise::TestHelpers 
 
@@ -18,6 +19,8 @@ RSpec.configure do |config|
   # config.mock_with :mocha
   # config.mock_with :flexmock
   # config.mock_with :rr
+  config.include DeviseHelper
+
   config.mock_with :rspec
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
