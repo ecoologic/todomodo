@@ -1,7 +1,7 @@
 # Site wide announcements from administration to all users
 class Announcement < ActiveRecord::Base
 
-  validates_presence_of :message
+  validates_presence_of :message, :starts_at, :ends_at
 
   # e.g.: Announcement(1069 13 Aug 23:00-15 Aug 23:00): current announcement number 1
   def to_s
