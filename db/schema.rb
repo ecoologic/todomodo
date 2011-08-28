@@ -14,9 +14,9 @@
 ActiveRecord::Schema.define(:version => 4) do
 
   create_table "announcements", :force => true do |t|
-    t.text     "message"
-    t.datetime "starts_at"
-    t.datetime "ends_at"
+    t.text     "message",    :null => false
+    t.datetime "starts_at",  :null => false
+    t.datetime "ends_at",    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

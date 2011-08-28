@@ -8,8 +8,8 @@ describe "Users" do
 
       # actual login
       visit login_path
-      fill_in 'user[email]', :with => user.email
-      fill_in 'user[password]', :with =>  user.password
+      fill_in 'user[email]'   , :with => user.email
+      fill_in 'user[password]', :with => user.password
       click_button 'Sign in'
 
       # verification

@@ -67,7 +67,7 @@ Favour jquery plugins for your development, run your js in application_layout, N
 
 == Test tools
 guard
-
+Run `rake db:test:prepare` before run the tests
 
 == Heroku
 http://todomodo.heroku.com/

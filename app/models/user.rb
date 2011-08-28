@@ -32,7 +32,7 @@ private # =====================================================================
   # if name is not unique it is replaced with email_prefix and id
   def uniquify_name!
     others_same_name = User.where(:name => self.name).select(:id)
-    others_same_name.delete self
+    others_same_name.all.delete self # without .all the record gets deleted!
     name_is_uniq = self.name.blank? || others_same_name.any?
     self.name = nil unless name_is_uniq
   end
