@@ -1,4 +1,5 @@
 require 'spec_helper'
+include Devise::TestHelpers
 
 describe "CRUD Announcements" do
   describe "GET /announcements" do
@@ -15,7 +16,6 @@ end
 describe "Without announcements in layout" do
   it "should work when there are no current announcements" do
     visit root_path
-    puts ">>>>>>>>>>>>>>> SESSION: #{Capybara::current_session}"
     page.body.should have_content 'Welcome'
   end
 end

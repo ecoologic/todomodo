@@ -14,7 +14,7 @@ describe "Users" do
 
       # verification
       page.body.should include 'Signed in successfully'
-      page.body.should include user.email
+      page.body.should include user.to_s
     end
   end
 end
