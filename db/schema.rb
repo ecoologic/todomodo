@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 4) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name",                   :limit => 64,                  :null => false
+    t.string   "name",                   :limit => 64
     t.text     "about"
     t.text     "note"
     t.string   "avatar"

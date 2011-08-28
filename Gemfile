@@ -1,10 +1,10 @@
 source 'http://rubygems.org'
 
-gem 'devise'
+gem 'devise' # authentification
 
 gem 'rails', '~> 3.1.0.rc'
 
-gem 'settingslogic'
+gem 'settingslogic' # see Setting model and settings.yml
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -13,9 +13,9 @@ gem 'settingslogic'
 gem 'haml'
 gem 'sass-rails', '~> 3.1.0.rc'
 gem 'coffee-script'
-gem 'uglifier'
-gem 'jquery-rails'
-gem 'nokogiri'
+gem 'uglifier'     # compress js in production
+gem 'jquery-rails' # jquery
+gem 'nokogiri'     # xml
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -24,14 +24,19 @@ gem 'nokogiri'
 # gem 'capistrano'
 
 group :development do
+               # https://github.com/ecoologic/todomodo
   gem 'heroku' # http://todomodo.heroku.com/
-  gem 'ruby-debug19', :require => 'ruby-debug' # To use debugger
-  gem 'rails_best_practices' # $ rails_best_practices
+               # Creating freezing-mist-693... done, stack is bamboo-mri-1.9.2
+               # http://freezing-mist-693.heroku.com/
+               # git@heroku.com:freezing-mist-693.git
+
+  gem 'ruby-debug19', :require => 'ruby-debug' # To use debugger with ruby 1.9
+  gem 'rails_best_practices'                   # $ rails_best_practices
   # gem 'what_methods' # http://drnicwilliams.com/2006/10/12/my-irbrc-for-consoleirb/
 end
 
 group :development, :test do
-  gem 'mongrel', '~> 1.2.0.pre2' # rails s mongrel
+  gem 'mongrel', '~> 1.2.0.pre2' # rails s mongrel # v.2 works with rails 3.1
   gem 'mysql'
   gem 'pry' # pry -r ./config/environment / binding.pry
   gem 'rspec-rails'      
@@ -39,12 +44,20 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara'
-  gem 'launchy' # save_and_open_page # will open a browser in the middle of the test
-  gem 'guard-rspec' # $ guard
-  gem 'libnotify'
-  gem 'rb-inotify'
-  gem 'timecop'
+  gem 'capybara'    # simulates the browser, for integration test
+  gem 'launchy'     # save_and_open_page # will open a browser in the middle of the test
+  gem 'guard-rspec' # $ guard runs the spec continuously 
+  gem 'libnotify'   # for guard
+  gem 'rb-inotify'  # for guard
+  gem 'timecop'     # freeze the time
   gem 'turn', :require => false # Pretty printed test output
 end
 
+# to be used by heroku
+# dbname vdsbzjlafn
+# app    todomodo
+group :production do
+  # gem 'therubyracer-heroku', '0.8.1.pre3' # javascript runtime required by heroku... but not working!
+  gem 'therubyracer', '~> 0.9.3.beta1'      # working...
+  gem 'pg'
+end

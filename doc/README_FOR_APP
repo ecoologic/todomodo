@@ -23,6 +23,10 @@ rb, yml, js, css, (html)
 Use gtg to commit your job, use significant comments and group them by task.
 Use different a different branch for each functionality. 
 
+== Authentification
+With devise, the effort is to keep one single model to represent the user (no need for a profile model).
+The validations only occurs on basic Devise known fields, e.g.: name is not mandatory but gets generated automatically if not profided.
+
 == Comments
 Gemfile: put useful comments inline, like commands to run
 Comment every new methos or function, no particular formatting
@@ -63,6 +67,12 @@ Favour jquery plugins for your development, run your js in application_layout, N
 
 == Test tools
 guard
+
+
+== Heroku
+http://todomodo.heroku.com/
+dbname vdsbzjlafn
+app    todomodo
 
 
  

@@ -3,6 +3,8 @@ class UsersController < ApplicationController
 
   respond_to :html, :js, :json
 
+  before_filter :authenticate_user! # see devise
+
   # updated current_user.note
   def update_current_user_note
     @user = current_user

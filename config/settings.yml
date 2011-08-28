@@ -26,6 +26,8 @@ defaults: &defaults
   ecoologic_alt: 'ecoologic'
   ecoologic_link_title: 'View ecoologic on stack exchange!'
 
+
+
 development:
   <<: *defaults
 
