@@ -69,4 +69,10 @@ Favour jquery plugins for your development, run your js in application_layout, N
 guard
 
 
+== Heroku
+http://todomodo.heroku.com/
+dbname vdsbzjlafn
+app    todomodo
+
+
  
