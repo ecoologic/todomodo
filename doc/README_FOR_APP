@@ -37,9 +37,9 @@ Don't use parentesis for methods, but only in simple statements, use parentesis 
 
 == Css and html
 Name all the stylesheets in css.scss and include them in application.css.scss
-Use html5 tags and attributes (focus, placeholders) where applicable, avoid tables
+Use html5 tags and attributes (focus, placeholders) where applicable, avoid tables if it makes sense.
 Links to external sites must open in a different tab.
-
+Use %body#controller_name_controller css filess for resource specific style. 
 
 == Javascript
 Favour jquery plugins for your development, run your js in application_layout, NEVER in templates
