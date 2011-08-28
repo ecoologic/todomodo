@@ -26,9 +26,8 @@ gem 'nokogiri'     # xml
 group :development do
                # https://github.com/ecoologic/todomodo
   gem 'heroku' # http://todomodo.heroku.com/
-               # Creating freezing-mist-693... done, stack is bamboo-mri-1.9.2
-               # http://freezing-mist-693.heroku.com/
-               # git@heroku.com:freezing-mist-693.git
+               # stack is bamboo-mri-1.9.2
+               # git@heroku.com:todomodo.git
 
   gem 'ruby-debug19', :require => 'ruby-debug' # To use debugger with ruby 1.9
   gem 'rails_best_practices'                   # $ rails_best_practices
