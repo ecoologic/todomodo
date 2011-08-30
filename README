@@ -4,9 +4,10 @@ ToDoModo is an app that has narrow and not defined scope. The name comes from To
 
 The reason of it's existence is to learn Ruby on Rails 3.1 (and further?), the most important thing is the __method__, no rush in development, just enjoy the path and make things properly!
 
+For a more technical documentation, on how to work on the app, see [README_FOR_APP](/doc/README_FOR_APP)
+
 Feel free to give any kind of feedback as the most of the tools I'm using makes it available to everybody. But hardly anybody will get in touch with it.
 
 Last thing, I really want to give a big thanks to all the Ruby on Rails communuty! it is such a pleasure to be even a remote part of it!
 
 Erik "ecoologic"
-   
