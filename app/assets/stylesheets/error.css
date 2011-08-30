@@ -1,0 +1,153 @@
+/* TODO: regular css taken from scss, then simply go after all the errors and mixins etc */
+
+
+/* http://meyerweb.com/eric/tools/css/reset/
+ v2.0 | 20110126
+ License: none (public domain)
+ */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em,
+img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u,
+i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table,
+caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details,
+embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby,
+section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 200%;
+  font: inherit;
+  vertical-align: middle;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+a { outline: none; text-decoration: none; }
+
+li { display: inline; }
+
+
+/*************************  screen  ******************************/
+
+/* the layer above reset, to store element customizations,
+ not for classes or ids, except these four very general on top */
+
+.todo { border: red 1px dashed; }
+
+.test{ border: 1px solid red; }
+
+.clear { clear: both; }
+
+.hidden { display: none; }
+
+body {color: white; background: black;}
+
+textarea { height: 5em; }
+
+input, textarea  {
+  width: 15em;
+  font-style: oblique;
+}
+
+label { font-weight: bold; }
+
+strong{ font-weight: bolder; }
+
+em {
+  font-weight: bolder;
+  color: $em-text-color;
+  @include text-shadow($em-shadow-color);
+}
+
+
+/* hn n odd -> center aligned */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+h1, h2 { font-size: 3em; }
+
+h3, h4 { font-size: 2em; }
+
+h5, h6 { font-size: 1.5em; }
+
+h1, h3, h5 {
+  text-align: center;
+  margin: 0.5em 0;
+}
+
+h4, h6 { margin: 0.5em 0 0 0; }
+
+
+
+
+/************************  application_layout  *********************************/
+
+/* this file contains only style for what is in the layout and outside the template
+except fixed */
+
+body { margin: $small-space; }
+
+#announcements {
+  text-align: center;
+  font-style: oblique;
+  color: green;
+}
+
+#flash-messages {
+  text-align: center;
+  height: 1em;
+  margin-bottom: 1em;
+
+  #flash-notice { color: green; }
+  #flash-alert  { color: orange; }
+}
+
+#container {
+  width: 98%;
+  margin: 1em auto;
+  background-color: $container-bg-color;
+  padding: 0.5em;
+  @include rounded-corners(10px, 0);
+  @include shadow;
+}
+
+#footer nav {
+  text-align: center;
+}
+
+#credits nav a {
+  float: right;
+  margin-left: 1em;
+}
+
+
+
+
+
+
+
+
+
