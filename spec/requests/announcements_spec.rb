@@ -26,10 +26,10 @@ describe "Announcements in layout" do
     @currents = []
     @futures  = []
 
-    4.times do
-      @pasts    << Factory(:past_announcement)
-      @currents << Factory(:current_announcement)
-      @futures  << Factory(:future_announcement)
+    TIMES.times do |n|
+      @pasts    << Factory(:past_announcement   , :message => "past announcement #{n}")
+      @currents << Factory(:current_announcement, :message => "current announcement #{n}")
+      @futures  << Factory(:future_announcement , :message => "future announcement #{n}")
     end
 
     @all = @pasts + @currents + @futures
@@ -65,19 +65,23 @@ describe "Announcements in layout" do
 
   end
 
+
   describe "hide pressed" do
 
     before(:each) do
       get hide_current_announcements_path, :format => :js
-      @just_updated = @currents.delete @currents.first
+      @just_updated = @currents.first
       @just_updated.update_attribute(:message, 'Just updated announcement')
-      @just_created = Factory(:current_announcement, :message => 'Just created announcement')
+      @just_created = Factory(:current_announcement,
+                              :message => 'Just created announcement')
       visit root_path
     end
 
-    #TODO: session is not stored
     it "should not show any previously hidden announcement" do
-      @currents.each {|a| page.body.should_not have_content a.message}
+      @currents.each do |a|
+        puts "#{a.message}: start/end #{a.starts_at.class.to_s} #{a.starts_at} #{Time.now} #{a.ends_at} || #{@request.session.to_s}"
+        page.body.should_not have_content a.message unless a == @just_updated
+      end
     end
 
     it "should show an announcement updated after hide time" do

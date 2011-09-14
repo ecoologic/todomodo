@@ -28,12 +28,11 @@ describe AnnouncementsController do
 
   describe 'GET hide_current' do 
 
-    it 'should update announcement_hide_time in session'
-    #  do
-    #   Capybara::current_session[:announcements_hide_time] = nil
-    #   get 'hide_current', :format => :js
-    #   Capybara::current_session[:announcements_hide_time].class.should be Time # TODO: implement timecop gem
-    # end
+    it 'should update announcement_hide_time in session' do
+      @request.session[:announcements_hide_time] = nil
+      get 'hide_current', :format => :js
+      @request.session[:announcements_hide_time].class.should be Time # TODO: implement timecop gem
+    end
     
   end
 

@@ -2,23 +2,26 @@
 
 # Date ------------------------------------------------------------------------
 class Date
-  # Date.today.to_s :short
-  DATE_FORMATS[:default] = '%a %d/%m/%Y'
+  # e.g.: Date.today.to_s :short
+  DATE_FORMATS[:default]    = '%d/%m/%Y'
   DATE_FORMATS[:datepicker] = '%d/%m/%Y'
-  DATE_FORMATS[:dmY] = '%d/%m/%Y'
+  DATE_FORMATS[:short]      = '%d/%m/%y'
+  DATE_FORMATS[:long]       = '%a, %d %B %Y'
+
   ABBR_DAYNAMES_TO_SYM = [:sun, :mon, :tue, :wed, :thu, :fri, :sat]
   DAYNAMES_TO_SYM = [:sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday]
 end
 
 # Time ------------------------------------------------------------------------
 class Time
-  # Time.now.to_s :short_complete
-  DATE_FORMATS[:default] = '%H:%M:%S'
-  DATE_FORMATS[:HMSdmY] = '%H:%M:S - %d/%m/%Y'
-  DATE_FORMATS[:HMS] = '%H:%M:%S'
+  # e.g.: Time.now.to_s :short
+  DATE_FORMATS[:default]  = '%H:%M:%S'
+  DATE_FORMATS[:datetime] = '%d/%m/%Y - %H:%M:%S'
+  DATE_FORMATS[:short]    = '%H:%M'
+  DATE_FORMATS[:long]     = '%a, %d %B %Y - %H:%M:%S'
 end
 
-# String
+# String ----------------------------------------------------------------------
 class String
 
   # e.g.: 'the_Book_is_ON_the_tABLe'.capitalize_each_word '_' => "The Book Is On The Table" 
@@ -30,7 +33,8 @@ end
 
 # Array -----------------------------------------------------------------------
 class Array
-  
+  # Note: Hash[ [[:a, 1], [:b, 2]] ] => {:a => 1, :b => 2}
+
   # use to sort two items depending on the list order (of symbols)
   # see sort_with
   def compare_a_b(a, b, list)
@@ -50,7 +54,7 @@ end
 
 # Hash ------------------------------------------------------------------------
 class Hash
-  
+
   # delete accepting a list
   # TODO: no super delete???
   # def delete(*args)
@@ -104,6 +108,7 @@ class Hash
   
   # returned an hash with stringified keys and string numbers converted
   # e.g.: {'a' => {'b' => '1'}} -> {:a => {:b => 1}}
+  # TODO: true/false
   def normalized
     result = {}
     self.each do |k, v|
