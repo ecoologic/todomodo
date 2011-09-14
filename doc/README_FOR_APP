@@ -1,7 +1,7 @@
 Use this README file to introduce your application and point to useful places in the API for learning more.
 Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
 
-== Architecture
+## Architecture
 This file is for development doc, /README is for users documentation.
 please update CHANGELOG to state any new functionality or amend on existing functionality.
 
@@ -23,53 +23,55 @@ rb, yml, js, css, (html)
 Use gtg to commit your job, use significant comments and group them by task.
 Use different a different branch for each functionality. 
 
-== Authentification
+## Authentification
 With devise, the effort is to keep one single model to represent the user (no need for a profile model).
 The validations only occurs on basic Devise known fields, e.g.: name is not mandatory but gets generated automatically if not profided.
 
-== Comments
+## Comments
 Gemfile: put useful comments inline, like commands to run
 Comment every new methos or function, no particular formatting
 Don't forget to state a meaningful example with e.g.:
 
-== Code conventions
+## Code conventions
 Composed words can be considered one, e.g.: datepicker and not date_picker
 Use correct conventions for each languate, e.g.: #log-links for css, but the ruby fucntion has to be log_links
 
 Don't use parentesis for methods, but only in simple statements, use parentesis in doubt.
 
 
-== Css and html
+## Css and html
 Name all the stylesheets in css.scss and include them in application.css.scss
 Use html5 tags and attributes (focus, placeholders) where applicable, avoid tables if it makes sense.
 Links to external sites must open in a different tab.
-Use %body#controller_name_controller css filess for resource specific style. 
+Use `%body#controller_name_controller` css filess for resource specific style. 
 
-== Javascript
+## Javascript
 Favour jquery plugins for your development, run your js in application_layout, NEVER in templates
 
 
-== Doc
+## Doc
 - rails_best_practices
 - rake app:doc
+- [use markdown](http://nv.github.com/github-live-preview/examples/commit.html)
 
-== Development tools
+
+## Development tools
 
 - pry: debug the app with pry.debug, cosole with pry -r ./config/environment
 - TODO: followed by a quick description
 - logger.warn 'TODO: this (fucntion description) has been MOCKED UP'
 
-= Cloud TODO
+# Cloud `TODO`
 - git for the repo
 - git issues for functionality proposals
 - lighthouse for small bugs
 - heroku for live
 
-== Test tools
+## Test tools
 guard
 Run `rake db:test:prepare` before run the tests
 
-== Heroku
+## Heroku
 http://todomodo.heroku.com/
 dbname vdsbzjlafn
 app    todomodo

@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'devise' # authentification
 
-gem 'rails', '~> 3.1.0.rc'
+gem 'rails'
 
 gem 'settingslogic' # see Setting model and settings.yml
 
@@ -11,7 +11,7 @@ gem 'settingslogic' # see Setting model and settings.yml
 
 # Asset template engines
 gem 'haml'
-gem 'sass-rails', '~> 3.1.0.rc'
+gem 'sass-rails'
 gem 'coffee-script'
 gem 'uglifier'     # compress js in production
 gem 'jquery-rails' # jquery
@@ -35,7 +35,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'mongrel', '~> 1.2.0.pre2' # rails s mongrel # v.2 works with rails 3.1
+  gem 'mongrel', '>= 1.2.0.pre2' # rails s mongrel # v1.2 works with rails 3.1
   gem 'mysql'
   gem 'pry' # pry -r ./config/environment / binding.pry
   gem 'rspec-rails'      
@@ -57,6 +57,6 @@ end
 # app    todomodo
 group :production do
   # gem 'therubyracer-heroku', '0.8.1.pre3' # javascript runtime required by heroku... but not working!
-  gem 'therubyracer', '~> 0.9.3.beta1'      # working...
+  gem 'therubyracer', '>= 0.9.3.beta1'      # working...
   gem 'pg'
 end
