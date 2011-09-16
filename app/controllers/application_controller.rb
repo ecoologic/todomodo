@@ -49,8 +49,8 @@ private # =====================================================================
   def set_has_just_auth
     if user_signed_in?
       case session[:has_just_auth]
-      when nil  then session[:has_just_auth] = true
-      when true then session[:has_just_auth] = false
+        when nil  then session[:has_just_auth] = true
+        when true then session[:has_just_auth] = false
       end
     else
       session[:has_just_auth] = nil

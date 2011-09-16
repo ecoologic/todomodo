@@ -56,7 +56,7 @@ end
 # dbname vdsbzjlafn
 # app    todomodo
 group :production do
-  # gem 'therubyracer-heroku', '0.8.1.pre3' # javascript runtime required by heroku... but not working!
+  # gem 'therubyracer-heroku', '>= 0.8.1.pre3' # javascript runtime required by heroku... but not working!
   gem 'therubyracer', '>= 0.9.3.beta1'      # working...
   gem 'pg'
 end

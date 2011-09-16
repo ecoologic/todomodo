@@ -1,5 +1,6 @@
--# .any? would raise an error for those actions for which I don't reload current_announcements
+-# if @ca.any? would raise an error for those actions for which I don't reload current_announcements
 - unless @current_announcements.blank?
-  -# the following redundancy depends on devise that prepends the path and the convention doesn't work anymore
+  -# the following redundancy on announcements depends on devise
+  -# which prepends the path and the convention doesn't work anymore
   = render :partial => '/announcements/announcement', :collection => @current_announcements
-  = link_to 'Hide', hide_current_announcements_path, :remote => true
+  = link_to 'hide', hide_current_announcements_path, :remote => true
