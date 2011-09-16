@@ -1,18 +1,13 @@
 # this file is for global variables and app function only
 
 # global variables
-window.HIDE_INFO_DELAY = 5000 #ms
-window.SHORT_DELAY     = 2000 #ms
-window.DATE_FORMAT     = 'dd/mm/yy'
+window.HIDE_INFO_DELAY = 5000       #ms
+window.SHORT_DELAY     = 2000       #ms
+window.DATE_FORMAT     = 'dd/mm/yy' # yy is already 4 digs.
 
 
 # app functions
 window.app =
-  # TODO:
-  # to avoid ie. errors (but I'm not going to mess my app more than this...)
-  # log: (args) ->
-  #   try console.log args
-  #   catch
 
   # shows the flash messages
   # template == nil ? just go for the effects
@@ -28,3 +23,13 @@ window.app =
                              delay(HIDE_INFO_DELAY).
                              slideUp()
     $('#flash-messages')
+    
+  assignFunctions: ->
+
+    users.currentUserNote()
+
+  # TODO:
+  # to avoid ie. errors (but I'm not going to mess my app more than this...)
+  # log: (args) ->
+  #   try console.log args
+  #   catch
