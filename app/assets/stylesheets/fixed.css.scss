@@ -4,15 +4,16 @@
 
 #fixed {
 
-  #log-links {
+  nav#control-panel {
     position: fixed;
     right: $small-space;
     top: $small-space;
-  
-    a em {
-      float: right;
-      margin-left: 1em;
+
+    a, em {
+      display: block;
+      text-align: right;
     }
+
   }
   
 }

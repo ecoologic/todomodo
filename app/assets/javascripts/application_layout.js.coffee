@@ -2,13 +2,15 @@
 
 $ initPage = () ->
 
-  $('input:first').focus()
+  app.assignFunctions();
 
   app.showFlashMessages null
+
+  $('input:first').focus()
   
   $("[rel^='prettyPhoto']").prettyPhoto()
 
-  # app.initDatepickers '.datepicker'
   $('.datepicker').appDatepicker()
 
   $('.blink-once').appBlinkOnce()
+
