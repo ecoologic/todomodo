@@ -1,9 +1,10 @@
 # this file is for global variables and app function only
 
 # global variables
-window.HIDE_INFO_DELAY = 5000       #ms
-window.SHORT_DELAY     = 2000       #ms
-window.DATE_FORMAT     = 'dd/mm/yy' # yy is already 4 digs.
+window.HIDE_INFO_TIME = 5000       #ms
+window.SHORT_TIME     = 2000       #ms
+window.BLINK_TIME     = 500        #ms
+window.DATE_FORMAT    = 'dd/mm/yy' # yy is already 4 digs.
 
 
 # app functions
@@ -20,9 +21,9 @@ window.app =
     # show effects
     $('#flash-messages div').hide().
                              slideDown().
-                             delay(HIDE_INFO_DELAY).
+                             delay(HIDE_INFO_TIME).
                              slideUp()
-    $('#flash-messages')
+    true
     
   assignFunctions: ->
 

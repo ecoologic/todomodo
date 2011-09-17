@@ -13,9 +13,9 @@ $.fn.extend
   # e.g.: app.blinkOnce('.blink-once');
   appBlinkOnce: ->
     this.hide().
-         delay(SHORT_DELAY).
+         delay(SHORT_TIME).
          slideDown().
-         effect('bounce', {}, 500)
+         effect('bounce', {}, 'slow')
 
 
 
