@@ -36,7 +36,6 @@ describe "Announcements in layout" do
   end
 
   describe "never been hidden" do
-    
     before(:each) do
       visit root_path
     end
@@ -53,8 +52,8 @@ describe "Announcements in layout" do
       @futures.each {|a| page.body.should_not have_content a.message }
     end
     
-    it "should hide all announcements when hide link is clicked"
-    # , :js => true do
+    it "should hide all announcements when hide link is clicked (js)"
+    # TODO:, :js => true do
     #   click_link 'hide'
     #   @all.each {|a| current_path.should_not have_content a.message}
     # end
@@ -63,14 +62,15 @@ describe "Announcements in layout" do
 
 
   describe "hide pressed" do
-
     before(:each) do
       visit root_path
       click_link 'hide'
+      sleep DELAY
       @just_updated = @currents.first
       @just_updated.update_attribute(:message, 'Just updated announcement')
       @just_created = Factory(:current_announcement,
                               :message => 'Just created announcement')
+      visit root_path
     end
 
     it "should not show any previously hidden announcement" do
