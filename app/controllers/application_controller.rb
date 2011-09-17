@@ -10,24 +10,14 @@ class ApplicationController < ActionController::Base
                 # a little optimization
                 :except => [:create, :update, :destroy]
 
-#   rescue_from Exception, :with => :handle_error #, :if => Rails.env.production?
-
   # welcome page
   def show
   end
 
-  # show a general, user friendly error page
-#   def error
-#     debugger
-#     @current_announcements = []
-#     logger.debug '>>>>>>>>>>>> error action called'
-#     respond_with :html, :layout => 'error'
-#   end
-
   # override default devise landing page after login
   # http://rubydoc.info/gems/devise/1.1.2/Devise/Controllers/Helpers
   def after_sign_in_path_for(resource_or_scope)
-    root_path # redundant if you want to go to root_path
+    root_path # redundant if you want to go to root_path as that's the default
   end
 
 protected # ===================================================================
