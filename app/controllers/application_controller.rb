@@ -34,7 +34,6 @@ protected # ===================================================================
   # load announcements to be shown
   def get_current_announcements
     @current_announcements = Announcement.currents session[:announcements_hide_time]
-    puts "get_current_announcements size: #{@current_announcements.size} Time: #{session[:announcements_hide_time]}"
   end
 
 #   def handle_error(exception)

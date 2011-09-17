@@ -28,7 +28,7 @@ class String
   def capitalize_each_word(separator = ' ')
     self.split(separator).map(&:capitalize).join(' ')
   end
-  
+
 end
 
 # Array -----------------------------------------------------------------------

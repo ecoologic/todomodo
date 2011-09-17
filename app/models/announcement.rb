@@ -12,7 +12,6 @@ class Announcement < ActiveRecord::Base
   def self.currents(hide_time = nil)
     announcements = self.where ['now() BETWEEN starts_at AND ends_at']
     announcements = announcements.where ['updated_at > ?', hide_time] if hide_time
-puts "currents: #{announcements.map(&:to_s)}"
     announcements
   end
 

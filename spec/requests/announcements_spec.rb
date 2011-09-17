@@ -20,9 +20,8 @@ describe "Without announcements in layout" do
 end
 
 
-describe "Announcements in layout", :js => true do
+describe "Announcements in layout" do
   before(:each) do
-    puts "announcements in layout vvvvvvvvvvvvvvvvvvvvvvvvvvv"
     @pasts    = []
     @currents = []
     @futures  = []
@@ -34,7 +33,6 @@ describe "Announcements in layout", :js => true do
     end
 
     @all = @pasts + @currents + @futures
-    puts "announcements in layout ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
   end
 
   describe "never been hidden" do
@@ -56,46 +54,37 @@ describe "Announcements in layout", :js => true do
     end
     
     it "should hide all announcements when hide link is clicked"
-    # , :js => true TODO: hide not found, relates to :js => true
-    #  do
-    #   visit root_path
-    #   click_link 'Hide'
-    #   page.body.should have_content 'Welcome'
-    #   @all.each {|a| page.body.should_not have_content a.message}
+    # , :js => true do
+    #   click_link 'hide'
+    #   @all.each {|a| current_path.should_not have_content a.message}
     # end
 
   end
 
 
-  describe "hide pressed", :js => true do
+  describe "hide pressed" do
 
     before(:each) do
-      puts "hide pressed vvvvvvvvvvvvvvvvvvvvvvvvvvvv"
       visit root_path
-      # get hide_current_announcements_path, :format => :js
       click_link 'hide'
       @just_updated = @currents.first
       @just_updated.update_attribute(:message, 'Just updated announcement')
       @just_created = Factory(:current_announcement,
                               :message => 'Just created announcement')
-      puts "hide pressed ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
     end
 
     it "should not show any previously hidden announcement" do
-      puts "Announcements: #{Announcement.currents(@request.session[:announcements_hide_time]).map(&:to_s)}"
       @currents.each do |a|
-        puts "should vvvvvvvvvvv #{a.message}: start #{a.starts_at.to_s :datetime} now #{Time.now.to_s :datetime} end #{a.ends_at.to_s :datetime} session: #{@request.session[:announcements_hide_time].to_s :datetime}"
-        current_path.should_not have_content a.message unless a == @just_updated
-        puts "should ^^^^^^^^^^^^^^"
+        page.body.should_not have_content a.message unless a == @just_updated
       end
     end
 
     it "should show an announcement updated after hide time" do
-      current_path.should have_content @just_updated.message
+      page.body.should have_content @just_updated.message
     end
     
     it "should show an announcement created after hide time" do
-      current_path.should have_content @just_created.message
+      page.body.should have_content @just_created.message
     end
   end
 
