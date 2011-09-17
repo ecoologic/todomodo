@@ -12,5 +12,5 @@ $ initPage = () ->
 
   $('.datepicker').appDatepicker()
 
-  $('.blink-once').appBlinkOnce()
+  $('.blink_once').appBlinkOnce()
 

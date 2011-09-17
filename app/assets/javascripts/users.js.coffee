@@ -7,11 +7,11 @@ window.users =
   currentUserNote: -> 
 
     # toggle the form (ubject)
-    $('#toggle-current-user-note').click (e) ->
-      $('#current-user-note').slideToggle()
+    $('#toggle_current_user_note').click (e) ->
+      $('#current_user_note').slideToggle()
     
     # toggle the link title (subject)
-    $('#toggle-current-user-note').toggle(
+    $('#toggle_current_user_note').toggle(
       (e) -> $(this).html 'show note'
       (e) -> $(this).html 'hide note'
     )

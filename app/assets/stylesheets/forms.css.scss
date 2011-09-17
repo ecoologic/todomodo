@@ -1,12 +1,13 @@
-// this file is for style forms only
+// this file is for styling forms only
 
+////////////////////////// error messages
 
-.field_with_errors {
-  padding: 2px;
+.field_with_error {
+  padding: 1px;
   background-color: red;
   display: table; }
 
-#error_explanation {
+.error_explanation {
   @include rounded-corners(2px, 2px);
   text-align: center;
   margin: 0 auto;
@@ -16,6 +17,7 @@
   padding: 0.5em;
   padding-bottom: 0;
   background-color: #f0f0f0;
+
   h2 {
     font-weight: bold;
     padding: 5px 5px 5px 15px;
@@ -24,6 +26,7 @@
     margin-bottom: 0px;
     background-color: #c00;
     color: #fff; }
+
   ul li {
     font-size: 12px;
     list-style: square; } }

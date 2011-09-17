@@ -3,20 +3,25 @@
 
 body { margin: $small-space; }
 
+#current_user_note {
+  textarea { width: 99.6%; }
+  input { float: right; }
+}
+
 #announcements {
   text-align: center;
   font-style: oblique;
   color: green;
 }
 
-#flash-messages {
+#flash_messages {
   text-align: center;
   height: 1em;
   margin-bottom: 1em;
 
-  #flash-notice { color: green; }
-  #flash-alert  { color: orange; }
-  #flash-error  { color: red; }
+  #flash_notice { color: green; }
+  #flash_alert  { color: orange; }
+  #flash_error  { color: red; }
 }
 
 #container {

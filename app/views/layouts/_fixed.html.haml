@@ -1,12 +1,12 @@
 -# tags in this partial are all ment to be fix-positioned in the page
 
-%nav#control-panel
+%nav#control_panel
 
   - if current_user
-    %div{:class => session[:has_just_auth] ? 'blink-once' : nil}
+    %div{:class => session[:has_just_auth] ? 'blink_once' : nil}
       %em= current_user
     = link_to 'logout', logout_path
-    = link_to 'hide note', '#', :id => 'toggle-current-user-note'
+    = link_to 'hide note', '#', :id => 'toggle_current_user_note'
     = link_to 'home', root_path unless request.fullpath == root_path
   - else
     = link_to 'login',  login_path

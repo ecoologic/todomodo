@@ -16,10 +16,10 @@ window.app =
   # e.g.: app.show_flash_messages('<%= flash_messages %>');
   showFlashMessages: (template) ->
     
-    $('#flash-messages').html template if template != null
+    $('#flash_messages').html template if template != null
   
     # show effects
-    $('#flash-messages div').hide().
+    $('#flash_messages div').hide().
                              slideDown().
                              delay(HIDE_INFO_TIME).
                              slideUp()
