@@ -24,8 +24,8 @@ module ApplicationHelper
   end
 
   # self explaining
-  def clear_tag
-    content_tag :span, nil, :class => :clear
+  def clear_tag(tag = :span)
+    content_tag tag, nil, :class => :clear
   end
 
   # a simple <br/>

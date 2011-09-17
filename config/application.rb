@@ -21,10 +21,9 @@ module Todomodo
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password, :password_confirmation]
 
-    # wrap field with errors in a span tag instead of a div
-    # railscasts#39
+    # wrap field with errors in a span tag instead of a div (railscasts#39)
     ActionView::Base.field_error_proc = Proc.new do |html_tag, instance_tag|
-      "<span class='field_error'>#{html_tag}</span>"
+      "<span class='field_with_error'>#{html_tag}</span>"
     end
 
     # original ================================================================
