@@ -15,7 +15,12 @@ class SandboxesController < ApplicationController
   # stop execution
   def debug
     binding.pry
-    redirect_to :back
+
+    if request.env['HTTP_REFERER'].present?
+      redirect_to :back
+    else
+      redirect_to root_path
+    end
   end
 
   # clear the session
