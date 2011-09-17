@@ -5,11 +5,12 @@ class Date
   # e.g.: Date.today.to_s :short
   DATE_FORMATS[:default]    = '%d/%m/%Y'
   DATE_FORMATS[:datepicker] = '%d/%m/%Y'
+  DATE_FORMATS[:datetime]   = '%d/%m/%Y - %H:%M:%S'
   DATE_FORMATS[:short]      = '%d/%m/%y'
   DATE_FORMATS[:long]       = '%a, %d %B %Y'
 
-  ABBR_DAYNAMES_TO_SYM = [:sun, :mon, :tue, :wed, :thu, :fri, :sat]
-  DAYNAMES_TO_SYM = [:sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday]
+  ABBR_DAYNAMES_TO_SYM = Date::ABBR_DAYNAMES.map(&:downcase).map(&:to_sym)
+  DAYNAMES_TO_SYM = Date::DAYNAMES.map(&:downcase).map(&:to_sym)
 end
 
 # Time ------------------------------------------------------------------------
@@ -19,16 +20,6 @@ class Time
   DATE_FORMATS[:datetime] = '%d/%m/%Y - %H:%M:%S'
   DATE_FORMATS[:short]    = '%H:%M'
   DATE_FORMATS[:long]     = '%a, %d %B %Y - %H:%M:%S'
-end
-
-# String ----------------------------------------------------------------------
-class String
-
-  # e.g.: 'the_Book_is_ON_the_tABLe'.capitalize_each_word '_' => "The Book Is On The Table" 
-  def capitalize_each_word(separator = ' ')
-    self.split(separator).map(&:capitalize).join(' ')
-  end
-
 end
 
 # Array -----------------------------------------------------------------------
@@ -168,7 +159,6 @@ class ActiveSupport::BufferedLogger
     message
   end    
 end
-
 
 # returns a list of useful method for the Class passed
 # Useful in debugger to a meaningful list of methods
