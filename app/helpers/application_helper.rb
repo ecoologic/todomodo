@@ -33,7 +33,6 @@ module ApplicationHelper
     content_tag :br
   end
 
-
   ######################### contents
 
   # shown in title header and page content
@@ -41,20 +40,9 @@ module ApplicationHelper
     content_for(:title_content) {title}
   end
 
-  # include js in the header from a template or partial by calling
-  # js_content 'file_name', 'other_file_name'
-  def js_content(*args)
-    content_for(:js_content) {javascript_include_tag args}
-  end
-
-  # include css in the header from a template or partial by calling
-  # css_content 'file_name', 'other_file_name'
-  def css_content(*args)
-    content_for(:css_content) {stylesheet_link_tag args}
-  end
-
   # actions views can determinate how to populate the footer
   def footer_nav_content(*args)
+    # TODO: add link tag in here... not as easy! see railscast
     content_for(:footer_nav_content) {yield}
   end
 

@@ -27,12 +27,6 @@ protected # ===================================================================
     @current_announcements = Announcement.currents session[:announcements_hide_time]
   end
 
-#   def handle_error(exception)
-#     logger.fatal "#{exception}"
-#     logger.debug '>>>>>>> handle_error'
-#     redirect_to error_path
-#   end
-
 private # =====================================================================
 
   # store in session if login has just happen

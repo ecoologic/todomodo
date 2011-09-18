@@ -8,6 +8,7 @@ class AnnouncementsController < ApplicationController
   # GET /announcements/hide_current (hide_current_announcements_path)
   def hide_current
     session[:announcements_hide_time] = Time.now
+
     respond_to do |format|
       format.html { redirect_to :back }
       format.js
