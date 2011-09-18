@@ -192,7 +192,7 @@
             
             <div class="method-source-code" id="create-source">
 <pre>
-<span class="ruby-comment"># File app/controllers/announcements_controller.rb, line 57</span>
+<span class="ruby-comment"># File app/controllers/announcements_controller.rb, line 58</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-ivar">@announcement</span> = <span class="ruby-constant">Announcement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:announcement</span>])
 
@@ -236,7 +236,7 @@
             
             <div class="method-source-code" id="destroy-source">
 <pre>
-<span class="ruby-comment"># File app/controllers/announcements_controller.rb, line 90</span>
+<span class="ruby-comment"># File app/controllers/announcements_controller.rb, line 91</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
   <span class="ruby-ivar">@announcement</span> = <span class="ruby-constant">Announcement</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@announcement</span>.<span class="ruby-identifier">destroy</span>
@@ -275,7 +275,7 @@
             
             <div class="method-source-code" id="edit-source">
 <pre>
-<span class="ruby-comment"># File app/controllers/announcements_controller.rb, line 51</span>
+<span class="ruby-comment"># File app/controllers/announcements_controller.rb, line 52</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
   <span class="ruby-ivar">@announcement</span> = <span class="ruby-constant">Announcement</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 <span class="ruby-keyword">end</span></pre>
@@ -312,6 +312,7 @@ action GET /announcements/hide_current (hide_current_announcements_path)</p>
 <span class="ruby-comment"># File app/controllers/announcements_controller.rb, line 9</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">hide_current</span>
   <span class="ruby-identifier">session</span>[<span class="ruby-value">:announcements_hide_time</span>] = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:back</span> }
     <span class="ruby-identifier">format</span>.<span class="ruby-identifier">js</span>
@@ -346,7 +347,7 @@ action GET /announcements/hide_current (hide_current_announcements_path)</p>
             
             <div class="method-source-code" id="index-source">
 <pre>
-<span class="ruby-comment"># File app/controllers/announcements_controller.rb, line 19</span>
+<span class="ruby-comment"># File app/controllers/announcements_controller.rb, line 20</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
   <span class="ruby-ivar">@announcements</span> = <span class="ruby-constant">Announcement</span>.<span class="ruby-identifier">all</span>
 
@@ -384,7 +385,7 @@ action GET /announcements/hide_current (hide_current_announcements_path)</p>
             
             <div class="method-source-code" id="new-source">
 <pre>
-<span class="ruby-comment"># File app/controllers/announcements_controller.rb, line 41</span>
+<span class="ruby-comment"># File app/controllers/announcements_controller.rb, line 42</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
   <span class="ruby-ivar">@announcement</span> = <span class="ruby-constant">Announcement</span>.<span class="ruby-identifier">new</span>
 
@@ -422,7 +423,7 @@ action GET /announcements/hide_current (hide_current_announcements_path)</p>
             
             <div class="method-source-code" id="show-source">
 <pre>
-<span class="ruby-comment"># File app/controllers/announcements_controller.rb, line 30</span>
+<span class="ruby-comment"># File app/controllers/announcements_controller.rb, line 31</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
   <span class="ruby-ivar">@announcement</span> = <span class="ruby-constant">Announcement</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 
@@ -460,7 +461,7 @@ action GET /announcements/hide_current (hide_current_announcements_path)</p>
             
             <div class="method-source-code" id="update-source">
 <pre>
-<span class="ruby-comment"># File app/controllers/announcements_controller.rb, line 74</span>
+<span class="ruby-comment"># File app/controllers/announcements_controller.rb, line 75</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
   <span class="ruby-ivar">@announcement</span> = <span class="ruby-constant">Announcement</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 
