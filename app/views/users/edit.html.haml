@@ -1,0 +1,15 @@
+- title_content "edit #{@user}"
+
+= form_for @user do |f|
+
+  .field
+    = f.label      :name, 'name'
+    = f.text_field :name
+
+  .field
+    = f.label     :about, 'about'
+    = f.text_area :about
+    
+  .action
+    = f.submit 'ok'
+
