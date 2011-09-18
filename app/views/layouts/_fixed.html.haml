@@ -3,10 +3,10 @@
 %nav#control_panel
 
   - if current_user
-    %div{:class => session[:has_just_auth] ? 'blink_once' : nil}
+    = link_to current_user, {:class => session[:has_just_auth] ? 'blink_once' : nil}, {:remote => true} do
       %em= current_user
     = link_to 'logout', logout_path
-    = link_to 'hide note', '#', :id => 'toggle_current_user_note'
+    = link_to_toggle_current_user_note
     = link_to 'home', root_path unless request.fullpath == root_path
   - else
     = link_to 'login',  login_path

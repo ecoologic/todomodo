@@ -5,6 +5,7 @@ class AddFieldsToUsers < ActiveRecord::Migration
       t.text :about
       t.text :note
       t.string :avatar
+      t.boolean :is_admin, :default => false, :null => false
       
       t.index :name
     end

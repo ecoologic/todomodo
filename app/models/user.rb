@@ -17,6 +17,11 @@ class User < ActiveRecord::Base
     self.name.presence || self.default_name
   end
 
+  # friendly url like /users/2-erik
+  def to_param
+    "#{self.id}-#{self}"
+  end
+
   # the part before the at
   def email_prefix
     self.email.split('@').first

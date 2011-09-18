@@ -1,29 +1,37 @@
 Todomodo::Application.routes.draw do
 
+  # announcements =============================================================
+
   resources :announcements do
     collection do
       get 'hide_current'
     end
   end
 
+  # users =====================================================================
+
   devise_for :user
 
   devise_scope :user do
-    get 'login', :to =>  'devise/sessions#new'
+    get 'login' , :to =>  'devise/sessions#new'
     get 'logout', :to => 'devise/sessions#destroy'
     get 'signup', :to => 'devise/registrations#new'
   end
 
   resources :users
   put '/update_current_user_note', :to => 'users#update_current_user_note'
+  get '/toggle_current_user_note', :to => 'users#toggle_current_user_note'
 
 
-  get '/test_error', :to => 'sandboxes#test_error'
-  get '/test', :to => 'sandboxes#test' # TODO: use before_filter :require_development_environment or something
-  get '/debug', :to => 'sandboxes#debug'
+  # sandbox ===================================================================
+
+  get '/test_error'   , :to => 'sandboxes#test_error'
+  get '/test'         , :to => 'sandboxes#test'
+  get '/debug'        , :to => 'sandboxes#debug'
   get '/clear_session', :to => 'sandboxes#clear_session'
 
-  get '/error', :to => 'application#error', :as => 'error'
+  # application ===============================================================
+
   root :to => 'application#show'
 
   # original ==================================================================

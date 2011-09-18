@@ -1,19 +1,22 @@
 # Place all the behaviours and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 
+# user functions
 window.users = 
 
-  # TODO: test with jasmine
-  currentUserNote: -> 
+  # behaviour of showing / hiding the current user note
+  # show: boolean
+  toggleCurrentUserNote: (show) -> 
 
-    # toggle the form (ubject)
-    $('#toggle_current_user_note').click (e) ->
-      $('#current_user_note').slideToggle()
-    
-    # toggle the link title (subject)
-    $('#toggle_current_user_note').toggle(
-      (e) -> $(this).html 'show note'
-      (e) -> $(this).html 'hide note'
-    )
+    $form = $('#current_user_note')
+    $link = $('#toggle_current_user_note')
+
+    if show
+      $form.slideDown()
+      $link.html 'hide note'
+    else
+      $form.slideUp()
+      $link.html 'show note'
+
 
     true

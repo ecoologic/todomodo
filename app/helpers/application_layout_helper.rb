@@ -1,6 +1,14 @@
 # only for helpers that logically belongs to the layout and not to templates
 module ApplicationLayoutHelper
 
+  # decides the text of the link depending on session
+  def link_to_toggle_current_user_note
+    text = !!session[:show_current_user_note] ? 'hide note' : 'show note'
+    url  = toggle_current_user_note_path
+    opts = {:id => 'toggle_current_user_note', :remote => true}
+    link_to text, url, opts
+  end
+
   # link to ecoologic in stack exchange
   def link_to_ecoologic
     image = image_tag(Setting.ecoologic_link_image_url,
