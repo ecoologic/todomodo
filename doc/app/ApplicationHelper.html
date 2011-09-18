@@ -132,9 +132,9 @@
         
           <li><a href="./ApplicationLayoutHelper.html">ApplicationLayoutHelper</a></li>
         
-          <li><a href="./Setting.html">Setting</a></li>
+          <li><a href="./SandboxesController.html">SandboxesController</a></li>
         
-          <li><a href="./TestsController.html">TestsController</a></li>
+          <li><a href="./Setting.html">Setting</a></li>
         
           <li><a href="./User.html">User</a></li>
         
@@ -218,7 +218,7 @@ application_layout_helper for functions that make sense only in the layout
           
           <div class="method-heading">
             <span class="method-name">clear_tag</span><span
-              class="method-args">()</span>
+              class="method-args">(tag = :span)</span>
             <span class="method-click-advice">click to toggle source</span>
           </div>
           
@@ -232,8 +232,8 @@ application_layout_helper for functions that make sense only in the layout
             <div class="method-source-code" id="clear_tag-source">
 <pre>
 <span class="ruby-comment"># File app/helpers/application_helper.rb, line 27</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear_tag</span>
-  <span class="ruby-identifier">content_tag</span> <span class="ruby-value">:span</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-value">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:clear</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear_tag</span>(<span class="ruby-identifier">tag</span> = <span class="ruby-value">:span</span>)
+  <span class="ruby-identifier">content_tag</span> <span class="ruby-identifier">tag</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-value">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:clear</span>
 <span class="ruby-keyword">end</span></pre>
             </div><!-- clear_tag-source -->
             

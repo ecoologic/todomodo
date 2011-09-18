@@ -116,9 +116,9 @@
         
           <li><a href="./ApplicationLayoutHelper.html">ApplicationLayoutHelper</a></li>
         
-          <li><a href="./Setting.html">Setting</a></li>
+          <li><a href="./SandboxesController.html">SandboxesController</a></li>
         
-          <li><a href="./TestsController.html">TestsController</a></li>
+          <li><a href="./Setting.html">Setting</a></li>
         
           <li><a href="./User.html">User</a></li>
         
@@ -180,11 +180,10 @@
             
             <div class="method-source-code" id="currents-source">
 <pre>
-<span class="ruby-comment"># File app/models/announcement.rb, line 10</span>
+<span class="ruby-comment"># File app/models/announcement.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">currents</span>(<span class="ruby-identifier">hide_time</span> = <span class="ruby-keyword">nil</span>)
   <span class="ruby-identifier">announcements</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">where</span> [<span class="ruby-string">'now() BETWEEN starts_at AND ends_at'</span>]
   <span class="ruby-identifier">announcements</span> = <span class="ruby-identifier">announcements</span>.<span class="ruby-identifier">where</span> [<span class="ruby-string">'updated_at &gt; ?'</span>, <span class="ruby-identifier">hide_time</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">hide_time</span>
-
   <span class="ruby-identifier">announcements</span>
 <span class="ruby-keyword">end</span></pre>
             </div><!-- currents-source -->
@@ -216,16 +215,16 @@
 
           <div class="method-description">
             
-            <p>e.g.: Announcement(1069 13 Aug 23:00-15 Aug 23:00): current announcement
-number 1</p>
+            <p>e.g.: <a href="http://1">Announcement</a> 15/09/2011 - 19:27:00 ..
+15/09/2011 - 23:27:00: fooooooooo</p>
             
 
             
             <div class="method-source-code" id="to_s-source">
 <pre>
-<span class="ruby-comment"># File app/models/announcement.rb, line 5</span>
+<span class="ruby-comment"># File app/models/announcement.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
-  <span class="ruby-node">&quot;Announcement(#{id} #{starts_at.to_s :short}-#{ends_at.to_s :short}): #{message}&quot;</span>
+  <span class="ruby-node">&quot;Announcement[#{id}] #{starts_at.to_s :datetime} .. #{ends_at.to_s :datetime}: #{message}&quot;</span>
 <span class="ruby-keyword">end</span></pre>
             </div><!-- to_s-source -->
             

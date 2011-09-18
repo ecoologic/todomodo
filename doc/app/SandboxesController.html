@@ -5,7 +5,7 @@
 <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
-  <title>Class: ApplicationController</title>
+  <title>Class: SandboxesController</title>
 
   <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
 
@@ -34,8 +34,8 @@
         <div class="section-body">
           <ul>
           
-            <li><a href="./app/controllers/application_controller_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-              class="thickbox" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></li>
+            <li><a href="./app/controllers/sandboxes_controller_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="app/controllers/sandboxes_controller.rb">app/controllers/sandboxes_controller.rb</a></li>
           
           </ul>
         </div>
@@ -50,7 +50,7 @@
       <div id="parent-class-section" class="section">
         <h3 class="section-header">Parent</h3>
         
-        <p class="link">ActionController::Base</p>
+        <p class="link"><a href="ApplicationController.html">ApplicationController</a></p>
         
       </div>
       
@@ -65,11 +65,13 @@
         <h3 class="section-header">Methods</h3>
         <ul class="link-list">
           
-          <li><a href="#method-i-after_sign_in_path_for">#after_sign_in_path_for</a></li>
+          <li><a href="#method-i-clear_session">#clear_session</a></li>
           
-          <li><a href="#method-i-get_current_announcements">#get_current_announcements</a></li>
+          <li><a href="#method-i-debug">#debug</a></li>
           
-          <li><a href="#method-i-show">#show</a></li>
+          <li><a href="#method-i-test">#test</a></li>
+          
+          <li><a href="#method-i-test_error">#test_error</a></li>
           
         </ul>
       </div>
@@ -137,12 +139,11 @@
   </div>
 
   <div id="documentation">
-    <h1 class="class">ApplicationController</h1>
+    <h1 class="class">SandboxesController</h1>
 
     <div id="description" class="description">
       
-<p>application controller consider applicationLayoutController does not
-exists.</p>
+<p>for development and test purpose</p>
 
     </div><!-- description -->
 
@@ -164,46 +165,12 @@ exists.</p>
         <h3 class="section-header">Public Instance Methods</h3>
 
       
-        <div id="after_sign_in_path_for-method" class="method-detail ">
-          <a name="method-i-after_sign_in_path_for"></a>
+        <div id="clear_session-method" class="method-detail ">
+          <a name="method-i-clear_session"></a>
 
           
           <div class="method-heading">
-            <span class="method-name">after_sign_in_path_for</span><span
-              class="method-args">(resource_or_scope)</span>
-            <span class="method-click-advice">click to toggle source</span>
-          </div>
-          
-
-          <div class="method-description">
-            
-            <p>override default devise landing page after login <a
-href="http://rubydoc.info/gems/devise/1.1.2/Devise/Controllers/Helpers">rubydoc.info/gems/devise/1.1.2/Devise/Controllers/Helpers</a></p>
-            
-
-            
-            <div class="method-source-code" id="after_sign_in_path_for-source">
-<pre>
-<span class="ruby-comment"># File app/controllers/application_controller.rb, line 19</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">after_sign_in_path_for</span>(<span class="ruby-identifier">resource_or_scope</span>)
-  <span class="ruby-identifier">root_path</span> <span class="ruby-comment"># redundant if you want to go to root_path as that's the default</span>
-<span class="ruby-keyword">end</span></pre>
-            </div><!-- after_sign_in_path_for-source -->
-            
-          </div>
-
-          
-
-          
-        </div><!-- after_sign_in_path_for-method -->
-
-      
-        <div id="show-method" class="method-detail ">
-          <a name="method-i-show"></a>
-
-          
-          <div class="method-heading">
-            <span class="method-name">show</span><span
+            <span class="method-name">clear_session</span><span
               class="method-args">()</span>
             <span class="method-click-advice">click to toggle source</span>
           </div>
@@ -211,65 +178,132 @@ href="http://rubydoc.info/gems/devise/1.1.2/Devise/Controllers/Helpers">rubydoc.
 
           <div class="method-description">
             
-            <p>welcome page</p>
+            <p>clear the session</p>
             
 
             
-            <div class="method-source-code" id="show-source">
+            <div class="method-source-code" id="clear_session-source">
 <pre>
-<span class="ruby-comment"># File app/controllers/application_controller.rb, line 14</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
+<span class="ruby-comment"># File app/controllers/sandboxes_controller.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear_session</span>
+  <span class="ruby-identifier">session</span>.<span class="ruby-identifier">clear</span>
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">root_path</span>
 <span class="ruby-keyword">end</span></pre>
-            </div><!-- show-source -->
+            </div><!-- clear_session-source -->
             
           </div>
 
           
 
           
-        </div><!-- show-method -->
+        </div><!-- clear_session-method -->
+
+      
+        <div id="debug-method" class="method-detail ">
+          <a name="method-i-debug"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">debug</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>stop execution</p>
+            
+
+            
+            <div class="method-source-code" id="debug-source">
+<pre>
+<span class="ruby-comment"># File app/controllers/sandboxes_controller.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">debug</span>
+  <span class="ruby-identifier">binding</span>.<span class="ruby-identifier">pry</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">env</span>[<span class="ruby-string">'HTTP_REFERER'</span>].<span class="ruby-identifier">present?</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:back</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">root_path</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- debug-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- debug-method -->
+
+      
+        <div id="test-method" class="method-detail ">
+          <a name="method-i-test"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">test</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>GET /tests/test (see template)</p>
+            
+
+            
+            <div class="method-source-code" id="test-source">
+<pre>
+<span class="ruby-comment"># File app/controllers/sandboxes_controller.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- test-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- test-method -->
+
+      
+        <div id="test_error-method" class="method-detail ">
+          <a name="method-i-test_error"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">test_error</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>raise a simple error</p>
+            
+
+            
+            <div class="method-source-code" id="test_error-source">
+<pre>
+<span class="ruby-comment"># File app/controllers/sandboxes_controller.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_error</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">'This is a test error!'</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- test_error-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- test_error-method -->
 
       
       </div><!-- public-instance-method-details -->
-    
-      <div id="protected-instance-method-details" class="method-section section">
-        <h3 class="section-header">Protected Instance Methods</h3>
-
-      
-        <div id="get_current_announcements-method" class="method-detail ">
-          <a name="method-i-get_current_announcements"></a>
-
-          
-          <div class="method-heading">
-            <span class="method-name">get_current_announcements</span><span
-              class="method-args">()</span>
-            <span class="method-click-advice">click to toggle source</span>
-          </div>
-          
-
-          <div class="method-description">
-            
-            <p>load announcements to be shown</p>
-            
-
-            
-            <div class="method-source-code" id="get_current_announcements-source">
-<pre>
-<span class="ruby-comment"># File app/controllers/application_controller.rb, line 26</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_current_announcements</span>
-  <span class="ruby-ivar">@current_announcements</span> = <span class="ruby-constant">Announcement</span>.<span class="ruby-identifier">currents</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:announcements_hide_time</span>]
-<span class="ruby-keyword">end</span></pre>
-            </div><!-- get_current_announcements-source -->
-            
-          </div>
-
-          
-
-          
-        </div><!-- get_current_announcements-method -->
-
-      
-      </div><!-- protected-instance-method-details -->
     
     </div><!-- 5Buntitled-5D -->
   

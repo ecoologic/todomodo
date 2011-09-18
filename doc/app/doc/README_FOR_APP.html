@@ -72,9 +72,9 @@
         
           <li><a href="../ApplicationLayoutHelper.html">ApplicationLayoutHelper</a></li>
         
-          <li><a href="../Setting.html">Setting</a></li>
+          <li><a href="../SandboxesController.html">SandboxesController</a></li>
         
-          <li><a href="../TestsController.html">TestsController</a></li>
+          <li><a href="../Setting.html">Setting</a></li>
         
           <li><a href="../User.html">User</a></li>
         
@@ -96,11 +96,9 @@
 places in the API for learning more. Run “rake doc:app” to generate API
 documentation for your models, controllers, helpers, and libraries.</p>
 
-<h2>Architecture</h2>
-
-<p>This file is for development doc, /README is for users documentation.
-please update CHANGELOG to state any new functionality or amend on existing
-functionality.</p>
+<p>## Architecture This file is for development doc, /README is for users
+documentation. please update CHANGELOG to state any new functionality or
+amend on existing functionality.</p>
 
 <p>All files named application are meant for things that applies and make
 sense application wide. Use then application_layout to refer to anything
@@ -111,21 +109,82 @@ the app, au contraire flash_messages belongs to application_layout because
 despite the method is available in templates as well, it makes sense only
 in the layout.</p>
 
-<h2>Stylesheets</h2>
+<p>Evaluate RESTFUL architecture, use HTTP verbs correctly.</p>
 
-<p>In my understanding all the style files must be in .css.scss format because
-application.css.scss loads and compile them all together.</p>
+<p>Use css_content, Use js_content, title_content to customize the outside of
+the template</p>
 
-<h2>Development tools</h2>
+<p>Class_extension contains all ruby/rails class/module extensions, read it!</p>
+
+<p>TestsController has been made as a sandbox, never leave important things
+over there.</p>
+
+<p>On top of each file there is the file documentation, valid for extensions:
+rb, yml, js, css, (html)</p>
+
+<p>Use gtg to commit your job, use significant comments and group them by
+task. Use different a different branch for each functionality.</p>
+
+<p>## Authentification With devise, the effort is to keep one single model to
+represent the user (no need for a profile model). The validations only
+occurs on basic Devise known fields, e.g.: name is not mandatory but gets
+generated automatically if not profided.</p>
+
+<p>## Comments Gemfile: put useful comments inline, like commands to run
+Comment every new methos or function, no particular formatting Don’t forget
+to state a meaningful example with e.g.:</p>
+
+<p>## Code conventions Composed words can be considered one, e.g.: datepicker
+and not date_picker Use correct conventions for each languate, e.g.:
+log-links for css, but the ruby fucntion has to be log_links</p>
+
+<p>Don’t use parentesis for methods, but only in simple statements, use
+parentesis in doubt.</p>
+
+<p>## Css and html Name all the stylesheets in css.scss and include them in
+application.css.scss Use html5 tags and attributes (focus, placeholders)
+where applicable, avoid tables if it makes sense. Links to external sites
+must open in a different tab. Use `%bodycontroller_name_controller` css
+filess for resource specific style.  Convention to separate words in css
+elements is underscore.</p>
+
+<p>## Javascript Favour jquery plugins for your development, run your js in
+application_layout, NEVER in templates</p>
+
+<p>## Doc</p>
+<ul><li>
+<p>rails_best_practices</p>
+</li><li>
+<p>rake app:doc</p>
+</li><li>
+<p>[use markdown](<a
+href="http://nv.github.com/github-live-preview/examples/commit.html">nv.github.com/github-live-preview/examples/commit.html</a>)</p>
+</li></ul>
+
+<p>## Development tools</p>
 <ul><li>
 <p>pry: debug the app with pry.debug, cosole with pry -r ./config/environment</p>
 </li><li>
-<p>tests_controller</p>
+<p>TODO: followed by a quick description</p>
+</li><li>
+<p>logger.warn ‘TODO: this (fucntion description) has been MOCKED UP’</p>
 </li></ul>
 
-<h2>Test tools</h2>
+<p># Cloud `TODO`</p>
+<ul><li>
+<p>git for the repo</p>
+</li><li>
+<p>git issues for functionality proposals</p>
+</li><li>
+<p>lighthouse for small bugs</p>
+</li><li>
+<p>heroku for live</p>
+</li></ul>
 
-<p>guard</p>
+<p>## Test tools guard Run `rake db:test:prepare` before run the tests</p>
+
+<p>## Heroku <a href="http://todomodo.heroku.com/">todomodo.heroku.com/</a>
+dbname vdsbzjlafn app    todomodo</p>
 
   </div>
 
