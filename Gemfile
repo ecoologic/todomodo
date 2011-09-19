@@ -32,6 +32,7 @@ group :development do
   gem 'ruby-debug19', :require => 'ruby-debug' # To use debugger with ruby 1.9
   gem 'rails_best_practices'                   # $ rails_best_practices
   # gem 'what_methods' # http://drnicwilliams.com/2006/10/12/my-irbrc-for-consoleirb/
+  gem 'ruby-prof'      # rails profiler
 end
 
 group :development, :test do
