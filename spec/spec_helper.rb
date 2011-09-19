@@ -1,4 +1,5 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+
 TIMES = 4
 DELAY = 2 # seconds
 

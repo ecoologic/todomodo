@@ -39,4 +39,9 @@ class UsersController < ApplicationController
     render      ok ? :show : :edit
   end
 
+  # GET /users
+  def index
+    @users = User.all
+  end
+
 end

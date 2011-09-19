@@ -20,8 +20,9 @@ require 'spec_helper'
 
 describe UsersController do
   before(:each) do
-    login_user
+    @current_user = login_user
   end
+
 
   # This should return the minimal set of attributes required to create a valid
   # User. As you add validations to User, be sure to
@@ -30,11 +31,12 @@ describe UsersController do
     {}
   end
 
+
   describe "GET index" do
     it "assigns all users as @users" do
-      user = Factory(:user)
+      user = Factory :user
       get :index
-      assigns(:users).should eq([user])
+      assigns(:users).should =~ [@current_user, user]
     end
   end
 
@@ -43,13 +45,6 @@ describe UsersController do
       user = Factory(:user)
       get :show, :id => user.id.to_s
       assigns(:user).should eq(user)
-    end
-  end
-
-  describe "GET new" do
-    it "assigns a new user as @user" do
-      get :new
-      assigns(:user).should be_a_new(User)
     end
   end
 
