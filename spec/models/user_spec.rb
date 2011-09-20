@@ -12,4 +12,13 @@ describe User do
 
   end
 
+  describe 'save model' do
+
+    describe 'name (uniquify_name)' do
+      it 'should save when correct'
+      it 'should be reverted when not valid'
+    end
+
+  end
+
 end

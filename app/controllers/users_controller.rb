@@ -14,11 +14,8 @@ class UsersController < ApplicationController
   # updated current_user.note
   def update_current_user_note
     @user = current_user
-    if @user.update_attribute :note, params[:current_user_note]
-      flash[:notice] = 'saved'
-    else
-      flash[:error] = 'error!'
-    end
+    ok = @user.update_attribute :note, params[:current_user_note]
+    ok ? flash[:notice] = 'saved' : flash[:error] = 'error!'
 
     respond_with :js
   end
@@ -37,9 +34,13 @@ class UsersController < ApplicationController
   def update
     @user = User.find params[:id]
     ok = @user.update_attributes params[:user]
+    ok ? flash[:notice] = 'saved' : flash[:error] = 'error!'
+    render ok ? :show : :edit
+  end
 
-    flash.merge ok ? {:notice => 'saved'} : {:error => 'error!'}
-    render      ok ? :show : :edit
+  # GET /users
+  def index
+    @users = User.all
   end
 
 end
