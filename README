@@ -1,13 +1,13 @@
 ## ToDoModo
 
-ToDoModo is an app that has narrow and not defined scope. The name comes from ToDo, meaning to be done, which can be one the path that it will take, or simply it indicates that there is more to be developed. Todo Modo is a beautiful Italian movie with Gian Maria Volonte' from the seventies which describe the unhealthy relationship between catholic power and polical one.
+ToDoModo is an app that has narrow and not defined scope. The name comes from ToDo, meaning to be done, originally this was meant to be an app to manage things to do (very original, I know) but now the name simply indicates that there is more to be developed. Todo Modo is a beautiful Italian movie from the seventies with Gian Maria Volonte' which describe the unhealthy relationship between catholic power and polical one.
 
-The reason of it's existence is to learn Ruby on Rails 3.1 (and further?), the most important thing is the __method__, no rush in development, just enjoy the path and make things properly!
+The reason of it's existence is to learn Ruby on Rails 3.1 (and further?), the most important thing is the __method__, no rush in development, just enjoy the path and make things properly! - In fact I'll try to develop with TDD techniques.
 
 For a more technical documentation, on how to work on the app, see [README_FOR_APP](/doc/README_FOR_APP)
 
 Feel free to give any kind of feedback as the most of the tools I'm using makes it available to everybody. But hardly anybody will get in touch with it.
 
-Last thing, I really want to give a big thanks to all the Ruby on Rails communuty! it is such a pleasure to be even a remote part of it!
+Last thing, I really want to give a big thanks to all the Ruby on Rails communuty! it is such a pleasure to be even a remote and small part of it!
 
 Erik "ecoologic"
