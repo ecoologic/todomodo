@@ -28,7 +28,7 @@ describe UsersController do
   # User. As you add validations to User, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    {'about' => "Let me introduce myself, I'm the queen teddybear, and as you probably understood I'm going to screw you in the ass"}
   end
 
 
@@ -60,7 +60,7 @@ describe UsersController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested user" do
-        user = Factory(:user)
+        user = @current_user
         # Assuming there are no other users in the database, this
         # specifies that the User created on the previous line
         # receives the :update_attributes message with whatever params are
@@ -75,11 +75,6 @@ describe UsersController do
         assigns(:user).should eq(user)
       end
 
-      it "redirects to the user" do
-        user = Factory(:user)
-        put :update, :id => user.id, :user => valid_attributes
-        response.should redirect_to(user)
-      end
     end
 
     describe "with invalid params" do

@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def update_current_user_note
     @user = current_user
     ok = @user.update_attribute :note, params[:current_user_note]
-    flash.merge ok ? {:notice => 'saved'} : {:error => 'error!'}
+    ok ? flash[:notice] = 'saved' : flash[:error] = 'error!'
 
     respond_with :js
   end
@@ -34,9 +34,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find params[:id]
     ok = @user.update_attributes params[:user]
-
-    flash.merge ok ? {:notice => 'saved'} : {:error => 'error!'}
-    render      ok ? :show : :edit
+    ok ? flash[:notice] = 'saved' : flash[:error] = 'error!'
+    render ok ? :show : :edit
   end
 
   # GET /users
