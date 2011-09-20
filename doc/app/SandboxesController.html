@@ -5,7 +5,7 @@
 <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
-  <title>Class: TestsController</title>
+  <title>Class: SandboxesController</title>
 
   <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
 
@@ -34,8 +34,8 @@
         <div class="section-body">
           <ul>
           
-            <li><a href="./app/controllers/tests_controller_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-              class="thickbox" title="app/controllers/tests_controller.rb">app/controllers/tests_controller.rb</a></li>
+            <li><a href="./app/controllers/sandboxes_controller_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="app/controllers/sandboxes_controller.rb">app/controllers/sandboxes_controller.rb</a></li>
           
           </ul>
         </div>
@@ -65,9 +65,9 @@
         <h3 class="section-header">Methods</h3>
         <ul class="link-list">
           
-          <li><a href="#method-i-debug">#debug</a></li>
+          <li><a href="#method-i-clear_session">#clear_session</a></li>
           
-          <li><a href="#method-i-destroy_session">#destroy_session</a></li>
+          <li><a href="#method-i-debug">#debug</a></li>
           
           <li><a href="#method-i-test">#test</a></li>
           
@@ -120,9 +120,9 @@
         
           <li><a href="./ApplicationLayoutHelper.html">ApplicationLayoutHelper</a></li>
         
-          <li><a href="./Setting.html">Setting</a></li>
+          <li><a href="./SandboxesController.html">SandboxesController</a></li>
         
-          <li><a href="./TestsController.html">TestsController</a></li>
+          <li><a href="./Setting.html">Setting</a></li>
         
           <li><a href="./User.html">User</a></li>
         
@@ -139,7 +139,7 @@
   </div>
 
   <div id="documentation">
-    <h1 class="class">TestsController</h1>
+    <h1 class="class">SandboxesController</h1>
 
     <div id="description" class="description">
       
@@ -165,6 +165,40 @@
         <h3 class="section-header">Public Instance Methods</h3>
 
       
+        <div id="clear_session-method" class="method-detail ">
+          <a name="method-i-clear_session"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">clear_session</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>clear the session</p>
+            
+
+            
+            <div class="method-source-code" id="clear_session-source">
+<pre>
+<span class="ruby-comment"># File app/controllers/sandboxes_controller.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear_session</span>
+  <span class="ruby-identifier">session</span>.<span class="ruby-identifier">clear</span>
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">root_path</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- clear_session-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- clear_session-method -->
+
+      
         <div id="debug-method" class="method-detail ">
           <a name="method-i-debug"></a>
 
@@ -184,10 +218,15 @@
             
             <div class="method-source-code" id="debug-source">
 <pre>
-<span class="ruby-comment"># File app/controllers/tests_controller.rb, line 16</span>
+<span class="ruby-comment"># File app/controllers/sandboxes_controller.rb, line 16</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">debug</span>
   <span class="ruby-identifier">binding</span>.<span class="ruby-identifier">pry</span>
-  <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:back</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">env</span>[<span class="ruby-string">'HTTP_REFERER'</span>].<span class="ruby-identifier">present?</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:back</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">root_path</span>
+  <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
             </div><!-- debug-source -->
             
@@ -197,40 +236,6 @@
 
           
         </div><!-- debug-method -->
-
-      
-        <div id="destroy_session-method" class="method-detail ">
-          <a name="method-i-destroy_session"></a>
-
-          
-          <div class="method-heading">
-            <span class="method-name">destroy_session</span><span
-              class="method-args">()</span>
-            <span class="method-click-advice">click to toggle source</span>
-          </div>
-          
-
-          <div class="method-description">
-            
-            <p>clear the session</p>
-            
-
-            
-            <div class="method-source-code" id="destroy_session-source">
-<pre>
-<span class="ruby-comment"># File app/controllers/tests_controller.rb, line 22</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy_session</span>
-  <span class="ruby-identifier">session</span>.<span class="ruby-identifier">clear</span>
-  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">root_path</span>
-<span class="ruby-keyword">end</span></pre>
-            </div><!-- destroy_session-source -->
-            
-          </div>
-
-          
-
-          
-        </div><!-- destroy_session-method -->
 
       
         <div id="test-method" class="method-detail ">
@@ -252,7 +257,7 @@
             
             <div class="method-source-code" id="test-source">
 <pre>
-<span class="ruby-comment"># File app/controllers/tests_controller.rb, line 7</span>
+<span class="ruby-comment"># File app/controllers/sandboxes_controller.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test</span>
 <span class="ruby-keyword">end</span></pre>
             </div><!-- test-source -->
@@ -284,7 +289,7 @@
             
             <div class="method-source-code" id="test_error-source">
 <pre>
-<span class="ruby-comment"># File app/controllers/tests_controller.rb, line 11</span>
+<span class="ruby-comment"># File app/controllers/sandboxes_controller.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_error</span>
   <span class="ruby-identifier">raise</span> <span class="ruby-string">'This is a test error!'</span>
 <span class="ruby-keyword">end</span></pre>

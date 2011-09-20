@@ -118,9 +118,9 @@
         
           <li><a href="./ApplicationLayoutHelper.html">ApplicationLayoutHelper</a></li>
         
-          <li><a href="./Setting.html">Setting</a></li>
+          <li><a href="./SandboxesController.html">SandboxesController</a></li>
         
-          <li><a href="./TestsController.html">TestsController</a></li>
+          <li><a href="./Setting.html">Setting</a></li>
         
           <li><a href="./User.html">User</a></li>
         
@@ -184,9 +184,9 @@ href="http://rubydoc.info/gems/devise/1.1.2/Devise/Controllers/Helpers">rubydoc.
             
             <div class="method-source-code" id="after_sign_in_path_for-source">
 <pre>
-<span class="ruby-comment"># File app/controllers/application_controller.rb, line 28</span>
+<span class="ruby-comment"># File app/controllers/application_controller.rb, line 19</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">after_sign_in_path_for</span>(<span class="ruby-identifier">resource_or_scope</span>)
-  <span class="ruby-identifier">root_path</span> <span class="ruby-comment"># redundant if you want to go to root_path</span>
+  <span class="ruby-identifier">root_path</span> <span class="ruby-comment"># redundant if you want to go to root_path as that's the default</span>
 <span class="ruby-keyword">end</span></pre>
             </div><!-- after_sign_in_path_for-source -->
             
@@ -217,7 +217,7 @@ href="http://rubydoc.info/gems/devise/1.1.2/Devise/Controllers/Helpers">rubydoc.
             
             <div class="method-source-code" id="show-source">
 <pre>
-<span class="ruby-comment"># File app/controllers/application_controller.rb, line 15</span>
+<span class="ruby-comment"># File app/controllers/application_controller.rb, line 14</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
 <span class="ruby-keyword">end</span></pre>
             </div><!-- show-source -->
@@ -255,7 +255,7 @@ href="http://rubydoc.info/gems/devise/1.1.2/Devise/Controllers/Helpers">rubydoc.
             
             <div class="method-source-code" id="get_current_announcements-source">
 <pre>
-<span class="ruby-comment"># File app/controllers/application_controller.rb, line 35</span>
+<span class="ruby-comment"># File app/controllers/application_controller.rb, line 26</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_current_announcements</span>
   <span class="ruby-ivar">@current_announcements</span> = <span class="ruby-constant">Announcement</span>.<span class="ruby-identifier">currents</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:announcements_hide_time</span>]
 <span class="ruby-keyword">end</span></pre>

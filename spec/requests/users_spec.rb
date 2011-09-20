@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe "Users" do
+
   describe "POST /user/session" do
     it "login and redirect to welcome page with flash message" do
       # init: create a new user
@@ -17,4 +18,5 @@ describe "Users" do
       page.body.should include user.to_s
     end
   end
+
 end

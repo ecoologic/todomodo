@@ -24,13 +24,13 @@ window.app =
                              delay(HIDE_INFO_TIME).
                              slideUp()
     true
-    
+  
+  # assign behaviour to selectors
+  # (use functions please)
   assignFunctions: ->
 
-    users.currentUserNote()
 
-  # TODO:
-  # to avoid ie. errors (but I'm not going to mess my app more than this...)
-  # log: (args) ->
-  #   try console.log args
-  #   catch
+    true
+
+  # to avoid ie errors (but I'm not going to mess my app more than this...)
+  log: (args) -> try console.log args

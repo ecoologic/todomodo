@@ -91,7 +91,7 @@ class Hash
       # sanitaze
       value = value.to_s.gsub('javascript:', '')
 
-      params << "#{key}: '#{value}'"
+      params << "'#{key}': '#{value}'"
     end
     # js hash container
     "{ #{params.join(', ')} }"

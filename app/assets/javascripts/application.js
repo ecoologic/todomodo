@@ -10,6 +10,9 @@
 //
 //= require vendor
 //
-//= require_tree .
+//= require application_layout
+//= require jquery_plugins
+//= require utilities
+//= require users
 //
 

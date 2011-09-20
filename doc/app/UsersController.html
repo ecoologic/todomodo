@@ -65,6 +65,14 @@
         <h3 class="section-header">Methods</h3>
         <ul class="link-list">
           
+          <li><a href="#method-i-edit">#edit</a></li>
+          
+          <li><a href="#method-i-show">#show</a></li>
+          
+          <li><a href="#method-i-toggle_current_user_note">#toggle_current_user_note</a></li>
+          
+          <li><a href="#method-i-update">#update</a></li>
+          
           <li><a href="#method-i-update_current_user_note">#update_current_user_note</a></li>
           
         </ul>
@@ -114,9 +122,9 @@
         
           <li><a href="./ApplicationLayoutHelper.html">ApplicationLayoutHelper</a></li>
         
-          <li><a href="./Setting.html">Setting</a></li>
+          <li><a href="./SandboxesController.html">SandboxesController</a></li>
         
-          <li><a href="./TestsController.html">TestsController</a></li>
+          <li><a href="./Setting.html">Setting</a></li>
         
           <li><a href="./User.html">User</a></li>
         
@@ -137,6 +145,8 @@
 
     <div id="description" class="description">
       
+<p>controller for user management</p>
+
     </div><!-- description -->
 
     
@@ -155,6 +165,143 @@
       
       <div id="public-instance-method-details" class="method-section section">
         <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="edit-method" class="method-detail ">
+          <a name="method-i-edit"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">edit</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>GET /users/1/edit</p>
+            
+
+            
+            <div class="method-source-code" id="edit-source">
+<pre>
+<span class="ruby-comment"># File app/controllers/users_controller.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
+  <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- edit-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- edit-method -->
+
+      
+        <div id="show-method" class="method-detail ">
+          <a name="method-i-show"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">show</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>GET /users/1-erik</p>
+            
+
+            
+            <div class="method-source-code" id="show-source">
+<pre>
+<span class="ruby-comment"># File app/controllers/users_controller.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
+  <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- show-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- show-method -->
+
+      
+        <div id="toggle_current_user_note-method" class="method-detail ">
+          <a name="method-i-toggle_current_user_note"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">toggle_current_user_note</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>toggle user note visibility</p>
+            
+
+            
+            <div class="method-source-code" id="toggle_current_user_note-source">
+<pre>
+<span class="ruby-comment"># File app/controllers/users_controller.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">toggle_current_user_note</span>
+  <span class="ruby-identifier">session</span>[<span class="ruby-value">:show_current_user_note</span>] = <span class="ruby-operator">!</span><span class="ruby-identifier">session</span>[<span class="ruby-value">:show_current_user_note</span>]
+  <span class="ruby-identifier">respond_with</span> <span class="ruby-value">:js</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- toggle_current_user_note-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- toggle_current_user_note-method -->
+
+      
+        <div id="update-method" class="method-detail ">
+          <a name="method-i-update"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">update</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>PUT /users/1/update</p>
+            
+
+            
+            <div class="method-source-code" id="update-source">
+<pre>
+<span class="ruby-comment"># File app/controllers/users_controller.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
+  <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
+  <span class="ruby-identifier">ok</span> = <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">update_attributes</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:user</span>]
+
+  <span class="ruby-identifier">flash</span>.<span class="ruby-identifier">merge</span> <span class="ruby-identifier">ok</span> <span class="ruby-operator">?</span> {<span class="ruby-value">:notice</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'saved'</span>} <span class="ruby-operator">:</span> {<span class="ruby-value">:error</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'error!'</span>}
+  <span class="ruby-identifier">render</span>      <span class="ruby-identifier">ok</span> <span class="ruby-operator">?</span> <span class="ruby-value">:show</span> <span class="ruby-operator">:</span> <span class="ruby-value">:edit</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- update-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- update-method -->
 
       
         <div id="update_current_user_note-method" class="method-detail ">
@@ -176,15 +323,15 @@
             
             <div class="method-source-code" id="update_current_user_note-source">
 <pre>
-<span class="ruby-comment"># File app/controllers/users_controller.rb, line 6</span>
+<span class="ruby-comment"># File app/controllers/users_controller.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update_current_user_note</span>
   <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">current_user</span>
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">update_attribute</span> <span class="ruby-value">:note</span>, <span class="ruby-identifier">params</span>[<span class="ruby-value">:current_user_note</span>]
-    <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">'Note saved'</span>
+    <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">'saved'</span>
   <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>] = <span class="ruby-string">'Note could not be saved'</span>
+    <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>] = <span class="ruby-string">'error!'</span>
   <span class="ruby-keyword">end</span>
-  
+
   <span class="ruby-identifier">respond_with</span> <span class="ruby-value">:js</span>
 <span class="ruby-keyword">end</span></pre>
             </div><!-- update_current_user_note-source -->

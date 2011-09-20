@@ -1,0 +1,8 @@
+- title_content @user.to_s
+
+.field
+  .label about
+  .value #{@user.about}
+
+- content_for :footer_nav_content do
+  = link_to 'edit', [:edit, @user]
