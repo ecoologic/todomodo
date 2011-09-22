@@ -3,13 +3,21 @@
 = form_for @user do |f|
 
   .field
-    = f.label      :name, 'name'
-    = f.text_field :name
+    = f.label       :name, 'name'
+    = f.text_field  :name
 
   .field
-    = f.label     :about, 'about'
-    = f.text_area :about
-    
+    = f.label      :about, 'about'
+    = f.text_area  :about
+
+  .field
+    = f.label      :avatar, 'avatar'
+    = f.file_field :avatar
+
+  .field
+    = f.label      :remote_avatar_url, 'avatar url'
+    = f.text_field :remote_avatar_url
+
   .action
     = f.submit 'ok'
 

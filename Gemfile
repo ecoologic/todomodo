@@ -1,10 +1,11 @@
 source 'http://rubygems.org'
 
-gem 'devise' # authentification
+gem 'rails'         # the best ever!
 
-gem 'rails'
-
+gem 'devise'        # authentification
 gem 'settingslogic' # see Setting model and settings.yml
+gem 'carrierwave'   # for images (avatar) in app/uploader
+gem 'rmagick'       # to resize images (see avatar_uploader)
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'

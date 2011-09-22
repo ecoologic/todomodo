@@ -43,6 +43,8 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
+    carrierwave (0.5.7)
+      activesupport (~> 3.0)
     childprocess (0.2.2)
       ffi (~> 1.0.6)
     coderay (0.9.8)
@@ -148,6 +150,7 @@ GEM
     rdoc (3.9.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    rmagick (2.13.1)
     rspec (2.6.0)
       rspec-core (~> 2.6.0)
       rspec-expectations (~> 2.6.0)
@@ -220,6 +223,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  carrierwave
   coffee-script
   devise
   factory_girl_rails
@@ -237,6 +241,7 @@ DEPENDENCIES
   rails
   rails_best_practices
   rb-inotify
+  rmagick
   rspec-rails
   ruby-debug19
   ruby-prof

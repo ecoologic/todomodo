@@ -4,5 +4,8 @@
   .label about
   .value #{@user.about}
 
+.avatar= image_tag @user.avatar_url(:thumb).to_s, :alt => @user, :title => @user
+  
+
 - content_for :footer_nav_content do
   = link_to 'edit', [:edit, @user]

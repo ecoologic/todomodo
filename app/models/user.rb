@@ -6,9 +6,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  # store avatar path with carrierwave
+  mount_uploader :avatar, AvatarUploader
+
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,
-                  :name, :about, :avatar, :note
+                  :name, :about, :avatar, :remote_avatar_url, :note
 
   before_save :uniquify_name!
 

@@ -3,6 +3,12 @@
 TIMES = 4
 DELAY = 2 # seconds
 
+USER_NAME   = 'erik'
+USER_ABOUT  = 'about Me'
+USER_NOTE   = 'this is my note'
+USER_AVATAR = 'http://goo.gl/psTsW'
+
+
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'

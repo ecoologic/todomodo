@@ -1,11 +1,9 @@
 require 'spec_helper'
 
-NAME = 'erik'
-
 describe User do
   before(:each) do
-    @user1 = Factory :user, :name => NAME
-    @user2 = Factory :user, :name => NAME
+    @user1 = Factory :user, :name => USER_NAME
+    @user2 = Factory :user, :name => USER_NAME
     @user3 = Factory :user, :name => nil
     @user4 = Factory :user, :name => ''
   end
