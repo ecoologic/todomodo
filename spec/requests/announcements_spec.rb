@@ -51,9 +51,9 @@ describe "Announcements in layout" do
     it "should not show future announcements" do
       @futures.each {|a| page.body.should_not have_content a.message }
     end
-    
-    it "should hide all announcements when hide link is clicked (js)"
-    # TODO:, :js => true do
+
+    # TODO: test with js
+    # it "should hide all announcements when hide link is clicked (js)", :js => true do
     #   click_link 'hide'
     #   @all.each {|a| current_path.should_not have_content a.message}
     # end
