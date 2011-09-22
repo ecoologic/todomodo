@@ -32,9 +32,8 @@ describe ApplicationController do
           get 'show'
         end
 
-        it 'should be nil'
-        # TODO: when you know how to logout...
-        # do
+        # TODO: when you know how to logout in test...
+        # it 'should be nil' do
         #   @request.session[:has_just_auth].should be nil
         # end
       end

@@ -1,28 +1,26 @@
 require 'spec_helper'
 
+NAME = 'erik'
+
 describe User do
+  before(:each) do
+    @user1 = Factory :user, :name => NAME
+    @user2 = Factory :user, :name => NAME
+    @user3 = Factory :user, :name => nil
+    @user4 = Factory :user, :name => ''
+  end
 
   describe 'to_s' do
 
     it 'should be unique for all user' do
-      @user1 = Factory :user, :name => 'erik'
-      @user2 = Factory :user, :name => 'erik'
-
       @user1.to_s.should_not be @user2.to_s
+    end
+
+    it 'should never be blank' do
       @user1.to_s.should_not be_blank
       @user2.to_s.should_not be_blank
-    end
-
-  end
-
-  describe 'uniquify_name' do
-
-    describe 'when the name is unique' do
-      it 'should save the model with that name'
-    end
-
-    describe 'when the name is not unique' do
-      it 'should save the model with a unique name (not empty)'
+      @user3.to_s.should_not be_blank
+      @user4.to_s.should_not be_blank
     end
 
   end
