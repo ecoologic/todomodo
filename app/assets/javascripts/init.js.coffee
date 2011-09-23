@@ -15,3 +15,10 @@ $ initPage = () ->
 
   $('.blink_once').appBlinkOnce()
 
+  $('.tabs').tabs()
+
+
+
+
+
+
