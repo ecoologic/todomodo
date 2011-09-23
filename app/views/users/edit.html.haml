@@ -1,6 +1,7 @@
 - title_content "edit #{@user}"
 
-= form_for @user do |f|
+-# note that the put request is sent even when the html says post
+= form_for @user, :method => :put do |f|
 
   .field
     = f.label       :name, 'name'

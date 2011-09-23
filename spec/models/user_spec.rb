@@ -23,4 +23,12 @@ describe User do
 
   end
 
+  describe 'is_admin' do
+    it 'should not be mass assigned' do
+      @user1.update_attributes :note => 'adminizing!', :is_admin => true
+      @user1.is_admin.should be false
+    end
+    
+  end
+
 end

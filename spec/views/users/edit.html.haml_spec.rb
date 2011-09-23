@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe "users/edit.html.erb" do
+describe "users/edit.html.haml" do
   before(:each) do
     @user = assign(:user, stub_model(User,
-      :name => "MyString",
-      :about => "MyText",
-      :note => "MyText",
-      :avatar => "MyString",
+      :name     => USER_NAME,
+      :about    => USER_ABOUT,
+      :note     => USER_NOTE,
+      :avatar   => USER_AVATAR,
       :is_admin => false
     ))
   end
@@ -15,10 +15,10 @@ describe "users/edit.html.erb" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form", :action => users_path(@user), :method => "post" do
-      assert_select "input#user_name", :name => "user[name]"
+    assert_select "form", :action => users_path(@user), :method => "put" do
+      assert_select "input#user_name"    , :name => "user[name]"
       assert_select "textarea#user_about", :name => "user[about]"
-      assert_select "input#user_avatar", :name => "user[avatar]"
+      assert_select "input#user_avatar"  , :name => "user[avatar]"
     end
   end
 end

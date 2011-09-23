@@ -1,0 +1,8 @@
+- title_content 'user list'
+
+%ol
+  - @users.each do |user|
+    %li
+      = link_to user do
+        = render user
+

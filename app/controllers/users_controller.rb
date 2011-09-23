@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     respond_with :js
   end
 
-  # updated current_user.note
+  # updated current_user.note if changed
   def update_current_user_note
     @user = current_user
 
