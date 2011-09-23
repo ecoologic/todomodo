@@ -120,6 +120,8 @@
         
           <li><a href="./ApplicationLayoutHelper.html">ApplicationLayoutHelper</a></li>
         
+          <li><a href="./AvatarUploader.html">AvatarUploader</a></li>
+        
           <li><a href="./SandboxesController.html">SandboxesController</a></li>
         
           <li><a href="./Setting.html">Setting</a></li>
@@ -184,9 +186,9 @@
             
             <div class="method-source-code" id="default_name-source">
 <pre>
-<span class="ruby-comment"># File app/models/user.rb, line 31</span>
+<span class="ruby-comment"># File app/models/user.rb, line 34</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">default_name</span>
-  <span class="ruby-node">&quot;#{self.email_prefix}#{self.id}&quot;</span>
+  <span class="ruby-node">&quot;#{self.email_prefix}-#{self.id}&quot;</span>
 <span class="ruby-keyword">end</span></pre>
             </div><!-- default_name-source -->
             
@@ -217,7 +219,7 @@
             
             <div class="method-source-code" id="email_prefix-source">
 <pre>
-<span class="ruby-comment"># File app/models/user.rb, line 26</span>
+<span class="ruby-comment"># File app/models/user.rb, line 29</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">email_prefix</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">email</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">'@'</span>).<span class="ruby-identifier">first</span>
 <span class="ruby-keyword">end</span></pre>
@@ -250,7 +252,7 @@
             
             <div class="method-source-code" id="to_param-source">
 <pre>
-<span class="ruby-comment"># File app/models/user.rb, line 21</span>
+<span class="ruby-comment"># File app/models/user.rb, line 24</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_param</span>
   <span class="ruby-node">&quot;#{self.id}-#{self}&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -283,7 +285,7 @@
             
             <div class="method-source-code" id="to_s-source">
 <pre>
-<span class="ruby-comment"># File app/models/user.rb, line 16</span>
+<span class="ruby-comment"># File app/models/user.rb, line 19</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">presence</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">default_name</span>
 <span class="ruby-keyword">end</span></pre>

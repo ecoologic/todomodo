@@ -3,6 +3,7 @@
  * $Id: rdoc.css 54 2009-01-27 01:09:48Z deveiant $
  *
  * Author: Michael Granger <ged@FaerieMUD.org>
+ * Modified by ecoologic
  *
  */
 
@@ -11,7 +12,7 @@
 *{ padding: 0; margin: 0; }
 
 body {
-  background: #efefef;
+  background: #AAC;
   font: 14px "Helvetica Neue", Helvetica, Tahoma, sans-serif;
 }
 body.class, body.module, body.file {

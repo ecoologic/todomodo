@@ -1,8 +1,10 @@
+(Note the html version of the file)
 Use this README file to introduce your application and point to useful places in the API for learning more.
 Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+Run "rails_best_practices" to get some hints on how to improve the code.
 
 ## Architecture
-This file is for development doc, /README is for users documentation.
+This file is for development doc, /README is for user documentation.
 please update CHANGELOG to state any new functionality or amend on existing functionality.
 
 All files named application are meant for things that applies and make sense application wide.
@@ -47,7 +49,7 @@ Use `%body#controller_name_controller` css filess for resource specific style.
 Convention to separate words in css elements is underscore.
 
 ## Javascript
-Favour jquery plugins for your development, run your js in application_layout, NEVER in templates
+Favour jquery plugins for your development, run your js in application_layout, NEVER in templates, assign js to css selectors ONLY in init.js.coffee
 
 
 ## Doc

@@ -5,7 +5,7 @@
 <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
-  <title>Class: SandboxesController</title>
+  <title>Class: AvatarUploader</title>
 
   <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
 
@@ -34,8 +34,8 @@
         <div class="section-body">
           <ul>
           
-            <li><a href="./app/controllers/sandboxes_controller_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-              class="thickbox" title="app/controllers/sandboxes_controller.rb">app/controllers/sandboxes_controller.rb</a></li>
+            <li><a href="./app/uploaders/avatar_uploader_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="app/uploaders/avatar_uploader.rb">app/uploaders/avatar_uploader.rb</a></li>
           
           </ul>
         </div>
@@ -50,7 +50,7 @@
       <div id="parent-class-section" class="section">
         <h3 class="section-header">Parent</h3>
         
-        <p class="link"><a href="ApplicationController.html">ApplicationController</a></p>
+        <p class="link">CarrierWave::Uploader::Base</p>
         
       </div>
       
@@ -65,18 +65,24 @@
         <h3 class="section-header">Methods</h3>
         <ul class="link-list">
           
-          <li><a href="#method-i-clear_session">#clear_session</a></li>
-          
-          <li><a href="#method-i-debug">#debug</a></li>
-          
-          <li><a href="#method-i-test">#test</a></li>
-          
-          <li><a href="#method-i-test_error">#test_error</a></li>
+          <li><a href="#method-i-store_dir">#store_dir</a></li>
           
         </ul>
       </div>
       
 
+      
+      <!-- Included Modules -->
+      <div id="includes-section" class="section">
+        <h3 class="section-header">Included Modules</h3>
+        <ul class="link-list">
+        
+        
+          <li><span class="include">CarrierWave::RMagick</span></li>
+        
+        
+        </ul>
+      </div>
       
     </div>
 
@@ -141,11 +147,12 @@
   </div>
 
   <div id="documentation">
-    <h1 class="class">SandboxesController</h1>
+    <h1 class="class">AvatarUploader</h1>
 
     <div id="description" class="description">
       
-<p>for development and test purpose</p>
+<p><a href="User.html">User</a> avatar uploader, relies on carrierwave, uses
+rmagick for conversions encoding: utf-8</p>
 
     </div><!-- description -->
 
@@ -167,12 +174,12 @@
         <h3 class="section-header">Public Instance Methods</h3>
 
       
-        <div id="clear_session-method" class="method-detail ">
-          <a name="method-i-clear_session"></a>
+        <div id="store_dir-method" class="method-detail ">
+          <a name="method-i-store_dir"></a>
 
           
           <div class="method-heading">
-            <span class="method-name">clear_session</span><span
+            <span class="method-name">store_dir</span><span
               class="method-args">()</span>
             <span class="method-click-advice">click to toggle source</span>
           </div>
@@ -180,129 +187,25 @@
 
           <div class="method-description">
             
-            <p>clear the session</p>
+            <p>Override the directory where uploaded files will be stored. This is a
+sensible default for uploaders that are meant to be mounted:</p>
             
 
             
-            <div class="method-source-code" id="clear_session-source">
+            <div class="method-source-code" id="store_dir-source">
 <pre>
-<span class="ruby-comment"># File app/controllers/sandboxes_controller.rb, line 27</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear_session</span>
-  <span class="ruby-identifier">session</span>.<span class="ruby-identifier">clear</span>
-  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">root_path</span>
+<span class="ruby-comment"># File app/uploaders/avatar_uploader.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">store_dir</span>
+  <span class="ruby-node">&quot;uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}&quot;</span>
 <span class="ruby-keyword">end</span></pre>
-            </div><!-- clear_session-source -->
+            </div><!-- store_dir-source -->
             
           </div>
 
           
 
           
-        </div><!-- clear_session-method -->
-
-      
-        <div id="debug-method" class="method-detail ">
-          <a name="method-i-debug"></a>
-
-          
-          <div class="method-heading">
-            <span class="method-name">debug</span><span
-              class="method-args">()</span>
-            <span class="method-click-advice">click to toggle source</span>
-          </div>
-          
-
-          <div class="method-description">
-            
-            <p>stop execution</p>
-            
-
-            
-            <div class="method-source-code" id="debug-source">
-<pre>
-<span class="ruby-comment"># File app/controllers/sandboxes_controller.rb, line 16</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">debug</span>
-  <span class="ruby-identifier">binding</span>.<span class="ruby-identifier">pry</span>
-
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">env</span>[<span class="ruby-string">'HTTP_REFERER'</span>].<span class="ruby-identifier">present?</span>
-    <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:back</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">root_path</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-            </div><!-- debug-source -->
-            
-          </div>
-
-          
-
-          
-        </div><!-- debug-method -->
-
-      
-        <div id="test-method" class="method-detail ">
-          <a name="method-i-test"></a>
-
-          
-          <div class="method-heading">
-            <span class="method-name">test</span><span
-              class="method-args">()</span>
-            <span class="method-click-advice">click to toggle source</span>
-          </div>
-          
-
-          <div class="method-description">
-            
-            <p>GET /tests/test (see template)</p>
-            
-
-            
-            <div class="method-source-code" id="test-source">
-<pre>
-<span class="ruby-comment"># File app/controllers/sandboxes_controller.rb, line 7</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">test</span>
-<span class="ruby-keyword">end</span></pre>
-            </div><!-- test-source -->
-            
-          </div>
-
-          
-
-          
-        </div><!-- test-method -->
-
-      
-        <div id="test_error-method" class="method-detail ">
-          <a name="method-i-test_error"></a>
-
-          
-          <div class="method-heading">
-            <span class="method-name">test_error</span><span
-              class="method-args">()</span>
-            <span class="method-click-advice">click to toggle source</span>
-          </div>
-          
-
-          <div class="method-description">
-            
-            <p>raise a simple error</p>
-            
-
-            
-            <div class="method-source-code" id="test_error-source">
-<pre>
-<span class="ruby-comment"># File app/controllers/sandboxes_controller.rb, line 11</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_error</span>
-  <span class="ruby-identifier">raise</span> <span class="ruby-string">'This is a test error!'</span>
-<span class="ruby-keyword">end</span></pre>
-            </div><!-- test_error-source -->
-            
-          </div>
-
-          
-
-          
-        </div><!-- test_error-method -->
+        </div><!-- store_dir-method -->
 
       
       </div><!-- public-instance-method-details -->
