@@ -1,4 +1,5 @@
-# this file is for page initialization only
+# this file is for page js initialization only
+# app and global constant are in utilities
 
 $ initPage = () ->
 

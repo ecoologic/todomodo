@@ -18,5 +18,14 @@ window.users =
       $form.slideUp()
       $link.html 'show note'
 
+    true
 
+  # hide current user note (using toggleCurrentUserNote)
+  hideCurrentUserNote: () ->
+    users.toggleCurrentUserNote(false)
+    true
+
+  # show current user note (using toggleCurrentUserNote)
+  showCurrentUserNote: () ->
+    users.toggleCurrentUserNote(true)
     true

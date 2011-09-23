@@ -29,8 +29,27 @@ window.app =
   # (use functions please)
   assignFunctions: ->
 
+    hideCurrentUserNoteAfterSave()
 
     true
 
   # to avoid ie errors (but I'm not going to mess my app more than this...)
   log: (args) -> try console.log args
+
+
+# private =====================================================================
+
+# hide current user note after save button is pressed
+hideCurrentUserNoteAfterSave = () ->
+  $('#current_user_note :input[type="submit"]').click(
+    users.hideCurrentUserNote
+  )
+  true
+
+
+
+
+
+
+
+

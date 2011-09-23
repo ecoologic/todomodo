@@ -14,7 +14,10 @@ class UsersController < ApplicationController
   # updated current_user.note
   def update_current_user_note
     @user = current_user
-    ok = @user.update_attribute :note, params[:current_user_note]
+
+    ok = @user.note == params[:current_user_note] ||
+         @user.update_attribute(:note, params[:current_user_note])
+
     ok ? flash[:notice] = 'saved' : flash[:error] = 'error!'
 
     respond_with :js
