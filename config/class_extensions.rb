@@ -10,7 +10,7 @@ class Date
   DATE_FORMATS[:long]       = '%a, %d %B %Y'
 
   ABBR_DAYNAMES_TO_SYM = Date::ABBR_DAYNAMES.map(&:downcase).map(&:to_sym)
-  DAYNAMES_TO_SYM = Date::DAYNAMES.map(&:downcase).map(&:to_sym)
+  DAYNAMES_TO_SYM      = Date::DAYNAMES.map(&:downcase).map(&:to_sym)
 end
 
 # Time ------------------------------------------------------------------------
@@ -98,14 +98,15 @@ class Hash
   end
   
   # returned an hash with stringified keys and string numbers converted
-  # e.g.: {'a' => {'b' => '1'}} -> {:a => {:b => 1}}
-  # TODO: true/false
-  def normalized
+  # e.g.: {'a' => {'b' => '1', :c => 'false'}} -> {:a => {:b => 1, :c => false}}
+  def normalize
     result = {}
     self.each do |k, v|
-      k = k.to_sym if k.is_a? String
+      k = k.to_sym     if k.is_a? String
       v = v.normalized if v.is_a? Hash
-      v = v.to_i if v == '0' || (v.is_a?(String) && v.to_i > 1)
+      v = v.to_i       if v == '0' || (v.is_a?(String) && v.to_i > 1)
+      v = true         if v == 'true'
+      v = false        if v == 'false'
       result[k] = v
     end
     result
