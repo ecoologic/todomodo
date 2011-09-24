@@ -1,6 +1,6 @@
 - title_content "edit #{@user}"
 
--# note that the put request is sent even when the html says post
+-# note that the put request is sent even when the html says post, check the log
 = form_for @user, :method => :put do |f|
 
   .field
@@ -24,6 +24,8 @@
       = f.label      :remote_avatar_url, 'avatar url'
       = f.text_field :remote_avatar_url
 
+
   .action
-    = f.submit 'ok'
+    = f.submit 'ok', :id => 'save_user'
+    = image_tag 'loading.gif', :id => 'save_user_loading', :class => :hidden
 

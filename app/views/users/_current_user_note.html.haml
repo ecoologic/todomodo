@@ -2,5 +2,5 @@
   #current_user_note{:class => "#{'hidden' unless session[:show_current_user_note]}"}
     = form_tag update_current_user_note_path, :method => :put, :remote => true do
       = text_area_tag :current_user_note, current_user.note, :placeholder => 'personal notes', :id => nil
-      = submit_tag 'ok'
+      = submit_tag 'ok', :id => 'save_current_user_note'
       = clear_tag :div
