@@ -10,9 +10,10 @@
 //
 //= require vendor
 //
-//= require init
 //= require jquery_plugins
-//= require utilities
+//= require application_layout
 //= require users
+//
+//= require init
 //
 

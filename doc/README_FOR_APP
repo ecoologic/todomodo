@@ -49,8 +49,16 @@ Use `%body#controller_name_controller` css filess for resource specific style.
 Convention to separate words in css elements is underscore.
 
 ## Javascript
-Favour jquery plugins for your development, run your js in application_layout, NEVER in templates, assign js to css selectors ONLY in init.js.coffee
-
+Favour jquery plugins for your development, run your js in application_layout, NEVER in templates, assign js to css selectors ONLY down the function chain of init.js.coffee
+Use id as selectors when possible, so when there is an id you can eventually search for than name to see if there is any jquery associated.
+`Init.js.coffee` contains global constants and functions.
+Each controller related file (users.js.coffee) will have two sections:
+- `controllerNameEvents` -> will be called in `init` to assign behavior to selectors
+- `controllerNames` -> (note 's') will have two sections
+  - events -> implementation for `controllerNameEvents`
+  - functions -> group functions that instantly affect the site
+e.g.: see users.js.coffee
+ 
 
 ## Doc
 - rails_best_practices
