@@ -42,7 +42,7 @@ private # =====================================================================
   def uniquify_name!
     others_same_name = User.where(:name => self.name) #.select(:id)
     others_same_name.all.delete self # without .all the record gets deleted!
-    name_is_uniq = self.name.blank? || others_same_name.any?
+    name_is_uniq = self.name.blank? || others_same_name.empty?
     self.name = nil unless name_is_uniq # nil is correct, to_s will give a unique name
     self.name
   end
