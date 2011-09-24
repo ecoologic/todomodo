@@ -2,6 +2,8 @@
 # consider applicationLayoutController does not exists.
 class ApplicationController < ActionController::Base
 
+  helper_method :save_flash!
+
   respond_to :html, :js, :json, :xml, :csv
 
   protect_from_forgery
@@ -39,6 +41,14 @@ private # =====================================================================
     else
       session[:has_just_auth] = nil
     end
+  end
+
+  # assign flash the correct message
+  # depending on model saving success
+  # returns saved (though it can be chained)
+  def save_flash!(saved)
+    saved ? flash[:notice] = 'saved' : flash[:error] = 'error!'
+    saved
   end
 
 end

@@ -42,6 +42,6 @@ describe ApplicationController do
 
   end
 
-
+  # TODO: how to test helper methods?
 
 end

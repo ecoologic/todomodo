@@ -18,11 +18,9 @@ class UsersController < ApplicationController
     @user = current_user
     session[:show_current_user_note] = !session[:show_current_user_note]
 
-    ok = @user.note == params[:current_user_note] ||
-         @user.update_attribute(:note, params[:current_user_note])
+    save_flash! @user.note == params[:current_user_note] ||
+                @user.update_attribute(:note, params[:current_user_note])
 
-
-    ok ? flash[:notice] = 'saved' : flash[:error] = 'error!'
     respond_with :js
   end
 
@@ -40,9 +38,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find params[:id]
     ok = @user.update_attributes params[:user]
-
-    ok ? flash[:notice] = 'saved' : flash[:error] = 'error!'
-    render ok ? :show : :edit
+    render save_flash!(ok) ? :show : :edit
   end
 
   # GET /users
