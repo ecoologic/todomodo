@@ -37,7 +37,6 @@ class User < ActiveRecord::Base
 
 private # =====================================================================
 
-  # TODO: username should never change
   # if name is not unique it is replaced with default_name
   def uniquify_name!
     others_same_name = User.where(:name => self.name) #.select(:id)
