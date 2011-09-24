@@ -8,18 +8,21 @@ class UsersController < ApplicationController
   # toggle user note visibility
   def toggle_current_user_note
     session[:show_current_user_note] = !session[:show_current_user_note]
+
     respond_with :js
   end
 
   # updated current_user.note if changed
+  # and toggle current user note visibility
   def update_current_user_note
     @user = current_user
+    session[:show_current_user_note] = !session[:show_current_user_note]
 
     ok = @user.note == params[:current_user_note] ||
          @user.update_attribute(:note, params[:current_user_note])
 
-    ok ? flash[:notice] = 'saved' : flash[:error] = 'error!'
 
+    ok ? flash[:notice] = 'saved' : flash[:error] = 'error!'
     respond_with :js
   end
 
@@ -37,6 +40,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find params[:id]
     ok = @user.update_attributes params[:user]
+
     ok ? flash[:notice] = 'saved' : flash[:error] = 'error!'
     render ok ? :show : :edit
   end
