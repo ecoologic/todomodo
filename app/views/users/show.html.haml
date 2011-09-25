@@ -4,7 +4,7 @@
   .label about
   .value #{@user.about}
 
-.avatar= image_tag @user.avatar_url(:thumb).to_s, :alt => @user, :title => @user
+.avatar= prettyphoto_tag @user.avatar_url(:thumb), @user.avatar_url, @user
   
 
 - content_for :footer_nav_content do

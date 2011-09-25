@@ -33,6 +33,13 @@ module ApplicationHelper
     content_tag :br
   end
 
+  # will provide a thumb image (first url) that links to a second one
+  # also assigning alt and title to the link
+  def prettyphoto_tag(thumb_url, dest_url, description)
+    thumb = image_tag thumb_url.to_s, :alt => description, :title => description
+    link_to thumb, dest_url.to_s , :rel => 'prettyPhoto'
+  end
+
   ######################### contents
 
   # shown in title header and page content
