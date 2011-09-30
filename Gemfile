@@ -24,7 +24,8 @@ gem 'nokogiri'     # xml
 # Deploy with Capistrano
 # gem 'capistrano'
 
-group :development do
+# rake db:create RAILS_ENV=staging
+group :development, :staging do
                # https://github.com/ecoologic/todomodo
   gem 'heroku' # http://todomodo.heroku.com/
                # stack is bamboo-mri-1.9.2
@@ -36,7 +37,7 @@ group :development do
   gem 'ruby-prof'      # rails profiler
 end
 
-group :development, :test do
+group :development, :staging, :test do
   gem 'mongrel', '>= 1.2.0.pre2' # rails s mongrel # v1.2 works with rails 3.1
   gem 'mysql'
   gem 'pry' # pry -r ./config/environment / binding.pry
@@ -45,6 +46,7 @@ group :development, :test do
 end
 
 group :test do
+                    # NOTE: remember to run rake db:test:prepare before run tests
   gem 'capybara'    # simulates the browser, for integration test
   gem 'launchy'     # save_and_open_page # will open a browser in the middle of the test
   gem 'guard-rspec' # $ guard runs the spec continuously 
