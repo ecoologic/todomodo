@@ -13,3 +13,18 @@ test:
   user: root
   password: 
 
+
+staging:
+  adapter: mysql
+  database: todomodo_staging
+  user: root
+  password: 
+
+
+# NOTE: production is in heroku
+# and I don't think the following takes place there
+production:
+  # adapter: mysql
+  # database: todomodo_production
+  # user: root
+  # password: 
