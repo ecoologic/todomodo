@@ -1,5 +1,16 @@
 # any class customisation here will be available in all the app
 
+# ActiveRecord ----------------------------------------------------------------
+class ActiveRecord::Base
+
+  # to access view helpers like pluralize
+  # e.g.: helpers.pluralize 1, 'cow'
+  def helpers
+    ActionController::Base.helpers
+  end
+
+end
+
 # Date ------------------------------------------------------------------------
 class Date
   # e.g.: Date.today.to_s :short
@@ -55,13 +66,13 @@ class Hash
   # e.g.: {:a => 1}.the_key => :a
   def the_key
     Rails.warn "hash.the_key should not be used for hashes with size > 1, hash = #{self}" if size > 1
-    self.first.try(:first)
+    self.first.try :first
   end
   
   # e.g.: {:a => 1}.the_value => 1
   def the_value
     Rails.warn "hash.the_value should not be used for hashes with size > 1, hash = #{self}" if size > 1
-    self.first.try(:second)
+    self.first.try :second
   end
   
   # use to sort two items depending on the list order (of symbols)
@@ -98,20 +109,56 @@ class Hash
   end
   
   # returned an hash with stringified keys and string numbers converted
-  # e.g.: {'a' => {'b' => '1', :c => 'false'}} -> {:a => {:b => 1, :c => false}}
+  # e.g.: {'a' => {'b' => '1', :c => 'false'}, :d => '0', :e=> '1', :f => '2', :g => 'asdf'}
+  #       -> {:a=>{:b=>1, :c=>"false"}, :d=>0, :e=>1, :f=>2, :g=>"asdf"}
   def normalize
     result = {}
     self.each do |k, v|
       k = k.to_sym     if k.is_a? String
-      v = v.normalized if v.is_a? Hash
-      v = v.to_i       if v == '0' || (v.is_a?(String) && v.to_i > 1)
-      v = true         if v == 'true'
-      v = false        if v == 'false'
+      v = v.normalize  if v.try(:normalize).present?
       result[k] = v
     end
     result
   end
   
+end
+
+# String ----------------------------------------------------------------------
+class String
+
+  # is the string convertible to a number?
+  # because ''.to_i => 0
+  def int?
+    self == '0' || self.to_i > 0
+  end
+
+  # convert the string to a (selected) primitive data type
+  def normalize
+    if self.int?
+      self.to_i
+    elsif self.bool?
+      self.to_bool
+    end
+  end
+
+
+  # is the value of the string convertible to boolean?
+  # see to_bool
+  def bool?
+    self.to_bool != nil
+  end
+
+  # convert a string to a bool
+  # returns nil if not convertible
+  def to_bool
+    case self
+      when 'true'  then true
+      when '1'     then true
+      when 'false' then false
+      when '0'     then false
+    end
+  end
+
 end
 
 # Object ----------------------------------------------------------------------
@@ -126,7 +173,6 @@ class Object
     attributes.each do |name, value|
       send("#{name}=", value)
     end
-    self
   end
 
 end
@@ -140,12 +186,9 @@ class ActiveSupport::BufferedLogger
     message = (message || block.try(:call) || progname).to_s
 
     level = {
-      0 => "DBG",
-      1 => "NFO",
-      2 => "WRN",
-      3 => "ERR",
-      4 => "FTL"
-    }[severity] || "U"
+      0 => "DBG", 1 => "NFO",
+      2 => "WRN", 3 => "ERR", 4 => "FTL"
+    }[severity] || "U" # for undefined
 
     message = "[%s %s] %s" %
                 [level,
