@@ -1,15 +1,7 @@
-/*
- * This is a manifest file that'll automatically include all the stylesheets available in this directory
- * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
- * the top of the compiled file, but it's generally better to create a new file per style scope.
- *= require_self
- * 
- * Require tree has been commented to control the order the files are loaded
- * Manually import any new file in the correct position
- * All files needs to be in .css.scss
- * DEFAULT WAS= require_tree .
- * 
-*/
+// ############################################################################
+// ############### if you haven't yet, read README_FOR_APP ####################
+// ###############   BEFORE to start working on the code   ####################
+// ############################################################################
 
 @import 'utilities.css.scss';
 
