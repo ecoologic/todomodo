@@ -1,10 +1,10 @@
 <%= form_for(@announcement) do |f| %>
-  <%= render '/application/error_explanation', :resource => @announcement %>
+  <%= error_explanation @announcement %>
 
   <div class="field">
     <!-- raw? see the problem with a validation error -->
-    <%= raw(f.label :message) %><br />
-    <%= raw(f.text_area :message) %>
+    <%= f.label :message %><br />
+    <%= f.text_area :message %>
   </div>
   <div class="field">
     <%= f.label :starts_at %><br />

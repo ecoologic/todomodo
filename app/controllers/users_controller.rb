@@ -37,8 +37,8 @@ class UsersController < ApplicationController
   # PUT /users/1/update
   def update
     @user = User.find params[:id]
-    # error can occur on saving avatar file
-    ok = @user.update_attributes params[:user] rescue false
+    ok = @user.update_attributes params[:user] rescue nil
+    @user.errors[:base] << "Maybe a problem with your image?" if ok.nil?
     render save_flash!(ok) ? :show : :edit
   end
 

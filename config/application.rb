@@ -23,7 +23,7 @@ module Todomodo
 
     # wrap field with errors in a span tag instead of a div (railscasts#39)
     ActionView::Base.field_error_proc = Proc.new do |html_tag, instance_tag|
-      "<span class='field_with_error'>#{html_tag}</span>"
+      "<span class='field_with_error'>#{html_tag}</span>".html_safe
     end
 
     # original ================================================================

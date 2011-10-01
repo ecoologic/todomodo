@@ -5,8 +5,15 @@ module ApplicationHelper
 
   include ApplicationLayoutHelper
 
+  ############################## forms
 
-  ##############################  links
+  # renders the grouped explanation of errors in the submitted form
+  def error_explanation(resource)
+    render '/application/error_explanation', :resource => resource
+  end
+
+
+  ############################## links
 
   # link to back page (it's a js core function) if possible
   def link_to_back
