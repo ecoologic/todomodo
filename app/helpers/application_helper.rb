@@ -41,9 +41,11 @@ module ApplicationHelper
   end
 
   # will provide a thumb image (first url) that links to a second one
+  # link to thumb if dest_url is nil
   # also assigning alt and title to the link
   def prettyphoto_tag(thumb_url, dest_url, description)
-    thumb = image_tag thumb_url.to_s, :alt => description, :title => description
+    dest_url ||= thumb_url
+    thumb      = image_tag thumb_url.to_s, :alt => description, :title => description
     link_to thumb, dest_url.to_s , :rel => 'prettyPhoto'
   end
 
