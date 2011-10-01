@@ -1,9 +1,14 @@
 Todomodo::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
+  # Devise and activeadmin uses this configuration
+  config.action_mailer.default_url_options = { :host => 'http://todomodo.heroku.com' }
+
   # speed up devise tests
   # https://github.com/plataformatec/devise/wiki/Speed-up-your-unit-tests
   config.stretches = Rails.env.test? ? 1 : 10
+
+  config.log_level = :debug
 
   # original ==================================================================
 

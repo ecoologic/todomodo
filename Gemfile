@@ -4,8 +4,12 @@ gem 'rails'         # the best ever!
 
 gem 'devise'        # authentification
 gem 'settingslogic' # see Setting model and settings.yml
+
 gem 'carrierwave'   # for images (avatar) in app/uploader
 gem 'rmagick'       # to resize images (see avatar_uploader)
+
+gem 'activeadmin'   # all the admin side see railscasts#284
+                    # $ rails g active_admin:resource MODEL
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -24,7 +28,6 @@ gem 'nokogiri'     # xml
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# heroku config:add BUNDLE_WITHOUT="development:test:staging" --app todomodo
 # rake db:create RAILS_ENV=staging
 group :development, :staging do
                # https://github.com/ecoologic/todomodo
@@ -35,13 +38,13 @@ group :development, :staging do
   gem 'ruby-debug19', :require => 'ruby-debug' # To use debugger with ruby 1.9
   gem 'rails_best_practices'                   # $ rails_best_practices
   # gem 'what_methods' # http://drnicwilliams.com/2006/10/12/my-irbrc-for-consoleirb/
-  gem 'ruby-prof'      # rails profiler
+  gem 'ruby-prof'      # $ rails profiler
 end
 
 group :development, :staging, :test do
   gem 'mongrel', '>= 1.2.0.pre2' # rails s mongrel # v1.2 works with rails 3.1
   gem 'mysql'
-  gem 'pry' # pry -r ./config/environment / binding.pry
+  gem 'pry' # $ pry -r ./config/environment / binding.pry
   gem 'rspec-rails'      
   gem 'factory_girl_rails'
 end
@@ -58,8 +61,10 @@ group :test do
 end
 
 # to be used by heroku
+# http://todomodo.heroku.com
 # dbname vdsbzjlafn
 # app    todomodo
+# $ heroku config:add BUNDLE_WITHOUT="development:test:staging" --app todomodo
 group :production do
   # gem 'therubyracer-heroku', '>= 0.8.1.pre3' # javascript runtime required by heroku... but not working!
   gem 'therubyracer', '>= 0.9.3.beta1'      # working...

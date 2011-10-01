@@ -8,6 +8,23 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module Todomodo
   class Application < Rails::Application
+
+    ### ActionMailer Config
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+      :domain               => 'gmail.com',
+      :user_name            => 'erikecoologic@gmail.com',
+      :password             => '', # TODO
+      :authentication       => 'plain'
+      # :enable_starttls_auto => true  
+    }
+  
+  
+    # original =================================================================
+
+
     # Custom directories with classes and modules you want to be autoloadable.
     # EXAMPLE: config.autoload_paths += %W(#{config.root}/extras)
     config.autoload_paths += %W(#{config.root}/app/helpers/partials) +

@@ -1,4 +1,10 @@
 Todomodo::Application.configure do
+
+  # Devise and activeadmin uses this configuration
+  config.action_mailer.default_url_options = { :host => 'http://todomodo.heroku.com' }
+
+  # original =================================================================
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
