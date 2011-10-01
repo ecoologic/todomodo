@@ -97,9 +97,10 @@
 <p>(Note the html version of the file) Use this README file to introduce your
 application and point to useful places in the API for learning more. Run
 “rake doc:app” to generate API documentation for your models, controllers,
-helpers, and libraries.</p>
+helpers, and libraries. Run “rails_best_practices” to get some hints on how
+to improve the code.</p>
 
-<p>## Architecture This file is for development doc, /README is for users
+<p>## Architecture This file is for development doc, /README is for user
 documentation. please update CHANGELOG to state any new functionality or
 amend on existing functionality.</p>
 
@@ -152,8 +153,25 @@ filess for resource specific style.  Convention to separate words in css
 elements is underscore.</p>
 
 <p>## Javascript Favour jquery plugins for your development, run your js in
-application_layout, NEVER in templates, assign js to css selectors ONLY in
-init.js.coffee</p>
+application_layout, NEVER in templates, assign js to css selectors ONLY
+down the function chain of init.js.coffee Use id as selectors when
+possible, so when there is an id you can eventually search for than name to
+see if there is any jquery associated. `Init.js.coffee` contains global
+constants and functions. Each controller related file (users.js.coffee)
+will have two sections:</p>
+<ul><li>
+<p>`controllerNameEvents` -&gt; will be called in `init` to assign behavior to
+selectors</p>
+</li><li>
+<p>`controllerNames` -&gt; (note ‘s’) will have two sections</p>
+<ul><li>
+<p>events -&gt; implementation for `controllerNameEvents`</p>
+</li><li>
+<p>functions -&gt; group functions that instantly affect the site</p>
+</li></ul>
+</li></ul>
+
+<p>e.g.: see users.js.coffee</p>
 
 <p>## Doc</p>
 <ul><li>

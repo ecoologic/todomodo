@@ -1,14 +1,14 @@
-Fri, 23 Sep 2011 21:16:50 +0100
-doc/README_FOR_APP	Fri, 23 Sep 2011 21:14:44 +0100
-app/controllers/application_controller.rb	Tue, 20 Sep 2011 23:34:55 +0100
-app/controllers/users_controller.rb	Tue, 20 Sep 2011 23:34:55 +0100
+Sat, 01 Oct 2011 18:03:58 +0100
+doc/README_FOR_APP	Sat, 01 Oct 2011 14:14:39 +0100
+app/controllers/application_controller.rb	Sat, 01 Oct 2011 14:14:39 +0100
+app/controllers/users_controller.rb	Sat, 01 Oct 2011 16:15:03 +0100
 app/controllers/announcements_controller.rb	Tue, 20 Sep 2011 23:34:55 +0100
 app/controllers/sandboxes_controller.rb	Sat, 17 Sep 2011 21:00:51 +0100
-app/uploaders/avatar_uploader.rb	Fri, 23 Sep 2011 21:16:33 +0100
-app/helpers/users_helper.rb	Sun, 18 Sep 2011 21:44:47 +0100
+app/uploaders/avatar_uploader.rb	Sat, 01 Oct 2011 01:10:39 +0100
+app/helpers/users_helper.rb	Sat, 01 Oct 2011 16:55:02 +0100
 app/helpers/announcements_helper.rb	Sat, 27 Aug 2011 16:22:26 +0100
 app/helpers/application_layout_helper.rb	Tue, 20 Sep 2011 23:34:55 +0100
-app/helpers/application_helper.rb	Tue, 20 Sep 2011 23:34:55 +0100
-app/models/user.rb	Fri, 23 Sep 2011 00:34:42 +0100
+app/helpers/application_helper.rb	Sat, 01 Oct 2011 18:03:34 +0100
+app/models/user.rb	Sat, 01 Oct 2011 14:14:39 +0100
 app/models/announcement.rb	Sat, 17 Sep 2011 21:00:51 +0100
 app/models/setting.rb	Tue, 09 Aug 2011 23:10:29 +0100

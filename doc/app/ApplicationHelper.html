@@ -61,9 +61,13 @@
           
           <li><a href="#method-i-clear_tag">#clear_tag</a></li>
           
+          <li><a href="#method-i-error_explanation">#error_explanation</a></li>
+          
           <li><a href="#method-i-footer_nav_content">#footer_nav_content</a></li>
           
           <li><a href="#method-i-link_to_back">#link_to_back</a></li>
+          
+          <li><a href="#method-i-prettyphoto_tag">#prettyphoto_tag</a></li>
           
           <li><a href="#method-i-test_tag">#test_tag</a></li>
           
@@ -196,7 +200,7 @@ application_layout_helper for functions that make sense only in the layout
             
             <div class="method-source-code" id="br_tag-source">
 <pre>
-<span class="ruby-comment"># File app/helpers/application_helper.rb, line 32</span>
+<span class="ruby-comment"># File app/helpers/application_helper.rb, line 39</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">br_tag</span>
   <span class="ruby-identifier">content_tag</span> <span class="ruby-value">:br</span>
 <span class="ruby-keyword">end</span></pre>
@@ -229,7 +233,7 @@ application_layout_helper for functions that make sense only in the layout
             
             <div class="method-source-code" id="clear_tag-source">
 <pre>
-<span class="ruby-comment"># File app/helpers/application_helper.rb, line 27</span>
+<span class="ruby-comment"># File app/helpers/application_helper.rb, line 34</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">clear_tag</span>(<span class="ruby-identifier">tag</span> = <span class="ruby-value">:span</span>)
   <span class="ruby-identifier">content_tag</span> <span class="ruby-identifier">tag</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-value">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:clear</span>
 <span class="ruby-keyword">end</span></pre>
@@ -241,6 +245,39 @@ application_layout_helper for functions that make sense only in the layout
 
           
         </div><!-- clear_tag-method -->
+
+      
+        <div id="error_explanation-method" class="method-detail ">
+          <a name="method-i-error_explanation"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">error_explanation</span><span
+              class="method-args">(resource)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>renders the grouped explanation of errors in the submitted form</p>
+            
+
+            
+            <div class="method-source-code" id="error_explanation-source">
+<pre>
+<span class="ruby-comment"># File app/helpers/application_helper.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">error_explanation</span>(<span class="ruby-identifier">resource</span>)
+  <span class="ruby-identifier">render</span> <span class="ruby-string">'/application/error_explanation'</span>, <span class="ruby-value">:resource</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">resource</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- error_explanation-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- error_explanation-method -->
 
       
         <div id="footer_nav_content-method" class="method-detail ">
@@ -262,9 +299,9 @@ application_layout_helper for functions that make sense only in the layout
             
             <div class="method-source-code" id="footer_nav_content-source">
 <pre>
-<span class="ruby-comment"># File app/helpers/application_helper.rb, line 44</span>
+<span class="ruby-comment"># File app/helpers/application_helper.rb, line 61</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">footer_nav_content</span>(*<span class="ruby-identifier">args</span>)
-  <span class="ruby-comment"># TODO: add link tag in here... not as easy! see railscast</span>
+  <span class="ruby-comment"># TODO: footer: add back link... not as easy! see railscast</span>
   <span class="ruby-identifier">content_for</span>(<span class="ruby-value">:footer_nav_content</span>) {<span class="ruby-keyword">yield</span>}
 <span class="ruby-keyword">end</span></pre>
             </div><!-- footer_nav_content-source -->
@@ -296,7 +333,7 @@ application_layout_helper for functions that make sense only in the layout
             
             <div class="method-source-code" id="link_to_back-source">
 <pre>
-<span class="ruby-comment"># File app/helpers/application_helper.rb, line 12</span>
+<span class="ruby-comment"># File app/helpers/application_helper.rb, line 19</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">link_to_back</span>
   <span class="ruby-identifier">link_to</span> <span class="ruby-string">'back'</span>, <span class="ruby-value">:back</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">env</span>[<span class="ruby-string">'HTTP_REFERER'</span>].<span class="ruby-identifier">present?</span>
 <span class="ruby-keyword">end</span></pre>
@@ -308,6 +345,42 @@ application_layout_helper for functions that make sense only in the layout
 
           
         </div><!-- link_to_back-method -->
+
+      
+        <div id="prettyphoto_tag-method" class="method-detail ">
+          <a name="method-i-prettyphoto_tag"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">prettyphoto_tag</span><span
+              class="method-args">(thumb_url, dest_url, description)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>will provide a thumb image (first url) that links to a second one link to
+nothing if dest_url is nil also assigning alt and title to the link</p>
+            
+
+            
+            <div class="method-source-code" id="prettyphoto_tag-source">
+<pre>
+<span class="ruby-comment"># File app/helpers/application_helper.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">prettyphoto_tag</span>(<span class="ruby-identifier">thumb_url</span>, <span class="ruby-identifier">dest_url</span>, <span class="ruby-identifier">description</span>)
+  <span class="ruby-identifier">dest_url</span> <span class="ruby-operator">||=</span> <span class="ruby-string">'#'</span>
+  <span class="ruby-identifier">thumb</span> = <span class="ruby-identifier">image_tag</span> <span class="ruby-identifier">thumb_url</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-value">:alt</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">description</span>, <span class="ruby-value">:title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">description</span>
+  <span class="ruby-identifier">link_to</span> <span class="ruby-identifier">thumb</span>, <span class="ruby-identifier">dest_url</span>.<span class="ruby-identifier">to_s</span> , <span class="ruby-value">:rel</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'prettyPhoto'</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- prettyphoto_tag-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- prettyphoto_tag-method -->
 
       
         <div id="test_tag-method" class="method-detail ">
@@ -330,7 +403,7 @@ not shown in production</p>
             
             <div class="method-source-code" id="test_tag-source">
 <pre>
-<span class="ruby-comment"># File app/helpers/application_helper.rb, line 21</span>
+<span class="ruby-comment"># File app/helpers/application_helper.rb, line 28</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_tag</span>
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">env</span>.<span class="ruby-identifier">production?</span>
   <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:div</span>, <span class="ruby-value">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:test</span>) {<span class="ruby-keyword">yield</span>}
@@ -351,7 +424,7 @@ not shown in production</p>
           
           <div class="method-heading">
             <span class="method-name">title_content</span><span
-              class="method-args">(title = Setting.app_title)</span>
+              class="method-args">(title, other = '')</span>
             <span class="method-click-advice">click to toggle source</span>
           </div>
           
@@ -364,9 +437,10 @@ not shown in production</p>
             
             <div class="method-source-code" id="title_content-source">
 <pre>
-<span class="ruby-comment"># File app/helpers/application_helper.rb, line 39</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">title_content</span>(<span class="ruby-identifier">title</span> = <span class="ruby-constant">Setting</span>.<span class="ruby-identifier">app_title</span>)
-  <span class="ruby-identifier">content_for</span>(<span class="ruby-value">:title_content</span>) {<span class="ruby-identifier">title</span>}
+<span class="ruby-comment"># File app/helpers/application_helper.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">title_content</span>(<span class="ruby-identifier">title</span>, <span class="ruby-identifier">other</span> = <span class="ruby-string">''</span>)
+  <span class="ruby-identifier">content_for</span>(<span class="ruby-value">:page_title_content</span>) {<span class="ruby-identifier">title</span>.<span class="ruby-identifier">to_s</span>}
+  <span class="ruby-identifier">content_for</span>(<span class="ruby-value">:header_title_content</span>) {<span class="ruby-identifier">raw</span>(<span class="ruby-identifier">title</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">to_s</span>)}
 <span class="ruby-keyword">end</span></pre>
             </div><!-- title_content-source -->
             
