@@ -5,39 +5,40 @@ body { margin: $small-space; }
 
 #current_user_note {
   textarea { width: 99.6%; }
-  input { float: right; }
+  input    { float: right; }
 }
+
+
+#flash_messages {
+  text-align:    center;
+  height:        1em;
+  margin-bottom: 1em;
+
+  #flash_notice { color: green;  }
+  #flash_alert  { color: orange; }
+  #flash_error  { color: red;    }
+}
+
+h3 img { margin-left: 1em; }
 
 #announcements {
   text-align: center;
   font-style: oblique;
-  color: green;
-}
-
-#flash_messages {
-  text-align: center;
-  height: 1em;
-  margin-bottom: 1em;
-
-  #flash_notice { color: green; }
-  #flash_alert  { color: orange; }
-  #flash_error  { color: red; }
+  color:      green;
 }
 
 #container {
-  width: 98%;
-  margin: 1em auto;
+  width:            98%;
+  margin:           1em auto;
   background-color: $container-bg-color;
-  padding: 0.5em;
-  @include rounded-corners(10px, 0);
-  @include shadow;
+  padding:          0.5em;
+  @include          rounded-corners(10px, 0);
+  @include          shadow;
 }
 
-#footer nav {
-  text-align: center;
-}
+#footer nav { text-align: center; }
 
 #credits nav a {
-  float: right;
+  float:       right;
   margin-left: 1em;
 }

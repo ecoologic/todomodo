@@ -1,24 +1,15 @@
 // the layer above reset, to store element customizations,
 // not for classes or ids, except these four very general on top
 
-.todo { border: red 1px dashed; }
+.todo { border: 1px dashed red; }
 
-.test{ border: 1px solid red; }
+.test { border: 1px solid red; }
 
 .clear { clear: both; }
 
 .hidden { display: none; }
 
-body {color: white; background: black;}
-
-textarea { height: 5em; }
-
-input, textarea  {
-  width: 15em;
-  font-style: oblique;
-}
-
-label { font-weight: bold; }
+body {color: white; background: black; }
 
 strong{ font-weight: bolder; }
 
