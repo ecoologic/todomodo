@@ -1,11 +1,8 @@
-- title_content @user.to_s
+- title_content @user, avatar_thumb(@user)
 
 .field
   .label about
   .value #{@user.about}
-
-.avatar= prettyphoto_tag @user.avatar_url(:thumb), @user.avatar_url, @user
-  
 
 - content_for :footer_nav_content do
   = link_to 'edit', [:edit, @user]

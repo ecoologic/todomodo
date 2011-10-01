@@ -50,8 +50,9 @@ module ApplicationHelper
   ######################### contents
 
   # shown in title header and page content
-  def title_content(title = Setting.app_title)
-    content_for(:title_content) {title}
+  def title_content(title, other = '')
+    content_for(:page_title_content) {title.to_s}
+    content_for(:header_title_content) {raw(title.to_s + other.to_s)}
   end
 
   # actions views can determinate how to populate the footer

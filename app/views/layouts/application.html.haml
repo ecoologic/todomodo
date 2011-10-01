@@ -11,7 +11,7 @@
 
     #container
       #header
-        %h3= yield :title_content
+        %h3= yield :header_title_content
 
       // content ==============================================================
       #content
@@ -19,8 +19,8 @@
         = render '/users/current_user_note'
         = yield
       // /content =============================================================
-  
-  
+
+
       #footer
         %nav
           = link_to_back
@@ -30,7 +30,7 @@
       %nav
         = link_to_ecoologic
         = link_to image_tag('rails.png'), 'http://rubyonrails.org/'
-        
+
     = test_show_params
 
 
