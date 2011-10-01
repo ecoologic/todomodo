@@ -4,8 +4,8 @@
 class ActiveRecord::Base
 
   # to access view helpers like pluralize
-  # e.g.: helpers.pluralize 1, 'cow'
-  def helpers
+  # e.g.: view_context.pluralize 1, 'cow'
+  def view_context
     ActionController::Base.helpers
   end
 
