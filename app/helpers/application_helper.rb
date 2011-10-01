@@ -49,7 +49,7 @@ module ApplicationHelper
 
   # actions views can determinate how to populate the footer
   def footer_nav_content(*args)
-    # TODO: add link tag in here... not as easy! see railscast
+    # TODO: footer: add back link... not as easy! see railscast
     content_for(:footer_nav_content) {yield}
   end
 

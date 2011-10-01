@@ -23,6 +23,16 @@ describe User do
 
   end
 
+  describe 'name' do
+    it 'should be saved if unique' do
+      User.find(@user1.id).name.should be == USER_NAME
+    end
+    
+    it 'should turn back to nil if not unique' do
+      User.find(@user2.id).name.should be nil
+    end
+  end
+
   describe 'is_admin' do
     it 'should not be mass assigned' do
       @user1.update_attributes :note => 'adminizing!', :is_admin => true
