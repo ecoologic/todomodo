@@ -58,7 +58,10 @@ Each controller related file (users.js.coffee) will have two sections:
   - events -> implementation for `controllerNameEvents`
   - functions -> group functions that instantly affect the site
 e.g.: see users.js.coffee
- 
+
+## Images
+set from icojoy (http://www.iconfinder.com/search/?q=iconset%3Aicojoy)
+ico: 24x24
 
 ## Doc
 - rails_best_practices
