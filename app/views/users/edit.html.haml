@@ -1,4 +1,4 @@
-- title_content "edit #{@user}"
+- title_content "edit #{@user}", avatar_thumb(@user)
 
 -# note that the put request is sent even when the html says post, check the log
 = form_for @user, :method => :put do |f|
@@ -12,10 +12,10 @@
     = f.label      :about, 'about'
     = f.text_area  :about
 
-  .tabs
+  .field.avatar.tabs
     %ul
       %li= link_to 'local file', '#avatar_local'
-      %li= link_to 'url', '#avatar_url'
+      %li= link_to 'url',        '#avatar_url'
 
     .field{:id => 'avatar_local'}
       = f.label      :avatar, 'avatar'

@@ -8,16 +8,23 @@
 
 //////////////////////// input fields
 
-label { font-weight: bold; }
+label {
+  border: 1px solid red; // TODO: not working
 
-textarea { height: 5em; }
+  font-weight: bold; }
 
-input, textarea  {
-  width: 15em;
-  font-style: oblique;
+textarea {
+  height:  10em;
+  width:   30em; // which is the same a input 15em
+  padding: 0 $small-space;
 }
 
-input { text-align: center; }
+input, textarea  { font-style: oblique; }
+
+input {
+  width:      15em;
+  text-align: center;
+}
 
 
 ////////////////////////// error messages

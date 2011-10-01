@@ -1,0 +1,11 @@
+// this file contains only style for pages inside users_controller
+
+#users_controller {
+
+  .field.avatar.tabs { width:  30em; }
+
+  textarea { width: 47em; } // textarea 47 em = 30 em in .field.avatar.tabs
+
+}
+
+
