@@ -1,4 +1,4 @@
 .field
-  .value #{@user.about}
+  .value #{user.about}
 
-.avatar= image_tag @user.avatar_url(:thumb).to_s, :alt => @user, :title => @user
+.avatar= image_tag user.avatar_url(:thumb).to_s, :alt => user, :title => user

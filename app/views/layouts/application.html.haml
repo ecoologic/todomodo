@@ -6,7 +6,7 @@
   %body{:id => "#{controller_name.parameterize}_controller"}
 
     #fixed= render '/layouts/fixed'
-    #announcements= render '/announcements/current_announcements'
+    #announcements= render '/announcements/current_announcements', :current_announcements => @current_announcements
     #flash_messages= flash_messages
 
     #container

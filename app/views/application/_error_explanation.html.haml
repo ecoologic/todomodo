@@ -6,7 +6,8 @@
       #{pluralize resource.errors.count, 'error'} prohibited this
       -# TODO: actually humanize works for underscore, class_extension... and use _with to overrie methods
       #{resource.class.name.humanize.downcase} from being saved:
-  
+
     %ul
       - resource.errors.full_messages.each do |msg|
         %li= msg
+
