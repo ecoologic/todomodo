@@ -21,8 +21,8 @@ staging:
   password: 
 
 
-# NOTE: production is in heroku
-# and I don't think the following takes place there
+# NOTE: production is on heroku
+# so the followings don't take place there
 production:
   # adapter: mysql
   # database: todomodo_production

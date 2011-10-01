@@ -24,6 +24,7 @@ gem 'nokogiri'     # xml
 # Deploy with Capistrano
 # gem 'capistrano'
 
+# heroku config:add BUNDLE_WITHOUT="development:test:staging" --app todomodo
 # rake db:create RAILS_ENV=staging
 group :development, :staging do
                # https://github.com/ecoologic/todomodo
