@@ -10,18 +10,14 @@ Todomodo::Application.routes.draw do
 
   # announcements =============================================================
 
-  resources :announcements do
-    collection do
-      get 'hide_current'
-    end
-  end
+  get '/announcements/hide_currents', :to => 'announcements#hide_currents', :as => 'hide_current_announcements'
 
   # users =====================================================================
 
   devise_for :user
 
   devise_scope :user do
-    get 'login' , :to =>  'devise/sessions#new'
+    get 'login' , :to => 'devise/sessions#new'
     get 'logout', :to => 'devise/sessions#destroy'
     get 'signup', :to => 'devise/registrations#new'
   end

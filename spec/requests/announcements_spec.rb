@@ -1,21 +1,10 @@
 require 'spec_helper'
 
-describe "CRUD Announcements" do
-  describe "GET /announcements" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get announcements_path
-      response.status.should be(200)
-    end
-  end
-end
-
-
 # without loading factory
 describe "Without announcements in layout" do
   it "should work when there are no current announcements" do
     visit root_path
-    page.body.should have_content 'Welcome'
+    page.body.should have_content 'welcome'
   end
 end
 

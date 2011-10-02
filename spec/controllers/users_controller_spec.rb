@@ -42,7 +42,7 @@ describe UsersController do
 
   describe "GET show" do
     it "assigns the requested user as @user" do
-      user = Factory(:user)
+      user = Factory :user
       get :show, :id => user.id.to_s
       assigns(:user).should eq(user)
     end
@@ -50,7 +50,7 @@ describe UsersController do
 
   describe "GET edit" do
     it "assigns the requested user as @user" do
-      user = Factory(:user)
+      user = Factory :user
       get :edit, :id => user.id.to_s
       assigns(:user).should eq(user)
     end
@@ -70,7 +70,7 @@ describe UsersController do
       end
 
       it "assigns the requested user as @user" do
-        user = Factory(:user)
+        user = Factory :user
         put :update, :id => user.id, :user => valid_attributes
         assigns(:user).should eq(user)
       end
@@ -79,7 +79,7 @@ describe UsersController do
 
     describe "with invalid params" do
       it "assigns the user as @user" do
-        user = Factory(:user)
+        user = Factory :user
         # Trigger the behavior that occurs when invalid params are submitted
         User.any_instance.stub(:save).and_return(false)
         put :update, :id => user.id.to_s, :user => {}
@@ -87,13 +87,33 @@ describe UsersController do
       end
 
       it "re-renders the 'edit' template" do
-        user = Factory(:user)
+        user = Factory :user
         # Trigger the behavior that occurs when invalid params are submitted
         User.any_instance.stub(:save).and_return(false)
         put :update, :id => user.id.to_s, :user => {}
         response.should render_template("edit")
       end
     end
+
+    describe "when exception on saving occurs (i.e.: avatar uploading)" do
+      it "assigns the user as @user"
+        # TODO: stub exception do
+        # user = Factory :user
+        # # Trigger the behavior that occurs when invalid params are submitted
+        # User.any_instance.stub(:save).and_raise(Exception.new)
+        # put :update, :id => user.id.to_s, :user => {}
+        # assigns(:user).should eq(user)
+      # end
+      # 
+      # it "re-renders the 'edit' template" do
+      #   user = Factory :user
+      #   # Trigger the behavior that occurs when invalid params are submitted
+      #   User.any_instance.stub(:save).and_return(false)
+      #   put :update, :id => user.id.to_s, :user => {}
+      #   response.should render_template("edit")
+      # end
+    end
+
   end
 
 end
