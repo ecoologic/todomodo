@@ -9,7 +9,7 @@ module ApplicationHelper
 
   # renders the grouped explanation of errors in the submitted form
   def error_explanation(resource)
-    render '/application/error_explanation', :resource => resource
+    render 'error_explanation', :resource => resource
   end
 
 
