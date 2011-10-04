@@ -13,8 +13,7 @@ module ActiveAdmin
       # show datetime format
       def datetime_column(col)
         column col, :sortable => col do |user|
-          value = user.send(col).try(:to_s, :datetime) || 'N/A'
-          image_tag "#{value}.png", :alt => value, :title => value
+          user.send(col).try(:to_s, :datetime) || 'N/A'
         end
       end
 
