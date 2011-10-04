@@ -13,7 +13,8 @@ test:
   user: root
   password: 
 
-
+# it doesn't really worth to have the staging so different from the production
+# anyway... here it is!
 staging:
   adapter: mysql
   database: todomodo_staging
