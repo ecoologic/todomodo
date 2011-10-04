@@ -32,7 +32,6 @@ gem 'nokogiri'     # xml
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# rake db:create RAILS_ENV=staging
 group :development do
   gem 'heroku' # see production below
   gem 'ruby-debug19', :require => 'ruby-debug' # To use debugger with ruby 1.9
@@ -61,6 +60,7 @@ end
 
 # staging by itself does not really make sense
 # but it's ready to use if you move production
+# $ rake db:create RAILS_ENV=staging
 group :staging do
   gem 'mysql'
   gem 'passenger'
