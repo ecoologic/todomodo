@@ -37,7 +37,7 @@ group :development do
   gem 'heroku' # see production below
   gem 'ruby-debug19', :require => 'ruby-debug' # To use debugger with ruby 1.9
   gem 'rails_best_practices'                   # $ rails_best_practices
-  gem 'pry'    # $ pry -r ./config/environment # binding.pry
+  # gem 'pry'    # $ pry -r ./config/environment # binding.pry
 end
 
 group :development, :test do
@@ -45,11 +45,11 @@ group :development, :test do
   gem 'mysql'
 end
 
-# run the tests with $ guard
+# NOTE: remember to run    $ rake db:test:prepare before run tests
+#       run the tests with $ guard
 group :test do
   gem 'rspec-rails'      
   gem 'factory_girl_rails'
-                    # NOTE: remember to run rake db:test:prepare before run tests
   gem 'capybara'    # simulates the browser, for integration test
   gem 'launchy'     # save_and_open_page # will open a browser in the middle of the test
   gem 'guard-rspec' # $ guard runs the spec continuously 
@@ -63,6 +63,7 @@ end
 # but it's ready to use if you move production
 group :staging do
   gem 'mysql'
+  gem 'passenger'
 end
 
 # to be used by heroku
