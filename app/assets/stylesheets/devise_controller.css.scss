@@ -1,5 +1,19 @@
 #sessions_controller, #registrations_controller {
 
- #container { width: 230px; }
+  @import 'forms.css.scss';
+
+  #container {
+    width: 485px;
+
+    h2, label, a {
+      text-align: center;
+      display:    block;
+    }
+
+    input, span {
+      display: block;
+      margin:  0 auto;
+    }
+  }
 
 }
