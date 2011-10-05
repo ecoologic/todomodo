@@ -22,6 +22,8 @@ Todomodo::Application.routes.draw do
     get 'signup', :to => 'devise/registrations#new'
   end
 
+  get '/user', :to => 'users#user'
+
   resources :users
   put '/update_current_user_note', :to => 'users#update_current_user_note'
   get '/toggle_current_user_note', :to => 'users#toggle_current_user_note'

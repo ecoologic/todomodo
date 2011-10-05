@@ -5,6 +5,12 @@ class UsersController < ApplicationController
 
   before_filter :authenticate_user! # see devise
 
+  # after signup, before email confirmation 
+  def user
+    debugger
+    # TODO: when exactly? check when you can
+  end
+
   # toggle user note visibility
   def toggle_current_user_note
     session[:show_current_user_note] = !session[:show_current_user_note]
