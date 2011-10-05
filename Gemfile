@@ -11,7 +11,7 @@ gem 'rmagick'       # to resize images (see avatar_uploader)
 gem 'activeadmin'   # all the admin side see railscasts#284
                     # $ rails g active_admin:resource MODEL
 
-gem 'ruby-prof'     # $ rails profiler
+# gem 'ruby-prof'     # $ rails profiler
 
 
 # Bundle edge Rails instead:
