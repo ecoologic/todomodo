@@ -2,13 +2,25 @@ Todomodo::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # Devise and activeadmin uses this configuration
-  config.action_mailer.default_url_options = { :host => 'http://todomodo.heroku.com' }
+  config.action_mailer.default_url_options = { :host => 'http://localhost:3000' }
 
   # speed up devise tests
   # https://github.com/plataformatec/devise/wiki/Speed-up-your-unit-tests
   config.stretches = Rails.env.test? ? 1 : 10
 
   config.log_level = :debug
+
+  ### ActionMailer Config
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :domain               => 'gmail.com',
+    :user_name            => 'erikecoologic@gmail.com',
+    :password             => Setting[:email_password],
+    :authentication       => 'plain'
+    # :enable_starttls_auto => true  
+  }
 
   # original ==================================================================
 

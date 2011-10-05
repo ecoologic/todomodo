@@ -1,9 +1,21 @@
 Todomodo::Application.configure do
 
+  config.log_level = :debug
+
   # Devise and activeadmin uses this configuration
   config.action_mailer.default_url_options = { :host => 'http://todomodo.heroku.com' }
 
-  config.log_level = :debug
+  ### ActionMailer Config
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :domain               => 'gmail.com',
+    :user_name            => 'erikecoologic@gmail.com',
+    :password             => Setting[:email_password],
+    :authentication       => 'plain'
+    # :enable_starttls_auto => true  
+  }
 
   # production original ======================================================
 
