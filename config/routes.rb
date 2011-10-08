@@ -1,4 +1,4 @@
-###############################################################################
+##############################aandboxes#test_js#################################################
 ############### if you haven't yet, read README_FOR_APP #######################
 ###############   BEFORE to start working on the code   #######################
 ###############################################################################
@@ -10,35 +10,35 @@ Todomodo::Application.routes.draw do
 
   # announcements =============================================================
 
-  get '/announcements/hide_currents', :to => 'announcements#hide_currents', :as => 'hide_current_announcements'
+  get '/announcements/hide_currents', to: 'announcements#hide_currents', as: 'hide_current_announcements'
 
   # users =====================================================================
 
   devise_for :user
 
   devise_scope :user do
-    get 'login' , :to => 'devise/sessions#new'
-    get 'logout', :to => 'devise/sessions#destroy'
-    get 'signup', :to => 'devise/registrations#new'
+    get 'login' , to: 'devise/sessions#new'
+    get 'logout', to: 'devise/sessions#destroy'
+    get 'signup', to: 'devise/registrations#new'
   end
 
-  get '/user', :to => 'users#user'
-
   resources :users
-  put '/update_current_user_note', :to => 'users#update_current_user_note'
-  get '/toggle_current_user_note', :to => 'users#toggle_current_user_note'
+  put '/update_current_user_note', to: 'users#update_current_user_note'
+  get '/toggle_current_user_note', to: 'users#toggle_current_user_note'
+  get '/user'                    , to: 'users#user'
 
 
   # sandbox ===================================================================
 
-  get '/test_error'   , :to => 'sandboxes#test_error'
-  get '/test'         , :to => 'sandboxes#test'
-  get '/debug'        , :to => 'sandboxes#debug'
-  get '/clear_session', :to => 'sandboxes#clear_session'
+  get '/test_js'      , to: 'sandboxes#test_js'
+  get '/test_error'   , to: 'sandboxes#test_error'
+  get '/test'         , to: 'sandboxes#test'
+  get '/debug'        , to: 'sandboxes#debug'
+  get '/clear_session', to: 'sandboxes#clear_session'
 
   # application ===============================================================
 
-  root :to => 'application#show'
+  root to: 'application#show'
 
   # original ==================================================================
 

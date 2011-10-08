@@ -4,7 +4,7 @@
 class ActiveRecord::Base
 
   # to access view helpers like pluralize
-  # e.g.: view_context.pluralize 1, 'cow'
+  # eg: view_context.pluralize 1, 'cow'
   def view_context
     ActionController::Base.helpers
   end
@@ -13,7 +13,7 @@ end
 
 # Date ------------------------------------------------------------------------
 class Date
-  # e.g.: Date.today.to_s :short
+  # eg: Date.today.to_s :short
   DATE_FORMATS[:default]    = '%d/%m/%Y'
   DATE_FORMATS[:datepicker] = '%d/%m/%Y'
   DATE_FORMATS[:datetime]   = '%d/%m/%Y - %H:%M:%S'
@@ -35,19 +35,24 @@ end
 
 # Array -----------------------------------------------------------------------
 class Array
-  # Note: Hash[ [[:a, 1], [:b, 2]] ] => {:a => 1, :b => 2}
+  # NOTE: Hash[ [[:a, 1], [:b, 2]] ] => {:a => 1, :b => 2}
 
   # use to sort two items depending on the list order (of symbols)
   # see sort_with
   def compare_a_b(a, b, list)
-    list.index(a.to_sym) > list.index(b.to_sym) ? 1 : -1
-  rescue
-    Rails.logger.warn "Something went wrong ordering ordering #{a} against #{b} in array #{self} with list #{list}"
-    -1
+    if a && b
+      list.index(a.the_key.to_sym) <=> list.index(b.the_key.to_sym)
+    elsif a then  1
+    elsif b then -1
+    else          0
+    end
+  rescue Exception => e
+    Rails.logger.warn "#{e} happened ordering ordering #{a} against #{b} in array #{self} with list #{list}"
+    +1
   end
   
   # sort the elements according to the given list
-  # e.g.: [:c, :b, :a].sort_with [:a, :b, :c] => [:a, :b, :c] 
+  # eg: [:c, :b, :a].sort_with [:a, :b, :c] => [:a, :b, :c] 
   def sort_with(list)
     self.sort{|a,b| self.compare_a_b a, b, list} rescue self
   end
@@ -63,35 +68,40 @@ class Hash
   #   args.each {|key| super key}
   # end
   
-  # e.g.: {:a => 1}.the_key => :a
+  # eg: {a: 1}.the_key => :a
   def the_key
     Rails.warn "hash.the_key should not be used for hashes with size > 1, hash = #{self}" if size > 1
     self.first.try :first
   end
   
-  # e.g.: {:a => 1}.the_value => 1
+  # e.g.: {a: 1}.the_value => 1
   def the_value
     Rails.warn "hash.the_value should not be used for hashes with size > 1, hash = #{self}" if size > 1
     self.first.try :second
   end
   
-  # use to sort two items depending on the list order (of symbols)
+  # use to sort two items depending on the list order (of symbols) and the hash keys
   # see sort_with
   def compare_a_b(a, b, list)
-    list.index(a.first.to_sym) > list.index(b.first.to_sym) ? 1 : -1
-  rescue
-    Rails.logger.warn "Something went wrong ordering ordering #{a} against #{b} in hash #{self} with list #{list}"
-    -1
+    if a && b
+      list.index(a.the_key.to_sym) <=> list.index(b.the_key.to_sym)
+    elsif a then  1
+    elsif b then -1
+    else          0
+    end
+  rescue Exception => e
+    Rails.logger.warn "#{e} happended ordering ordering #{a} against #{b} in hash #{self} with list #{list}"
+    +1
   end
   
   # sort the elements according to the given list
-  # e.g.: [:c, :b, :a].sort_with [:a, :b, :c] => [:a, :b, :c] 
+  # eg: [:c, :b, :a].sort_with [:a, :b, :c] => [:a, :b, :c] 
   def sort_with(list)
     self.sort{|a, b| self.compare_a_b a, b, list}
   end
   
   # Converts a ruby-hash to one in Javascript (e.g. for parameters/ajax)
-  # e.g.: {:a => 1, :b => 2} => "{ a: 1, b: 2 }"
+  # eg: {:a => 1, :b => 2} => "{ a: 1, b: 2 }"
   def to_js_code
     # convert all elements
     params = []
@@ -109,7 +119,7 @@ class Hash
   end
   
   # returned an hash with stringified keys and string numbers converted
-  # e.g.: {'a' => {'b' => '1', :c => 'false'}, :d => '0', :e=> '1', :f => '2', :g => 'asdf'}
+  # eg: {'a' => {'b' => '1', :c => 'false'}, :d => '0', :e=> '1', :f => '2', :g => 'asdf'}
   #       -> {:a=>{:b=>1, :c=>"false"}, :d=>0, :e=>1, :f=>2, :g=>"asdf"}
   def normalize
     result = {}
@@ -159,6 +169,13 @@ class String
     end
   end
 
+  
+  # return the raw string with `\` before each `'`
+  def escaped
+    self.gsub("'", "\'").html_safe
+  end
+  
+
 end
 
 # Object ----------------------------------------------------------------------
@@ -176,8 +193,6 @@ class Object
   end
 
 end
-
-# use User.new.method(:active?).source_location
 
 # log with info like: [INF 110721-111933]
 class ActiveSupport::BufferedLogger
@@ -207,7 +222,7 @@ end
 # returns a list of useful method for the Class passed
 # Useful in debugger to a meaningful list of methods
 # this could go in ~/.irbrc but I like to have it in the prj source
-# e.g.: y method_list Hash
+# eg: y method_list Hash
 def ml(klass)
   (klass.public_methods - Object.new.methods).sort
 end

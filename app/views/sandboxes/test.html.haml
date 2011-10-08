@@ -1,5 +1,9 @@
 - title_content 'test'
 
+= link_to 'test', '/test_js', id: 'test_link', remote: true
+
+%br
+
 = text_field_tag :date, Date.today.to_s(:datepicker), :class => 'datepicker', :placeholder => 'dd/mm/yy'
 
 - image = image_tag 'rails.png', :alt => 'title'

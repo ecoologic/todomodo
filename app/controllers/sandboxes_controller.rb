@@ -1,10 +1,18 @@
-# for development and test purpose
+# for development and test purpose only
 class SandboxesController < ApplicationController
+
+  respond_to :html, :js, :json
 
   before_filter :redirect_on_production
 
   # GET /tests/test (see template)
   def test
+  end
+
+  # GET /test_js
+  def test_js
+    @value = 'fooo!!!'
+    respond_with :js
   end
 
   # raise a simple error
