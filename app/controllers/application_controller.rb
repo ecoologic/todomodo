@@ -44,11 +44,19 @@ private # =====================================================================
   end
 
   # assign flash the correct message
-  # depending on model saving success
-  # returns saved (though it can be chained)
-  def save_flash!(saved)
-    saved ? flash[:notice] = 'saved' : flash[:error] = 'error!'
-    saved
+  # depending on ok parameter
+  # returns flash html
+  def rest_flash!(ok)
+    action = action_name.to_sym
+    # non-restful actions too
+    action = :update if action == :update_current_user_note
+
+    # restful action flash
+    case action
+    when :save   then ok ? flash[:notice] = 'created' : flash[:error] = 'error!'
+    when :update then ok ? flash[:notice] = 'updated' : flash[:error] = 'error!'
+    end
+    flash
   end
 
 end

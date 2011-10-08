@@ -3,12 +3,11 @@ class UsersController < ApplicationController
 
   respond_to :html, :js, :json
 
-  before_filter :authenticate_user! # see devise
+  before_filter :authenticate_user!
 
-  # after signup, before email confirmation 
+  # after signup
   def user
-    debugger
-    # TODO: when exactly? check when you can
+    redirect_to root_path
   end
 
   # toggle user note visibility
@@ -24,7 +23,10 @@ class UsersController < ApplicationController
     @user = current_user
     session[:show_current_user_note] = !session[:show_current_user_note]
 
-    save_flash! @user.note == params[:current_user_note] ||
+    # flash = rest_flash! @user.note == params[:current_user_note] ||
+                # @user.update_attribute(:note, params[:current_user_note])
+
+    rest_flash! @user.note == params[:current_user_note] ||
                 @user.update_attribute(:note, params[:current_user_note])
 
     respond_with :js
@@ -45,7 +47,8 @@ class UsersController < ApplicationController
     @user = User.find params[:id]
     ok = @user.update_attributes params[:user] rescue nil
     @user.errors[:base] << "maybe a problem with your image?" if ok.nil?
-    render save_flash!(ok) ? :show : :edit
+    rest_flash! ok
+    render ok ? :show : :edit
   end
 
   # GET /users
