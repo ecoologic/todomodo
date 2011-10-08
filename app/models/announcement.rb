@@ -3,7 +3,7 @@ class Announcement < ActiveRecord::Base
 
   validates_presence_of :message, :starts_at, :ends_at
 
-  # e.g.: Announcement[1] 15/09/2011 - 19:27:00 .. 15/09/2011 - 23:27:00: fooooooooo
+  # eg: Announcement[1] 15/09/2011 - 19:27:00 .. 15/09/2011 - 23:27:00: fooooooooo
   def to_s
     "Announcement[#{id}] #{starts_at.to_s :datetime} .. #{ends_at.to_s :datetime}: #{message}"
   end
