@@ -10,7 +10,7 @@ $.fn.extend
          datepicker('option', 'showAnim', 'slideDown')
 
   # short and small animation
-  # e.g.: app.blinkOnce('.blink-once');
+  # eg: app.blinkOnce('.blink-once');
   appBlinkOnce: ->
     this.hide().
          delay(SHORT_TIME).

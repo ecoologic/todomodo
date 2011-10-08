@@ -15,10 +15,11 @@
 //
 //= require vendor
 //
+//= require init
 //= require jquery_plugins
 //= require application_layout
 //= require users
 //
-//= require init
+//= require app
 //
 

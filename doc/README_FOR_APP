@@ -32,7 +32,8 @@ The validations only occurs on basic Devise known fields, e.g.: name is not mand
 ## Comments
 Gemfile: put useful comments inline, like commands to run
 Comment every new methos or function, no particular formatting
-Don't forget to state a meaningful example with e.g.:
+Don't forget to state a meaningful example with eg: or ie:
+Also use NOTE: and TODO: accordingly.
 
 ## Code conventions
 Composed words can be considered one, e.g.: datepicker and not date_picker
@@ -49,15 +50,15 @@ Use `%body#controller_name_controller` css filess for resource specific style.
 Convention to separate words in css elements is underscore.
 
 ## Javascript
-Favour jquery plugins for your development, run your js in application_layout, NEVER in templates, assign js to css selectors ONLY down the function chain of init.js.coffee
-Use id as selectors when possible, so when there is an id you can eventually search for than name to see if there is any jquery associated.
-`Init.js.coffee` contains global constants and functions.
-Each controller related file (users.js.coffee) will have two sections:
-- `controllerNameEvents` -> will be called in `init` to assign behavior to selectors
-- `controllerNames` -> (note 's') will have two sections
-  - events -> implementation for `controllerNameEvents`
-  - functions -> group functions that instantly affect the site
-e.g.: see users.js.coffee
+Favour jquery plugins for your development, run your js at the bottom of each model.js file on document ready, NEVER write js in templates.
+Rather than types, use id as selectors unless it makes perfectly sense, so when there is an id you can eventually search for than name to see if there is any jquery associated.
+`init.js.coffee` contains global constants and functions.
+Each controller related file (eg: users.js.coffee) will have two sections:
+In the first one put the functions that will have a direct effect on the site;
+In the second one, wrapped on document layer put the events for selectors.
+eg: see users.js.coffee
+Do not split behaviors, all the action that follows a js action has to be fully taken in the js template or from the jquery bindings, but not half here and half there.
+Eg: save user note, hide the form with a jQuery binding and showing the flash message in the js template has to be avoided. 
 
 ## Images
 set from icojoy (http://www.iconfinder.com/search/?q=iconset%3Aicojoy)
@@ -86,9 +87,7 @@ guard
 Run `rake db:test:prepare` before run the tests
 
 ## Heroku
-http://todomodo.heroku.com/
-dbname vdsbzjlafn
-app    todomodo
+see more info in Gemfile
 
 
  
