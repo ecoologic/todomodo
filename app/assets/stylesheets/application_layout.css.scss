@@ -19,7 +19,11 @@ body { margin: $small-space; }
   #flash_error  { color: red;    }
 }
 
-h3 img { margin-left: 1em; }
+h3 img {
+  margin-left: 1em;
+  @include     rounded-corners(5px);
+  @include     shadow();
+}
 
 #announcements {
   text-align: center;
@@ -33,7 +37,7 @@ h3 img { margin-left: 1em; }
   background-color: $container-bg-color;
   padding:          0.5em;
   @include          rounded-corners(10px, 0);
-  @include          shadow;
+  @include          shadow();
 }
 
 #footer nav { text-align: center; }
