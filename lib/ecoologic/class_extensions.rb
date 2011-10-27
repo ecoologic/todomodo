@@ -41,8 +41,8 @@ class Array
   # see sort_with
   def compare_a_b(a, b, list)
     if a && b
-      list.index(a.the_key.to_sym) <=> list.index(b.the_key.to_sym)
-    elsif a then  1
+      list.index(a.the_key) <=> list.index(b.the_key)
+    elsif a then +1
     elsif b then -1
     else          0
     end
@@ -80,12 +80,12 @@ class Hash
     self.first.try :second
   end
   
-  # use to sort two items depending on the list order (of symbols) and the hash keys
+  # use to sort two items depending on the list order and the hash keys
   # see sort_with
   def compare_a_b(a, b, list)
     if a && b
-      list.index(a.the_key.to_sym) <=> list.index(b.the_key.to_sym)
-    elsif a then  1
+      list.index(a.the_key) <=> list.index(b.the_key)
+    elsif a then +1
     elsif b then -1
     else          0
     end
