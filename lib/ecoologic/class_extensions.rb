@@ -100,24 +100,6 @@ class Hash
     self.sort{|a, b| self.compare_a_b a, b, list}
   end
   
-  # Converts a ruby-hash to one in Javascript (e.g. for parameters/ajax)
-  # eg: {:a => 1, :b => 2} => "{ a: 1, b: 2 }"
-  def to_js_code
-    # convert all elements
-    params = []
-    self.each do |key, value|
-      next unless value
-      # NOTE: recursion
-      value = value.to_js_code if value.is_a? Hash
-      # sanitaze
-      value = value.to_s.gsub('javascript:', '')
-
-      params << "'#{key}': '#{value}'"
-    end
-    # js hash container
-    "{ #{params.join(', ')} }"
-  end
-  
   # returned an hash with stringified keys and string numbers converted
   # eg: {'a' => {'b' => '1', :c => 'false'}, :d => '0', :e=> '1', :f => '2', :g => 'asdf'}
   #       -> {:a=>{:b=>1, :c=>"false"}, :d=>0, :e=>1, :f=>2, :g=>"asdf"}
@@ -171,6 +153,7 @@ class String
 
   
   # return the raw string with `\` before each `'`
+  # TODO: this sure is redundant
   def escaped
     self.gsub("'", "\'").html_safe
   end
