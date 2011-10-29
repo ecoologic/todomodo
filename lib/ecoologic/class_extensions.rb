@@ -33,32 +33,6 @@ class Time
   DATE_FORMATS[:long]     = '%a, %d %B %Y - %H:%M:%S'
 end
 
-# Array -----------------------------------------------------------------------
-class Array
-  # NOTE: Hash[ [[:a, 1], [:b, 2]] ] => {:a => 1, :b => 2}
-
-  # use to sort two items depending on the list order (of symbols)
-  # see sort_with
-  def compare_a_b(a, b, list)
-    if a && b
-      list.index(a.the_key) <=> list.index(b.the_key)
-    elsif a then +1
-    elsif b then -1
-    else          0
-    end
-  rescue Exception => e
-    Rails.logger.warn "#{e} happened ordering ordering #{a} against #{b} in array #{self} with list #{list}"
-    +1
-  end
-  
-  # sort the elements according to the given list
-  # eg: [:c, :b, :a].sort_with [:a, :b, :c] => [:a, :b, :c] 
-  def sort_with(list)
-    self.sort{|a,b| self.compare_a_b a, b, list} rescue self
-  end
-
-end
-
 # Hash ------------------------------------------------------------------------
 class Hash
 
@@ -70,36 +44,16 @@ class Hash
   
   # eg: {a: 1}.the_key => :a
   def the_key
-    Rails.warn "hash.the_key should not be used for hashes with size > 1, hash = #{self}" if size > 1
+    Rails.warn "hash.the_key should not be used for hashes with size > 1, hash = #{self}" if size != 1
     self.first.try :first
   end
   
   # e.g.: {a: 1}.the_value => 1
   def the_value
-    Rails.warn "hash.the_value should not be used for hashes with size > 1, hash = #{self}" if size > 1
+    Rails.warn "hash.the_value should not be used for hashes with size > 1, hash = #{self}" if size != 1
     self.first.try :second
   end
-  
-  # use to sort two items depending on the list order and the hash keys
-  # see sort_with
-  def compare_a_b(a, b, list)
-    if a && b
-      list.index(a.the_key) <=> list.index(b.the_key)
-    elsif a then +1
-    elsif b then -1
-    else          0
-    end
-  rescue Exception => e
-    Rails.logger.warn "#{e} happended ordering ordering #{a} against #{b} in hash #{self} with list #{list}"
-    +1
-  end
-  
-  # sort the elements according to the given list
-  # eg: [:c, :b, :a].sort_with [:a, :b, :c] => [:a, :b, :c] 
-  def sort_with(list)
-    self.sort{|a, b| self.compare_a_b a, b, list}
-  end
-  
+
   # returned an hash with stringified keys and string numbers converted
   # eg: {'a' => {'b' => '1', :c => 'false'}, :d => '0', :e=> '1', :f => '2', :g => 'asdf'}
   #       -> {:a=>{:b=>1, :c=>"false"}, :d=>0, :e=>1, :f=>2, :g=>"asdf"}
@@ -115,16 +69,41 @@ class Hash
   
 end
 
+# FalseClass ------------------------------------------------------------------
+class FalseClass
+  # convert to boolean
+  def to_bool
+    self
+  end
+end
+
+# TrueClass -------------------------------------------------------------------
+class TrueClass
+  # convert to boolean
+  def to_bool
+    self
+  end
+end
+
+# NilClass --------------------------------------------------------------------
+class NilClass
+  # convert to boolean
+  def to_bool
+    false
+  end
+end
+
 # String ----------------------------------------------------------------------
 class String
 
   # is the string convertible to a number?
   # because ''.to_i => 0
   def int?
-    self == '0' || self.to_i > 0
+    self == '0' || self.to_i != 0
   end
 
   # convert the string to a (selected) primitive data type
+  # TODO: to_f ?
   def normalize
     if self.int?
       self.to_i
