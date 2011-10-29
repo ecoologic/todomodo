@@ -15,7 +15,7 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require File.dirname(__FILE__) + '/devise_helper'
 
-include Devise::TestHelpers 
+include Devise::TestHelpers
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -29,7 +29,9 @@ RSpec.configure do |config|
   # config.mock_with :mocha
   # config.mock_with :flexmock
   # config.mock_with :rr
-  config.include DeviseHelper
+  config.include DeviseHelper       , type: :controller
+  config.include Devise::TestHelpers, type: :controller
+
 
   config.mock_with :rspec
 
@@ -41,6 +43,5 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
-  config.include Devise::TestHelpers, :type => :controller
 
 end
