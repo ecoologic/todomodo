@@ -27,7 +27,7 @@ gem 'uglifier'     # compress js in production
 gem 'jquery-rails' # jquery
 gem 'nokogiri'     # xml
 
-gem 'sprockets', '~> 2.0.3' # FIXME: 2.1.2 was giving problems (line could be removed)
+# gem 'sprockets', '~> 2.0.3' # FIXME: 2.1.2 was giving problems (line could be removed)
 
 # Use unicorn as the web server
 # gem 'unicorn'

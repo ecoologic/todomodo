@@ -271,7 +271,6 @@ DEPENDENCIES
   ruby-debug19
   sass-rails
   settingslogic
-  sprockets (~> 2.0.3)
   therubyracer (>= 0.9.3.beta1)
   timecop
   turn
