@@ -1,7 +1,7 @@
 - title_content "edit #{@user}", avatar_thumb(@user)
 
 -# note that the put request is sent even when the html says post, check the log
-= form_for @user, :method => :put do |f|
+= form_for @user, method: :put do |f|
   = error_explanation @user
 
   .field
@@ -17,16 +17,16 @@
       %li= link_to 'local file', '#avatar_local'
       %li= link_to 'url',        '#avatar_url'
 
-    .field{:id => 'avatar_local'}
+    .field{id: 'avatar_local'}
       = f.label      :avatar, 'avatar'
       = f.file_field :avatar
 
-    .field{:id => 'avatar_url'}
+    .field{id: 'avatar_url'}
       = f.label      :remote_avatar_url, 'avatar url'
       = f.text_field :remote_avatar_url
 
 
   .action
-    = f.submit 'ok', :id => 'save_user'
-    = image_tag 'loading.gif', :id => 'save_user_loading', :class => :hidden
+    = f.submit 'ok', id: :save_user
+    = image_tag 'loading.gif', id: :save_user_loading, class: :hidden
 
