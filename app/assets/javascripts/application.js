@@ -19,6 +19,7 @@
 //= require jquery_plugins
 //= require application_layout
 //= require users
+//= require artists
 //
 //= require app
 //

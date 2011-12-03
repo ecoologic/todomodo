@@ -1,0 +1,6 @@
+.artist_search_form
+  = form_tag :artists_show, method: :get do |f|
+    = label_tag :name, 'artist:'
+    = text_field_tag :name, '', placeholder: 'artist name here'
+    = submit_tag 'search', id: :search_artist
+    = image_tag 'loading.gif', id: :search_artist_loading, class: :hidden

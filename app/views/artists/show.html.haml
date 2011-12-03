@@ -1,0 +1,10 @@
+%h3 #{@artist.name}
+
+-# release = @artist.releases.first
+-# debugger
+%ul
+  - @artist.releases.each do |release|
+    %li
+      %h6 #{release.title}, #{release.year} #{release.format}
+      = image_tag release.thumb if release.thumb
+

@@ -28,6 +28,8 @@ Todomodo::Application.routes.draw do
   get '/user'                    , to: 'users#user'
 
 
+  match '/artists/show', to: 'artists#show'
+
   # sandbox ===================================================================
 
   get '/test_js'      , to: 'sandboxes#test_js'

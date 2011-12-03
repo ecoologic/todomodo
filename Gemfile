@@ -25,6 +25,7 @@ gem 'uglifier'     # compress js in production
 gem 'jquery-rails' # jquery
 gem 'nokogiri'     # xml
 
+gem 'discogs-wrapper' # client to discogs, see albums
 
 # Use unicorn as the web server
 # gem 'unicorn'

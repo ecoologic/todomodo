@@ -191,4 +191,4 @@ end
 
 # absolute path string of the app
 RAILS_ROOT = Rails.root.to_s
-
+APP_NAME   = Rails.application.class.parent_name
