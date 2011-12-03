@@ -11,6 +11,8 @@ gem 'rmagick'       # to resize images (see avatar_uploader)
 gem 'activeadmin'   # all the admin side see railscasts#284
                     # $ rails g active_admin:resource MODEL
 
+gem 'discogs-wrapper' # client to discogs, see albums
+
 # gem 'ruby-prof'     # $ rails profiler
 
 
@@ -25,7 +27,7 @@ gem 'uglifier'     # compress js in production
 gem 'jquery-rails' # jquery
 gem 'nokogiri'     # xml
 
-gem 'discogs-wrapper' # client to discogs, see albums
+gem 'sprockets', '~> 2.0.3' # FIXME: 2.1.2 was giving problems (line could be removed)
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -35,7 +37,7 @@ gem 'discogs-wrapper' # client to discogs, see albums
 
 group :development do
   gem 'heroku' # see production below
-  gem 'ruby-debug19', :require => 'ruby-debug' # To use debugger with ruby 1.9
+  gem 'ruby-debug19', require: 'ruby-debug' # To use debugger with ruby 1.9
   gem 'rails_best_practices'                   # $ rails_best_practices
   # gem 'pry'    # $ pry -r ./config/environment # binding.pry
 end
@@ -56,7 +58,7 @@ group :test do
   gem 'libnotify'   # for guard
   gem 'rb-inotify'  # for guard
   gem 'timecop'     # freeze the time
-  gem 'turn', :require => false # Pretty printed test output
+  gem 'turn', require: false # Pretty printed test output
 end
 
 # staging by itself does not really make sense
