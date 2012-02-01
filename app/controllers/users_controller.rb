@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find params[:id]
     ok = @user.update_attributes params[:user] rescue nil
-    @user.errors[:base] << "maybe a problem with your image?" if ok.nil?
+    @user.errors[:base] << "maybe a problem with your image?" if ok.nil? # check ONLY for nil
     rest_flash! ok
     render ok ? :show : :edit
   end
